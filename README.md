@@ -3,7 +3,7 @@
 đối tượng:
 + sản phẩm
 + khách hàng
-+hóa đơn mua bán
++ hóa đơn mua bán
 Mỗi đối tượng sẽ có kiểu là Class tương ứng
 class SanPham
 MaSP: mã sản phẩm (duy nhất)
