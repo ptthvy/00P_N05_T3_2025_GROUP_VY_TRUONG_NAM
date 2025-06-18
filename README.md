@@ -4,6 +4,7 @@
 + sản phẩm
 + khách hàng
 + hóa đơn mua bán
+# Thuộc tính 
 + Mỗi đối tượng sẽ có kiểu là Class tương ứng
 + class SanPham
 - MaSP: mã sản phẩm (duy nhất)
