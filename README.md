@@ -3,17 +3,19 @@
 đối tượng:
 + sản phẩm
 + khách hàng
-+ hóa đơn mua bán
++ cửa hàng trang sức
 # Thuộc tính 
-+ Mỗi đối tượng sẽ có kiểu là Class tương ứng
 + class SanPham
 - MaSP: mã sản phẩm (duy nhất)
 - TenSP: tên sản phẩm
+- Loại KL: Loại vàng , bạc , đá quý 
+- trongluong: số trọng lượng của sản phẩm
 - SoLuong: số lượng còn trong kho
 - NhaSX: nhà sản xuất
 - GiaTien: đơn giá sản phẩm
   + Phương thức:
-- ThongKeSoLuong(): trả về số lượng còn
+- Tinhthanhtien: trongluong x đon gia
+- Tongsoluongkho:tinhThanhTien × soLuongTrongKho
 - HienThi(): in thông tin sản phẩm
 - CapNhatSoLuong(moi): cập nhật số lượng sau khi bán
 + class KhachHang
@@ -42,3 +44,4 @@
 - TaoHoaDon()
 - ThongKeTatCaSanPham()
 - HienThiTatCaHoaDon()
+
