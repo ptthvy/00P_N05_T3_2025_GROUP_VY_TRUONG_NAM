@@ -3,7 +3,6 @@
 đối tượng:
 + sản phẩm
 + khách hàng
-
 + giao dich
 # Thuộc tính 
 + class SanPham
