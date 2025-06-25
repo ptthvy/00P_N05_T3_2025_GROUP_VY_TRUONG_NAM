@@ -7,7 +7,7 @@ public class testSanPham{
     /// 
     public static void test(){
 
-        SanPham sp = new SanPham(01,"Vang 9999",100000);
+        SanPham sp = new SanPham(01,"Pink Diamond",100000);
         sp.In();
     }
 
