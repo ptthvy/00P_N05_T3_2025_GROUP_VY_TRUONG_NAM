@@ -1,9 +1,9 @@
-package src;
+
 public class SanPham {
     int MaSp;
     String TenSp;
     int GiaSp;
-    public SanPham(int MaSp,String TenSp,int GiaSp){
+    public SanPham(int maSp,String tenSp,int giaSp){
         this.MaSp = maSp;
         this.TenSp = tenSp;
         this.GiaSp = giaSp;
