@@ -1,0 +1,9 @@
+{
+    "java.project.sourcePaths": [
+        "CuaHangVang/review",
+        "CuaHangVang/src",
+        "CuaHangVang/test"
+    ],
+    "java.project.referencedLibraries": [],
+    "java.debug.settings.onBuildFailureProceed": true
+}
