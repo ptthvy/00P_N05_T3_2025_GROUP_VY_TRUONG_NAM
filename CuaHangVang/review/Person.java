@@ -8,7 +8,7 @@ public class Person {
 }
     public static void In() {
         Person p = new Person();
-        p.setName("nam");
+        p.setName("vy");
         System.out.println(p.name);
 
         
