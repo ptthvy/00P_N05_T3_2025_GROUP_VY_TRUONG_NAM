@@ -4,7 +4,8 @@
         "CuaHangVang/src",
         "CuaHangVang/test",
         "pure_java_project/review/Access_ Control/bai2",
-        "pure_java_project/review/Access_ Control/bai3"
+        "pure_java_project/review/Access_ Control/bai3",
+        "pure_java_project/review/Access_ Control/bai4"
     ],
     "java.project.referencedLibraries": [],
     "java.debug.settings.onBuildFailureProceed": true
