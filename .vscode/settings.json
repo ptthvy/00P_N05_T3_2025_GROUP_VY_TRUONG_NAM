@@ -1,8 +1,9 @@
 {
     "java.project.sourcePaths": [
-        "CuaHangVang/review",
+        "CuaHangVang/test",
         "CuaHangVang/src",
-        "CuaHangVang/test"
+        "CuaHangVang/review",
+        "pure_java_project/review/Access Control/bai1"
     ],
     "java.project.referencedLibraries": [],
     "java.debug.settings.onBuildFailureProceed": true
