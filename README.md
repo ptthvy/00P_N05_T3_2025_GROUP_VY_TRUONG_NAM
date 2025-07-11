@@ -1,4 +1,5 @@
 #00P_N05_T3_2025_GROUP_VY_TRUONG_NAM
+
 Ứng dụng Quản lý Vang Store
 * Đối tượng
   - Sản Phẩm
@@ -16,7 +17,9 @@ Yêu cầu:
 •	Có chức năng quản lý:
 
 - Sản phẩm vàng (ví dụ: vàng 9999, vàng 24K, vàng 18K, 14K..)
+  
 - Khách hàng
+  
 - Giao dịch bán vàng
   
 •	Có Chức năng quản lý sản phẩm
@@ -40,8 +43,11 @@ Yêu cầu:
 •	Dữ liệu được lưu trữ xuống file nhị phân
 
 Cần tạo các lớp liên quan đến:
+
 -SanPham (Sản phẩm vàng)
+
 -KhachHang (Khách hàng)
+
 -GiaoDich (Giao dịch bán hàng) để đọc, ghi dữ liệu xuống một hoặc nhiều file nhị phân.
 
 •	Khi làm việc với dữ liệu trong bộ nhớ, dữ liệu cần được lưu trữ dưới dạng các Collection tùy chọn như ArrayList, LinkedList, Map.
