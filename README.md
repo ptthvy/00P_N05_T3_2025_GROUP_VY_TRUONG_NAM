@@ -1,8 +1,8 @@
-#00P_N05_T3_2025_GROUP_VY_TRUONG_NAM
-#Xây dựng ứng dụng Quản lý cửa hàng bán Vàng 
-#Yêu cầu:
-#Giao diện: Java Spring Boot (hoặc Java Console nếu không dùng Spring Boot)
-#Có chức năng quản lý sản phẩm vàng và khách hàng.
+Xây dựng ứng dụng Quản lí cửa hàng bán Vàng
+Yêu cầu:
+•  Giao diện: Java Spring Boot (hoặc Java Console nếu không dùng Spring Boot).
+•  Có chức năng quản lý sản phẩm vàng và khách hàng.
+
 •	Có chức năng quản lý:
 Sản phẩm vàng (ví dụ: vàng 9999, vàng 24K, vàng 18K, 14K..)
 Khách hàng
@@ -17,7 +17,7 @@ Liệt kê danh sách khách hàng, lọc theo tên hoặc số điện thoại.
 Gán sản phẩm cho khách hàng để tạo thành giao dịch.
 Tính tổng tiền của giao dịch dựa trên giá trị các sản phẩm.
 •	Dữ liệu được lưu trữ xuống file nhị phân
-Cần tạo các lớp liên quan đến:	
+Cần tạo các lớp liên quan đến:
 SanPham (Sản phẩm vàng)
 KhachHang (Khách hàng)
 GiaoDich (Giao dịch bán hàng)
