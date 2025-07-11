@@ -1,12 +1,16 @@
 Xây dựng ứng dụng Quản lí cửa hàng bán Vàng
+
 Yêu cầu:
+
 •  Giao diện: Java Spring Boot (hoặc Java Console nếu không dùng Spring Boot).
+
 •  Có chức năng quản lý sản phẩm vàng và khách hàng.
 
 •	Có chức năng quản lý:
-Sản phẩm vàng (ví dụ: vàng 9999, vàng 24K, vàng 18K, 14K..)
-Khách hàng
-Giao dịch bán vàng
+
+- Sản phẩm vàng (ví dụ: vàng 9999, vàng 24K, vàng 18K, 14K..)
+- Khách hàng
+- Giao dịch bán vàng
 •	Có Chức năng quản lý sản phẩm
 Thêm, sửa, xóa sản phẩm
 Liệt kê thông tin về sản phẩm, có thể lọc ra các sản phẩm theo giá tiền hoặc loại vàng.
