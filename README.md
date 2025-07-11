@@ -1,3 +1,9 @@
+#00P_N05_T3_2025_GROUP_VY_TRUONG_NAM
+Ứng dụng Quản lý Vang Store
+* Đối tượng
+  - Sản Phẩm
+  - Khách Hàng
+  - Giao Dịch
 Xây dựng ứng dụng Quản lí cửa hàng bán Vàng
 
 Yêu cầu:
