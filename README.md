@@ -5,8 +5,11 @@
   - Sản Phẩm
   - Khách Hàng
   - Giao Dịch
-    
+  - 
 Xây dựng ứng dụng Quản lí cửa hàng bán Vàng
+
+So Do Chuc Nang 
+<img src='anh/Class Diagram.jpg'>
 1. Khách Hàng
    TenKH : STring
 
