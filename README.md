@@ -53,7 +53,7 @@ So Do hoat dong
 - Xóa sản phẩm
 
 So Do San Pham 
-<img src='anh/i am iron man.jpg'>
+<img src='anh/SoDoHoatDong.jpg'>
 
 3. Giao Dịch
    
