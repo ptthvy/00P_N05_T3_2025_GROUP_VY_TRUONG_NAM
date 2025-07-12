@@ -50,7 +50,7 @@ So Do hoat dong
 - Xóa sản phẩm
 
 so do san pham 
-<img src='anh/tonnystark.jpg'>
+<img src='anh/i am iron man.jpg'>
 
 3. Giao Dịch
    
