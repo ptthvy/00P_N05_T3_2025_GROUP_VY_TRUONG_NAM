@@ -49,6 +49,9 @@ So Do hoat dong
   
 - Xóa sản phẩm
 
+so do san pham 
+<img src='anh/sodo.jpg'>
+
 3. Giao Dịch
    
    MaDG:String
