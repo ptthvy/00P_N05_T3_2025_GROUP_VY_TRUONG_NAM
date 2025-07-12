@@ -32,6 +32,7 @@ So Do hoat dong
 - Xóa khách hàng
 
 Sơ đồ hoạt động
+
 <img src='anh/Sơ đồ khách hàng .jpg'>
 
  2. Sản Phẩm
@@ -52,7 +53,7 @@ Sơ đồ hoạt động
   
 - Xóa sản phẩm
 
-So Do San Pham 
+Sơ đồ hoạt động
 <img src='anh/SoDoHoatDong.jpg'>
 
 3. Giao Dịch
