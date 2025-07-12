@@ -30,6 +30,9 @@ So Do hoat dong
 - Sửa thông tin khách hàng
   
 - Xóa khách hàng
+  Sơ đồ hoạt động
+  
+<img src='anh/Sơ đồ khách hàng .jpg'>
 
  2. Sản Phẩm
     
