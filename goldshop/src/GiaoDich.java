@@ -17,7 +17,6 @@ public class GiaoDich implements Serializable {
         this.tongTien = tongTien;
     }
 
-    @Override
     public String toString() {
         return "GiaoDich{" +
                 "maGD='" + maGD + '\'' +
