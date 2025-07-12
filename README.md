@@ -12,7 +12,7 @@ Sơ đồ chức năng
 
 <img src='anh/Class Diagram.jpg'>
 
-So Do hoat dong 
+Sơ đồ hoạt động 
 
 <img src='anh/Sequence Diagram.jpg'>
 
