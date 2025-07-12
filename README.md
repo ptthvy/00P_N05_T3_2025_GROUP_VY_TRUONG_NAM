@@ -54,6 +54,7 @@ Sơ đồ hoạt động
 - Xóa sản phẩm
 
 Sơ đồ hoạt động
+
 <img src='anh/SoDoHoatDong.jpg'>
 
 3. Giao Dịch
