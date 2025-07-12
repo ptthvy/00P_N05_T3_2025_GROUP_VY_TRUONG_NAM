@@ -9,9 +9,11 @@
 Xây dựng ứng dụng Quản lí cửa hàng bán Vàng
 
 So Do Chuc Nang 
+
 <img src='anh/Class Diagram.jpg'>
 
 So Do hoat dong 
+
 <img src='anh/Sequence Diagram.jpg'>
 
 1. Khách Hàng
