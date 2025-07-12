@@ -68,6 +68,11 @@ Sơ đồ hoạt động
    MaSP : đã mua
 
    Phuong Thuc
+
+   SDHD
+
+<img src='anh/GiaoDich.jpg'>
+
    
 - Tạo giao dịch bán hàng giữa khách hàng và sản phẩm
   
