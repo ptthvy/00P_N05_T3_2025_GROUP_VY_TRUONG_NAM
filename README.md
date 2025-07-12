@@ -8,7 +8,7 @@
   - 
 Xây dựng ứng dụng Quản lí cửa hàng bán Vàng
 
-So Do Chuc Nang 
+Sơ đồ chức năng
 
 <img src='anh/Class Diagram.jpg'>
 
