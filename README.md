@@ -49,7 +49,7 @@ So Do hoat dong
   
 - Xóa sản phẩm
 
-so do san pham 
+So Do San Pham 
 <img src='anh/i am iron man.jpg'>
 
 3. Giao Dịch
