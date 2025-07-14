@@ -22,8 +22,6 @@ public class SanPham implements Serializable {
 
     public void setLoaiSP(String loaiSP) { this.loaiSP = loaiSP; }
     public void setGiaSP(double giaSP) { this.giaSP = giaSP; }
-
-    @Override
     public String toString() {
         return "SanPham{" +
                 "maSP='" + maSP + '\'' +
