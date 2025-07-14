@@ -11,12 +11,10 @@ public class KhachHang {
         this.soDienThoai = soDienThoai;
     }
 
-    @Override
     public String toString() {
         return "MaKH: " + maKH + ", Ten: " + tenKH + ", SDT: " + soDienThoai;
     }
 
-    // Danh sách khách hàng (giả lập CSDL)
     private static ArrayList<KhachHang> danhSach = new ArrayList<>();
 
     public static void them(KhachHang kh) {
