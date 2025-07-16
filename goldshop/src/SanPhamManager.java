@@ -9,7 +9,7 @@ public class SanPhamManager {
 
     public void hienThiSanPham() {
         for (SanPham sp : danhSach) {
-            System.out.println("ID: " + sp.getId() + ", Tên: " + sp.getTen());
+            System.out.println("ID: " + sp.getId() + ", Tên:  " + sp.getTen());
         }
     }
 
