@@ -5,7 +5,7 @@
   - Sản Phẩm
   - Khách Hàng
   - Giao Dịch
-  - 
+
 Xây dựng ứng dụng Quản lí cửa hàng bán Vàng
 
 Sơ đồ chức năng
