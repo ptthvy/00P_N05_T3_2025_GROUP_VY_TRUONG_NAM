@@ -2,9 +2,6 @@
     "java.project.sourcePaths": [
         "goldshop",
         "goldshop/src",
-        "pure_java_project",
-        "pure_java_project/model/baitap",
-        "pure_java_project/model/test",
         "pure_java_project/review/Access_ Control/bai2",
         "pure_java_project/review/Access_ Control/bai3",
         "pure_java_project/review/Access_ Control/bai4",
