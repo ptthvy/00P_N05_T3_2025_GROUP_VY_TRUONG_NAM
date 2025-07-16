@@ -110,7 +110,6 @@ public class TestApp {
                 case 0:
                     System.out.println("Thoát.");
                     sc.close();
-                    return;
                 default:
                     System.out.println("Chọn sai, thử lại.");
             }
