@@ -100,7 +100,6 @@ public class App {
                 case 0:
                     System.out.println("Thoát chương trình.");
                     sc.close();
-                    return;
                 default:
                     System.out.println("Lựa chọn không hợp lệ!");
             }
