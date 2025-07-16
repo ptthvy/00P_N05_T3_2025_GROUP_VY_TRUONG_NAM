@@ -7,7 +7,8 @@
         "pure_java_project/review/Access_ Control/bai4",
         "pure_java_project/review/Access_ Control/bai5",
         "pure_java_project/review/Access_ Control/bai6",
-        "pure_java_project/review/Access_ Control/bai7"
+        "pure_java_project/review/Access_ Control/bai7",
+        "goldshop/test"
     ],
     "java.project.referencedLibraries": [],
     "java.debug.settings.onBuildFailureProceed": true
