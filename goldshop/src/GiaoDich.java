@@ -8,7 +8,6 @@ public class GiaoDich {
         this.khachHangId = khachHangId;
         this.sanPhamId = sanPhamId;
     }
-
     public String getId() { return id; }
     public String getKhachHangId() { return khachHangId; }
     public String getSanPhamId() { return sanPhamId; }
