@@ -9,7 +9,9 @@
         "pure_java_project/review/Access_ Control/bai6",
         "pure_java_project/review/Access_ Control/bai7",
         "goldshop/test",
-        "pure_java_project/src"
+        "pure_java_project/src",
+        "pure_java_project",
+        "pure_java_project/Test"
     ],
     "java.project.referencedLibraries": [],
     "java.debug.settings.onBuildFailureProceed": true
