@@ -4,18 +4,3 @@ class CellPhone {
         t.play();
     }
 }
-class Tune {
-    Tune() { /*...*/ }
-
-    public void play() {
-        System.out.println("Tune.play()");
-    }
-}
-class ObnoxiousTune extends Tune {
-    ObnoxiousTune() {
-        super();
-    }
-    public void play() {
-        System.out.println("ObnoxiousTune.play()");
-    }
-}
