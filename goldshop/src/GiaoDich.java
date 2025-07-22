@@ -1,17 +1,21 @@
+import java.time.LocalDate;
+
 public class GiaoDich {
-    private String id;
-    private String khachHangId;
-    private String sanPhamId;
+    private String maGD;
+    private LocalDate ngayGiaoDich;
+    private double tongTien;
 
-    public GiaoDich(String id, String khachHangId, String sanPhamId) {
-        this.id = id;
-        this.khachHangId = khachHangId;
-        this.sanPhamId = sanPhamId;
+    public GiaoDich(String maGD, LocalDate ngayGiaoDich, double tongTien) {
+        this.maGD = maGD;
+        this.ngayGiaoDich = ngayGiaoDich;
+        this.tongTien = tongTien;
     }
-    public String getId() { return id; }
-    public String getKhachHangId() { return khachHangId; }
-    public String getSanPhamId() { return sanPhamId; }
 
-    public void setKhachHangId(String khachHangId) { this.khachHangId = khachHangId; }
-    public void setSanPhamId(String sanPhamId) { this.sanPhamId = sanPhamId; }
+    public LocalDate getNgayGiaoDich() {
+        return ngayGiaoDich;
+    }
+
+    public void hienThiThongTin() {
+        System.out.println("Mã GD: " + maGD + " | Ngày: " + ngayGiaoDich + " | Tổng tiền: " + tongTien);
+    }
 }
