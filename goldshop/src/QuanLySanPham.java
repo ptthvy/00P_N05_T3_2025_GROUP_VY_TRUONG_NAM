@@ -1,6 +1,4 @@
 import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
 
 public class QuanLySanPham {
     private ArrayList<SanPham> danhSachSP = new ArrayList<>();
@@ -9,9 +7,24 @@ public class QuanLySanPham {
         danhSachSP.add(sp);
     }
 
-    public List<SanPham> timKiemSanPhamTheoTen(String keyword) {
-        return danhSachSP.stream()
-                .filter(sp -> sp.getTenSanPham().toLowerCase().contains(keyword.toLowerCase()))
-                .collect(Collectors.toList());
+    public void hienThiTatCa() {
+        for (SanPham sp : danhSachSP) {
+            sp.hienThi();
+        }
+    }
+
+    public void timKiemSanPham(String tuKhoa) {
+        System.out.println("=== Kết quả tìm kiếm với từ khóa '" + tuKhoa + "' ===");
+        boolean timThay = false;
+        for (SanPham sp : danhSachSP) {
+            if (sp.getMaSP().equalsIgnoreCase(tuKhoa) ||
+                sp.getTenSP().toLowerCase().contains(tuKhoa.toLowerCase())) {
+                sp.hienThi();
+                timThay = true;
+            }
+        }
+        if (!timThay) {
+            System.out.println("Không tìm thấy sản phẩm nào phù hợp.");
+        }
     }
 }

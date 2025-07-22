@@ -1,17 +1,36 @@
-import java.util.List;
+import java.util.Scanner;
 
 public class TestQuanLySanPham {
-    public static void testTimKiemSanPhamTheoTen() {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
         QuanLySanPham qlsp = new QuanLySanPham();
+        qlsp.themSanPham(new SanPham("SP01", "Nhẫn Vàng", 5000000));
+        qlsp.themSanPham(new SanPham("SP02", "Vang 999", 3500000));
+        qlsp.themSanPham(new SanPham("SP03", "Vang 666", 7000000));
 
-        qlsp.themSanPham(new SanPham("SP01", "  Vang 9999", 500_000));
-        qlsp.themSanPham(new SanPham("SP02", "vang 666", 1_200_000));
-        qlsp.themSanPham(new SanPham("SP03", "Vang tây", 700_000));
+        System.out.println("\n=== Danh sách sản phẩm hiện có ===");
+        qlsp.hienThiTatCa();
+        System.out.print("\nBạn có muốn thêm sản phẩm mới không? (y/n): ");
+        String chon = sc.nextLine();
+        if (chon.equalsIgnoreCase("y")) {
+            System.out.print("Nhập số lượng sản phẩm: ");
+            int n = Integer.parseInt(sc.nextLine());
+            for (int i = 0; i < n; i++) {
+                System.out.println("--- Nhập sản phẩm thứ " + (i + 1));
+                SanPham sp = new SanPham();
+                sp.nhapTuBanPhim(sc);
+                qlsp.themSanPham(sp);
+            }
 
-        List<SanPham> ketQua = qlsp.timKiemSanPhamTheoTen("vang");
-        System.out.println("Kết quả tìm kiếm sản phẩm theo tên 'vang':");
-        for (SanPham sp : ketQua) {
-            sp.hienThi();
+            System.out.println("\n=== Danh sách sản phẩm sau khi thêm ===");
+            qlsp.hienThiTatCa();
         }
+
+        // Tìm kiếm sản phẩm theo mã hoặc tên
+        System.out.print("\nNhập từ khóa để tìm kiếm sản phẩm: ");
+        String tuKhoa = sc.nextLine();
+        qlsp.timKiemSanPham(tuKhoa);
+
+        sc.close();
     }
 }

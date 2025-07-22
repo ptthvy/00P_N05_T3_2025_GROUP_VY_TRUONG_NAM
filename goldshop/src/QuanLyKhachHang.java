@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class QuanLyKhachHang {
     private ArrayList<KhachHang> danhSachKH = new ArrayList<>();
@@ -7,9 +8,22 @@ public class QuanLyKhachHang {
         danhSachKH.add(kh);
     }
 
+    public void nhapDanhSachTuBanPhim(Scanner sc) {
+        System.out.print("Nhập số lượng khách hàng: ");
+        int n = Integer.parseInt(sc.nextLine());
+
+        for (int i = 0; i < n; i++) {
+            System.out.println("\n-- Nhập khách hàng thứ " + (i + 1));
+            KhachHang kh = new KhachHang();
+            kh.nhapTuBanPhim(sc);
+            themKhachHang(kh);
+        }
+    }
+
     public void hienThiTatCa() {
+        System.out.println("--- Danh sách khách hàng ---");
         for (KhachHang kh : danhSachKH) {
-            System.out.println("Mã: " + kh.getMaKH() + " | Tên: " + kh.getHoTen() + " | SĐT: " + kh.getSoDienThoai());
+            kh.hienThi();
         }
     }
 
@@ -17,7 +31,7 @@ public class QuanLyKhachHang {
         System.out.println("--- Danh sách khách hàng VIP ---");
         for (KhachHang kh : danhSachKH) {
             if (kiemTraKhachHangVip(kh)) {
-                System.out.println("Mã: " + kh.getMaKH() + " | Tên: " + kh.getHoTen() + " | SĐT: " + kh.getSoDienThoai());
+                kh.hienThi();
             }
         }
     }
