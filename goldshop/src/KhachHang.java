@@ -1,15 +1,23 @@
 public class KhachHang {
-    private String id;
-    private String ten;
+    private String maKH;
+    private String hoTen;
+    private String soDienThoai;
 
-    public KhachHang(String id, String ten) {
-        this.id = id;
-        this.ten = ten;
+    public KhachHang(String maKH, String hoTen, String soDienThoai) {
+        this.maKH = maKH;
+        this.hoTen = hoTen;
+        this.soDienThoai = soDienThoai;
     }
 
-    public String getId() { return id; }
-    public String getTen() { return ten; }
-    public void setTen(String ten) { this.ten = ten; }
+    public String getMaKH() {
+        return maKH;
+    }
+
+    public String getHoTen() {
+        return hoTen;
+    }
+
+    public String getSoDienThoai() {
+        return soDienThoai;
+    }
 }
-
-

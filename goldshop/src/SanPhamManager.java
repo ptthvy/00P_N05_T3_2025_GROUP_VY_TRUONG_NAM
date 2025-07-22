@@ -1,32 +1,17 @@
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
-public class SanPhamManager {
-    private List<SanPham> danhSach = new ArrayList<>();
+public class QuanLySanPham {
+    private ArrayList<SanPham> danhSachSP = new ArrayList<>();
 
     public void themSanPham(SanPham sp) {
-        danhSach.add(sp);
+        danhSachSP.add(sp);
     }
 
-    public void hienThiSanPham() {
-        for (SanPham sp : danhSach) {
-            System.out.println("ID: " + sp.getId() + ", Tên:  " + sp.getTen());
-        }
-    }
-
-    public void suaSanPham(String id, String tenMoi) {
-        for (SanPham sp : danhSach) {
-            if (sp.getId().equals(id)) {
-                sp.setTen(tenMoi);
-                return;
-            }
-        }
-    }
-
-    public void xoaSanPham(String id) {
-        danhSach.removeIf(sp -> sp.getId().equals(id));
-    }
-
-    public List<SanPham> getDanhSach() {
-        return danhSach;
+    public List<SanPham> timKiemSanPhamTheoTen(String keyword) {
+        return danhSachSP.stream()
+                .filter(sp -> sp.getTenSanPham().toLowerCase().contains(keyword.toLowerCase()))
+                .collect(Collectors.toList());
     }
 }

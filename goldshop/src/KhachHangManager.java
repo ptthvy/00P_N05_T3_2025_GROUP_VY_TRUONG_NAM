@@ -1,36 +1,28 @@
 import java.util.ArrayList;
-import java.util.List;
 
-public class KhachHangManager {
-    private List<KhachHang> danhSach = new ArrayList<>();
+public class QuanLyKhachHang {
+    private ArrayList<KhachHang> danhSachKH = new ArrayList<>();
 
     public void themKhachHang(KhachHang kh) {
-        danhSach.add(kh);
+        danhSachKH.add(kh);
     }
 
-    public void suaKhachHang(String id, String tenMoi) {
-        for (KhachHang kh : danhSach) {
-            if (kh.getId().equals(id)) {
-                kh.setTen(tenMoi);
-                return;
+    public void hienThiTatCa() {
+        for (KhachHang kh : danhSachKH) {
+            System.out.println("Mã: " + kh.getMaKH() + " | Tên: " + kh.getHoTen() + " | SĐT: " + kh.getSoDienThoai());
+        }
+    }
+
+    public void hienThiKhachHangVip() {
+        System.out.println("--- Danh sách khách hàng VIP ---");
+        for (KhachHang kh : danhSachKH) {
+            if (kiemTraKhachHangVip(kh)) {
+                System.out.println("Mã: " + kh.getMaKH() + " | Tên: " + kh.getHoTen() + " | SĐT: " + kh.getSoDienThoai());
             }
         }
     }
 
-    public void xoaKhachHang(String id) {
-        danhSach.removeIf(kh -> kh.getId().equals(id));
-    }
-
-    public void hienThiKhachHang() {
-        for (KhachHang kh : danhSach) {
-            System.out.println("KhachHang ID: " + kh.getId() + ", Ten: " + kh.getTen());
-        }
-    }
-
-    public KhachHang timTheoId(String id) {
-        for (KhachHang kh : danhSach) {
-            if (kh.getId().equals(id)) return kh;
-        }
-        return null;
+    public boolean kiemTraKhachHangVip(KhachHang kh) {
+        return kh.getSoDienThoai().endsWith("8888") || kh.getSoDienThoai().endsWith("9999");
     }
 }

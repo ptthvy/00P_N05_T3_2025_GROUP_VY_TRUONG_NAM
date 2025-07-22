@@ -1,13 +1,27 @@
 public class SanPham {
-    private String id;
-    private String ten;
+    private String maSP;
+    private String tenSanPham;
+    private double gia;
 
-    public SanPham(String id, String ten) {
-        this.id = id;
-        this.ten = ten;
+    public SanPham(String maSP, String tenSanPham, double gia) {
+        this.maSP = maSP;
+        this.tenSanPham = tenSanPham;
+        this.gia = gia;
     }
 
-    public String getId() { return id; }
-    public String getTen() { return ten; }
-    public void setTen(String ten) { this.ten = ten; }
+    public String getMaSP() {
+        return maSP;
+    }
+
+    public String getTenSanPham() {
+        return tenSanPham;
+    }
+
+    public double getGia() {
+        return gia;
+    }
+
+    public void hienThiThongTin() {
+        System.out.println("Mã: " + maSP + " | Tên: " + tenSanPham + " | Giá: " + gia);
+    }
 }
