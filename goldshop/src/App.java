@@ -1,18 +1,14 @@
-package src;
-
-import test.TestQuanLyGiaoDich;
-import test.TestQuanLyKhachHang;
-import test.TestQuanLySanPham;
-
 public class App {
     public static void main(String[] args) {
-        System.out.println("\n=== TEST GIAO DỊCH ===");
-        TestQuanLyGiaoDich.testHienThiGiaoDichTheoNgay();
+        System.out.println("==== TEST QUẢN LÝ SẢN PHẨM ====");
+        TestQuanLySanPham.main(null);
 
-        System.out.println("\n=== TEST KHÁCH HÀNG ===");
-        TestQuanLyKhachHang.testHienThiKhachHangVip();
+        System.out.println("\n==== TEST QUẢN LÝ KHÁCH HÀNG ====");
+        TestQuanLyKhachHang.main(null);
 
-        System.out.println("\n=== TEST SẢN PHẨM ===");
-        TestQuanLySanPham.testTimKiemSanPhamTheoTen();
+        System.out.println("\n==== TEST QUẢN LÝ GIAO DỊCH ====");
+        TestQuanLyGiaoDich.main(null);
+
+        System.out.println("\n==== KẾT THÚC CHƯƠNG TRÌNH ====");
     }
 }

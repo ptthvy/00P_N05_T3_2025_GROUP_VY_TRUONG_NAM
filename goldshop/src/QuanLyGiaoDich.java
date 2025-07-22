@@ -1,4 +1,3 @@
-import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class QuanLyGiaoDich {
@@ -8,12 +7,19 @@ public class QuanLyGiaoDich {
         danhSachGD.add(gd);
     }
 
-    public void hienThiGiaoDichTheoNgay(LocalDate ngay) {
-        System.out.println("Giao dịch ngày " + ngay + ":");
+    public void hienThiTatCa() {
         for (GiaoDich gd : danhSachGD) {
-            if (gd.getNgayGiaoDich().equals(ngay)) {
-                gd.hienThiThongTin();
-            }
+            gd.hienThi();
         }
+    }
+
+    public void tinhVaHienThiTongTien() {
+        double tong = 0;
+        for (GiaoDich gd : danhSachGD) {
+            double tien = gd.tinhThanhTien();
+            System.out.println("Giao dịch " + gd.getMaGD() + ": " + tien + " VND");
+            tong += tien;
+        }
+        System.out.println(">>> Tổng tiền tất cả giao dịch: " + tong + " VND");
     }
 }
