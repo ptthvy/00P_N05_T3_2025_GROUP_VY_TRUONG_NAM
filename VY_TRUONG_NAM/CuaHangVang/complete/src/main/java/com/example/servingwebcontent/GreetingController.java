@@ -20,7 +20,7 @@ public class GreetingController {
 
         KhachHang kh = new KhachHang(name, phone);
         model.addAttribute("customer", kh);
-        return "customer";
+        return "greetingtruongnamvy";
     }
 
     @GetMapping("/product")
@@ -31,7 +31,7 @@ public class GreetingController {
 
         SanPham sp = new SanPham(name, price);
         model.addAttribute("product", sp);
-        return "product";
+        return "greetingtruongnamvy";
     }
 
     @GetMapping("/transaction")
@@ -46,7 +46,7 @@ public class GreetingController {
         KhachHang kh = new KhachHang(customerName, phone);
         SanPham sp = new SanPham(productName, price);
         GiaoDich gd = new GiaoDich(kh, sp, quantity);
-        model.addAttribute("transaction", gd); // ✅ Sửa đúng biến
-        return "transaction";
+        model.addAttribute("transaction", gd);
+        return "greetingtruongnamvy";
     }
 }
