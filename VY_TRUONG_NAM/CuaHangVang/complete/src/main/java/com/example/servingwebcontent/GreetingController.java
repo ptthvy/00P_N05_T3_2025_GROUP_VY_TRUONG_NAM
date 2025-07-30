@@ -34,7 +34,7 @@ public class GreetingController {
         return "greetingtruongnamvy";
     }
 
-    @GetMapping("/transaction")
+    @GetMapping("/greetingtruongnamvy")
     public String transaction(
         @RequestParam(name = "customer", required = false, defaultValue = "Khách A") String customerName,
         @RequestParam(name = "phone", required = false, defaultValue = "Không rõ") String phone,
