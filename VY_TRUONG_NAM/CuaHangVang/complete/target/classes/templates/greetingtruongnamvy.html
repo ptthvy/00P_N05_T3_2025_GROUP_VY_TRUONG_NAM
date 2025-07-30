@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Getting Started: Serving Web Content</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <p th:text="|Hello, ${name}!|" />
+</body>
+</html>
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Customer Information</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <h1>Customer</h1>
+    <p><strong>Name:</strong> <span th:text="${name}"></span></p>
+    <p><strong>Phone Number:</strong> <span th:text="${phone}"></span></p>
+</body>
+</html>
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Product Information</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <h1>Product</h1>
+    <p><strong>Product Name:</strong> <span th:text="${name}"></span></p>
+    <p><strong>Price:</strong> <span th:text="${price}"></span> VND</p>
+</body>
+</html>
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Transaction Details</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <h1>Transaction</h1>
+    <p><strong>Customer:</strong> <span th:text="${customer}"></span></p>
+    <p><strong>Product:</strong> <span th:text="${product}"></span></p>
+    <p><strong>Quantity:</strong> <span th:text="${quantity}"></span></p>
+</body>
+</html>
