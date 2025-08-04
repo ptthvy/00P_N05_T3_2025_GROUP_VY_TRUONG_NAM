@@ -10,7 +10,28 @@ public class QuanLyGiaoDich {
         danhSach.add(gd);
     }
 
+    public void sua(int index, GiaoDich gd) {
+        if (index >= 0 && index < danhSach.size()) {
+            danhSach.set(index, gd);
+        }
+    }
+
+    public void xoa(int index) {
+        if (index >= 0 && index < danhSach.size()) {
+            danhSach.remove(index);
+        }
+    }
+
     public ArrayList<GiaoDich> getDanhSach() {
         return danhSach;
+    }
+
+    public GiaoDich timTheoKhachHang(String tenKhach) {
+        for (GiaoDich gd : danhSach) {
+            if (gd.getKhachHang().getName().equalsIgnoreCase(tenKhach)) {
+                return gd;
+            }
+        }
+        return null;
     }
 }
