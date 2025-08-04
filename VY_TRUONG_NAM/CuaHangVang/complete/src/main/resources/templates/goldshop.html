@@ -1,0 +1,104 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Getting Started: Serving Web Content</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <p th:text="|Hello, ${name}!|" />
+</body>
+</html>
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Quản lý cửa hàng vàng</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        h1 { color: #81d0e4d3; }
+        .form-box { border: 1px solid #ccc; padding: 20px; margin-bottom: 30px; border-radius: 10px; background-color: #f9f9f9; }
+        label { display: inline-block; width: 120px; margin-bottom: 10px; font-weight: bold; }
+        input[type="text"], input[type="number"] { width: 200px; padding: 5px; margin-bottom: 10px; }
+        input[type="submit"] { padding: 6px 16px; background-color: #3498db; border: none; color: white; border-radius: 5px; cursor: pointer; }
+        input[type="submit"]:hover { background-color: #2980b9; }
+    </style>
+</head>
+<body>
+    <div class="form-box">
+        <h2>Thêm khách hàng</h2>
+        <form action="/customer" method="get">
+            <label>Tên khách hàng:</label>
+            <input type="text" name="name" required><br>
+            <label>Số điện thoại:</label>
+            <input type="text" name="phone" required><br>
+            <input type="submit" value="Thêm khách hàng">
+        </form>
+    </div>
+
+    <div class="form-box">
+        <h2>Thêm sản phẩm</h2>
+        <form action="/product" method="get">
+            <label>Tên sản phẩm:</label>
+            <input type="text" name="name" required><br>
+            <label>Giá:</label>
+            <input type="number" name="price" step="0.01" required><br>
+            <input type="submit" value="Thêm sản phẩm">
+        </form>
+    </div>
+
+    <div class="form-box">
+        <h2>Thêm giao dịch</h2>
+        <form action="/transaction" method="get">
+            <label>Tên khách hàng:</label>
+            <input type="text" name="customer" required><br>
+            <label>Số điện thoại:</label>
+            <input type="text" name="phone" required><br>
+            <label>Tên sản phẩm:</label>
+            <input type="text" name="product" required><br>
+            <label>Giá:</label>
+            <input type="number" name="price" step="0.01" required><br>
+            <label>Số lượng:</label>
+            <input type="number" name="quantity" required><br>
+            <input type="submit" value="Thêm giao dịch">
+        </form>
+    </div>
+
+    <h1>Danh sách sản phẩm</h1>
+    <table border="1">
+        <tr>
+            <th>Tên sản phẩm</th>
+            <th>Giá</th>
+        </tr>
+        <tr th:each="sp : ${products}">
+            <td th:text="${sp.name}"></td>
+            <td th:text="${sp.price}"></td>
+        </tr>
+    </table>
+
+    <h1>Danh sách khách hàng</h1>
+    <table border="1">
+        <tr>
+            <th>Tên khách hàng</th>
+            <th>Số điện thoại</th>
+        </tr>
+        <tr th:each="kh : ${customers}">
+            <td th:text="${kh.name}"></td>
+            <td th:text="${kh.phone}"></td>
+        </tr>
+    </table>
+
+    <h1>Danh sách giao dịch</h1>
+    <table border="1">
+        <tr>
+            <th>Khách hàng</th>
+            <th>Sản phẩm</th>
+            <th>Số lượng</th>
+        </tr>
+        <tr th:each="gd : ${transactions}">
+            <td th:text="${gd.khachHang.name}"></td>
+            <td th:text="${gd.sanPham.name}"></td>
+            <td th:text="${gd.soLuong}"></td>
+        </tr>
+    </table>
+</body>
+</html>

@@ -6,32 +6,12 @@ import java.util.ArrayList;
 public class QuanLyGiaoDich {
     private ArrayList<GiaoDich> danhSach = new ArrayList<>();
 
-    public void them(GiaoDich gd) {
-        danhSach.add(gd);
-    }
-
+    public void them(GiaoDich gd) { danhSach.add(gd); }
     public void sua(int index, GiaoDich gd) {
-        if (index >= 0 && index < danhSach.size()) {
-            danhSach.set(index, gd);
-        }
+        if (index >= 0 && index < danhSach.size()) danhSach.set(index, gd);
     }
-
     public void xoa(int index) {
-        if (index >= 0 && index < danhSach.size()) {
-            danhSach.remove(index);
-        }
+        if (index >= 0 && index < danhSach.size()) danhSach.remove(index);
     }
-
-    public ArrayList<GiaoDich> getDanhSach() {
-        return danhSach;
-    }
-
-    public GiaoDich timTheoKhachHang(String tenKhach) {
-        for (GiaoDich gd : danhSach) {
-            if (gd.getKhachHang().getName().equalsIgnoreCase(tenKhach)) {
-                return gd;
-            }
-        }
-        return null;
-    }
+    public ArrayList<GiaoDich> getDanhSach() { return danhSach; }
 }
