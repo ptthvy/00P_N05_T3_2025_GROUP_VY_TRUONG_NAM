@@ -10,7 +10,28 @@ public class QuanLySanPham {
         danhSach.add(sp);
     }
 
+    public void sua(int index, SanPham sp) {
+        if (index >= 0 && index < danhSach.size()) {
+            danhSach.set(index, sp);
+        }
+    }
+
+    public void xoa(int index) {
+        if (index >= 0 && index < danhSach.size()) {
+            danhSach.remove(index);
+        }
+    }
+
     public ArrayList<SanPham> getDanhSach() {
         return danhSach;
+    }
+
+    public SanPham timTheoTen(String ten) {
+        for (SanPham sp : danhSach) {
+            if (sp.getName().equalsIgnoreCase(ten)) {
+                return sp;
+            }
+        }
+        return null;
     }
 }
