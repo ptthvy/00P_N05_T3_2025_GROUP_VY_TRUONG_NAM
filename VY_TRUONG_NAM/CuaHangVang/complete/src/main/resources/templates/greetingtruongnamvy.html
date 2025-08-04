@@ -72,74 +72,62 @@
 </head>
 <body>
 
-    <h1>Hệ Thống Quản Lý Giao Dịch</h1>
-
-
-    <div class="form-box">
-        <h2>Nhập thông tin Khách Hàng</h2>
-        <form th:action="@{/customer}" method="get">
-            <label>Tên:</label>
-            <input type="text" name="name" /><br/>
-            <label>Số điện thoại:</label>
-            <input type="text" name="phone" /><br/>
-            <input type="submit" value="Gửi" />
-        </form>
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Gold Shop PNJ</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <h1>Gold Shop PNJ</h1>
+    <div th:if="${products != null}">
+        <h2>Danh sách sản phẩm</h2>
+        <table border="1">
+            <tr>
+                <th>STT</th>
+                <th>Tên sản phẩm</th>
+                <th>Giá (VNĐ)</th>
+            </tr>
+            <tr th:each="sp,iterStat : ${products}">
+                <td th:text="${iterStat.index + 1}"></td>
+                <td th:text="${sp.name}"></td>
+                <td th:text="${sp.price}"></td>
+            </tr>
+        </table>
     </div>
-
-
-    <div class="form-box">
-        <h2>Nhập thông tin Sản Phẩm</h2>
-        <form th:action="@{/product}" method="get">
-            <label>Tên sản phẩm:</label>
-            <input type="text" name="name" /><br/>
-            <label>Giá:</label>
-            <input type="number" step="0.01" name="price" /><br/>
-            <input type="submit" value="Gửi" />
-        </form>
+    <div th:if="${customers != null}">
+        <h2>Danh sách khách hàng</h2>
+        <table border="1">
+            <tr>
+                <th>STT</th>
+                <th>Tên khách hàng</th>
+                <th>SĐT</th>
+            </tr>
+            <tr th:each="kh,iterStat : ${customers}">
+                <td th:text="${iterStat.index + 1}"></td>
+                <td th:text="${kh.name}"></td>
+                <td th:text="${kh.phone}"></td>
+            </tr>
+        </table>
     </div>
-
- 
-    <div class="form-box">
-        <h2>Nhập thông tin Giao Dịch</h2>
-        <form th:action="@{/transaction}" method="get">
-            <label>Tên KH:</label>
-            <input type="text" name="name" /><br/>
-            <label>Điện thoại:</label>
-            <input type="text" name="phone" /><br/>
-            <label>Tên SP:</label>
-            <input type="text" name="product" /><br/>
-            <label>Giá:</label>
-            <input type="number" step="0.01" name="price" /><br/>
-            <label>Số lượng:</label>
-            <input type="number" name="quantity" /><br/>
-            <input type="submit" value="Tạo Giao Dịch" />
-        </form>
+    <div th:if="${transactions != null}">
+        <h2>Danh sách giao dịch</h2>
+        <table border="1">
+            <tr>
+                <th>STT</th>
+                <th>Khách hàng</th>
+                <th>Sản phẩm</th>
+                <th>Số lượng</th>
+                <th>Tổng tiền</th>
+            </tr>
+            <tr th:each="gd,iterStat : ${transactions}">
+                <td th:text="${iterStat.index + 1}"></td>
+                <td th:text="${gd.khachHang.name}"></td>
+                <td th:text="${gd.sanPham.name}"></td>
+                <td th:text="${gd.soLuong}"></td>
+                <td th:text="${gd.tinhTongTien()}"></td>
+            </tr>
+        </table>
     </div>
-
-
-    <div class="box" th:if="${customer}">
-        <h2>Thông tin Khách Hàng</h2>
-        <p><span class="label">Tên:</span> <span th:text="${customer.name}"></span></p>
-        <p><span class="label">Số điện thoại:</span> <span th:text="${customer.phone}"></span></p>
-    </div>
-
-    <div class="box" th:if="${product}">
-        <h2>Thông tin Sản Phẩm</h2>
-        <p><span class="label">Tên sản phẩm:</span> <span th:text="${product.name}"></span></p>
-        <p><span class="label">Giá:</span> <span th:text="${product.price}"></span></p>
-    </div>
-
-    <div class="box" th:if="${transaction}">
-        <h2>Thông tin Giao Dịch</h2>
-        <p><span class="label">Khách hàng:</span> <span th:text="${transaction.customer.name}"></span></p>
-        <p><span class="label">SĐT:</span> <span th:text="${transaction.customer.phone}"></span></p>
-        <p><span class="label">Sản phẩm:</span> <span th:text="${transaction.product.name}"></span></p>
-        <p><span class="label">Giá:</span> <span th:text="${transaction.product.price}"></span></p>
-        <p><span class="label">Số lượng:</span> <span th:text="${transaction.quantity}"></span></p>
-        <p><span class="label">Tổng tiền:</span>
-            <span th:text="${#numbers.formatDecimal(transaction.product.price * transaction.quantity, 1, 'POINT', 2, 'COMMA')}"></span> đ
-        </p>
-    </div>
-
 </body>
 </html>
