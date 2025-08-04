@@ -80,54 +80,50 @@
 </head>
 <body>
     <h1>Gold Shop PNJ</h1>
-    <div th:if="${products != null}">
-        <h2>Danh sách sản phẩm</h2>
-        <table border="1">
-            <tr>
-                <th>STT</th>
-                <th>Tên sản phẩm</th>
-                <th>Giá (VNĐ)</th>
-            </tr>
-            <tr th:each="sp,iterStat : ${products}">
-                <td th:text="${iterStat.index + 1}"></td>
-                <td th:text="${sp.name}"></td>
-                <td th:text="${sp.price}"></td>
-            </tr>
-        </table>
-    </div>
-    <div th:if="${customers != null}">
-        <h2>Danh sách khách hàng</h2>
-        <table border="1">
-            <tr>
-                <th>STT</th>
-                <th>Tên khách hàng</th>
-                <th>SĐT</th>
-            </tr>
-            <tr th:each="kh,iterStat : ${customers}">
-                <td th:text="${iterStat.index + 1}"></td>
-                <td th:text="${kh.name}"></td>
-                <td th:text="${kh.phone}"></td>
-            </tr>
-        </table>
-    </div>
-    <div th:if="${transactions != null}">
-        <h2>Danh sách giao dịch</h2>
-        <table border="1">
-            <tr>
-                <th>STT</th>
-                <th>Khách hàng</th>
-                <th>Sản phẩm</th>
-                <th>Số lượng</th>
-                <th>Tổng tiền</th>
-            </tr>
-            <tr th:each="gd,iterStat : ${transactions}">
-                <td th:text="${iterStat.index + 1}"></td>
-                <td th:text="${gd.khachHang.name}"></td>
-                <td th:text="${gd.sanPham.name}"></td>
-                <td th:text="${gd.soLuong}"></td>
-                <td th:text="${gd.tinhTongTien()}"></td>
-            </tr>
-        </table>
-    </div>
+
+    <h2>Danh sách sản phẩm</h2>
+    <table border="1" th:if="${products != null}">
+        <tr>
+            <th>STT</th>
+            <th>Tên sản phẩm</th>
+            <th>Giá (VNĐ)</th>
+        </tr>
+        <tr th:each="sp,iterStat : ${products}">
+            <td th:text="${iterStat.index + 1}"></td>
+            <td th:text="${sp.name}"></td>
+            <td th:text="${#numbers.formatDecimal(sp.price, 0, 'COMMA', 0, 'POINT')}"></td>
+        </tr>
+    </table>
+
+    <h2>Danh sách khách hàng</h2>
+    <table border="1" th:if="${customers != null}">
+        <tr>
+            <th>STT</th>
+            <th>Tên khách hàng</th>
+            <th>Số điện thoại</th>
+        </tr>
+        <tr th:each="kh,iterStat : ${customers}">
+            <td th:text="${iterStat.index + 1}"></td>
+            <td th:text="${kh.name}"></td>
+            <td th:text="${kh.phone}"></td>
+        </tr>
+    </table>
+
+    <h2>Danh sách giao dịch</h2>
+    <table border="1" th:if="${transactions != null}">
+        <tr>
+            <th>STT</th>
+            <th>Khách hàng</th>
+            <th>Sản phẩm</th>
+            <th>Số lượng</th>
+            <th>Tổng tiền (VNĐ)</th>
+        </tr>
+        <tr th:each="gd,iterStat : ${transactions}">
+            <td th:text="${iterStat.index + 1}"></td>
+            <td th:text="${gd.khachHang.name}"></td>
+            <td th:text="${gd.sanPham.name}"></td>
+            <td th:text="${gd.soLuong}"></td>
+            <td th:text="${#numbers.formatDecimal(gd.tinhTongTien(), 0, 'COMMA', 0, 'POINT')}"></td>
+        </tr>
+    </table>
 </body>
-</html>

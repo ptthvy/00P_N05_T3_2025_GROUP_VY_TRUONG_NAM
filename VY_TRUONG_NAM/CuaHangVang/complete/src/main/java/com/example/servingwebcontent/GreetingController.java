@@ -3,6 +3,9 @@ package com.example.servingwebcontent;
 import com.example.servingwebcontent.model.KhachHang;
 import com.example.servingwebcontent.model.SanPham;
 import com.example.servingwebcontent.model.GiaoDich;
+import com.example.servingwebcontent.controller.QuanLyKhachHang;
+import com.example.servingwebcontent.controller.QuanLySanPham;
+import com.example.servingwebcontent.controller.QuanLyGiaoDich;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,6 +14,24 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class GreetingController {
+
+  
+    private static final QuanLySanPham quanLySanPham = new QuanLySanPham();
+    private static final QuanLyKhachHang quanLyKhachHang = new QuanLyKhachHang();
+    private static final QuanLyGiaoDich quanLyGiaoDich = new QuanLyGiaoDich();
+
+    static {
+    
+        quanLySanPham.them(new SanPham("Nhẫn vàng 24K", 5000.0));
+        quanLySanPham.them(new SanPham("Dây chuyền vàng 18K", 7000.0));
+        quanLyKhachHang.them(new KhachHang("Nguyễn Văn A", "0909123456"));
+        quanLyKhachHang.them(new KhachHang("Trần Thị B", "0912345678"));
+        quanLyGiaoDich.them(new GiaoDich(
+            quanLyKhachHang.getDanhSach().get(0),
+            quanLySanPham.getDanhSach().get(0),
+            2
+        ));
+    }
 
     @GetMapping("/customer")
     public String customer(
@@ -48,5 +69,13 @@ public class GreetingController {
         GiaoDich gd = new GiaoDich(kh, sp, quantity);
         model.addAttribute("transaction", gd);
         return "greetingtruongnamvy";
+    }
+
+    @GetMapping("/goldshop")
+    public String goldshop(Model model) {
+        model.addAttribute("products", quanLySanPham.getDanhSach());
+        model.addAttribute("customers", quanLyKhachHang.getDanhSach());
+        model.addAttribute("transactions", quanLyGiaoDich.getDanhSach());
+        return "goldshopnpj";
     }
 }
