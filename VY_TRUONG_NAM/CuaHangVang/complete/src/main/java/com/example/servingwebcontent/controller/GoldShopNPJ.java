@@ -2,7 +2,6 @@ package com.example.servingwebcontent.controller;
 
 import java.util.*;
 import java.text.NumberFormat;
-import java.util.stream.Collectors;
 
 import com.example.servingwebcontent.model.KhachHang;
 import com.example.servingwebcontent.model.SanPham;
@@ -37,8 +36,11 @@ public class GoldShopNPJ {
                     case 2: quanLyKhachHangMenu(); break;
                     case 3: quanLyGiaoDichMenu(); break;
                     case 4: thongKeDoanhThu(); break;
-                    case 5: System.out.println("Cảm ơn đã sử dụng!"); return;
-                    default: System.out.println("Lựa chọn không hợp lệ!");
+                    case 5: 
+                        System.out.println("Cảm ơn đã sử dụng chương trình!");
+                        return;
+                    default: 
+                        System.out.println("Lựa chọn không hợp lệ!");
                 }
             } catch (NumberFormatException e) {
                 System.out.println("Vui lòng nhập số!");
@@ -46,6 +48,7 @@ public class GoldShopNPJ {
         }
     }
 
+    // Khởi tạo dữ liệu mẫu ban đầu
     private static void khoiTaoDuLieuMau() {
         quanLySanPham.them(new SanPham("Nhẫn vàng 24K", 5000.0));
         quanLySanPham.them(new SanPham("Dây chuyền vàng 18K", 7000.0));
@@ -53,6 +56,7 @@ public class GoldShopNPJ {
         quanLyKhachHang.them(new KhachHang("Trần Thị B", "0912345678"));
     }
 
+    // Menu quản lý sản phẩm
     private static void quanLySanPhamMenu() {
         while (true) {
             System.out.println("\n--- QUẢN LÝ SẢN PHẨM ---");
@@ -74,6 +78,7 @@ public class GoldShopNPJ {
         }
     }
 
+    // Thêm sản phẩm mới và hiển thị danh sách sau khi thêm
     private static void themSanPham() {
         System.out.print("Tên sản phẩm: ");
         String ten = scanner.nextLine();
@@ -81,8 +86,10 @@ public class GoldShopNPJ {
         double gia = Double.parseDouble(scanner.nextLine());
         quanLySanPham.them(new SanPham(ten, gia));
         System.out.println("Đã thêm sản phẩm!");
+        hienThiSanPham();
     }
 
+    // Hiển thị danh sách sản phẩm
     private static void hienThiSanPham() {
         System.out.println("--- Danh sách sản phẩm ---");
         List<SanPham> ds = quanLySanPham.getDanhSach();
@@ -97,6 +104,7 @@ public class GoldShopNPJ {
         }
     }
 
+    // Sửa thông tin sản phẩm
     private static void suaSanPham() {
         hienThiSanPham();
         System.out.print("Nhập số thứ tự sản phẩm muốn sửa: ");
@@ -111,8 +119,10 @@ public class GoldShopNPJ {
         double gia = Double.parseDouble(scanner.nextLine());
         quanLySanPham.sua(idx, new SanPham(ten, gia));
         System.out.println("Đã sửa sản phẩm!");
+        hienThiSanPham();
     }
 
+    // Xóa sản phẩm
     private static void xoaSanPham() {
         hienThiSanPham();
         System.out.print("Nhập số thứ tự sản phẩm muốn xóa: ");
@@ -123,8 +133,10 @@ public class GoldShopNPJ {
         }
         quanLySanPham.xoa(idx);
         System.out.println("Đã xóa sản phẩm!");
+        hienThiSanPham();
     }
 
+    // Menu quản lý khách hàng
     private static void quanLyKhachHangMenu() {
         while (true) {
             System.out.println("\n--- QUẢN LÝ KHÁCH HÀNG ---");
@@ -146,6 +158,7 @@ public class GoldShopNPJ {
         }
     }
 
+    // Thêm khách hàng mới và hiển thị danh sách sau khi thêm
     private static void themKhachHang() {
         System.out.print("Tên khách hàng: ");
         String ten = scanner.nextLine();
@@ -153,8 +166,10 @@ public class GoldShopNPJ {
         String sdt = scanner.nextLine();
         quanLyKhachHang.them(new KhachHang(ten, sdt));
         System.out.println("Đã thêm khách hàng!");
+        hienThiKhachHang();
     }
 
+    // Hiển thị danh sách khách hàng
     private static void hienThiKhachHang() {
         System.out.println("--- Danh sách khách hàng ---");
         List<KhachHang> ds = quanLyKhachHang.getDanhSach();
@@ -169,6 +184,7 @@ public class GoldShopNPJ {
         }
     }
 
+    // Sửa thông tin khách hàng
     private static void suaKhachHang() {
         hienThiKhachHang();
         System.out.print("Nhập số thứ tự khách hàng muốn sửa: ");
@@ -183,8 +199,10 @@ public class GoldShopNPJ {
         String sdt = scanner.nextLine();
         quanLyKhachHang.sua(idx, new KhachHang(ten, sdt));
         System.out.println("Đã sửa khách hàng!");
+        hienThiKhachHang();
     }
 
+    // Xóa khách hàng
     private static void xoaKhachHang() {
         hienThiKhachHang();
         System.out.print("Nhập số thứ tự khách hàng muốn xóa: ");
@@ -195,8 +213,10 @@ public class GoldShopNPJ {
         }
         quanLyKhachHang.xoa(idx);
         System.out.println("Đã xóa khách hàng!");
+        hienThiKhachHang();
     }
 
+    // Menu quản lý giao dịch
     private static void quanLyGiaoDichMenu() {
         while (true) {
             System.out.println("\n--- QUẢN LÝ GIAO DỊCH ---");
@@ -216,6 +236,7 @@ public class GoldShopNPJ {
         }
     }
 
+    // Thêm giao dịch mới và hiển thị danh sách sau khi thêm
     private static void themGiaoDich() {
         System.out.println("--- Thêm giao dịch mới ---");
         hienThiKhachHang();
@@ -241,8 +262,10 @@ public class GoldShopNPJ {
         );
         quanLyGiaoDich.them(gd);
         System.out.println("Đã thêm giao dịch!");
+        hienThiGiaoDich();
     }
 
+    // Hiển thị danh sách giao dịch
     private static void hienThiGiaoDich() {
         System.out.println("--- Danh sách giao dịch ---");
         List<GiaoDich> ds = quanLyGiaoDich.getDanhSach();
@@ -259,6 +282,7 @@ public class GoldShopNPJ {
         }
     }
 
+    // Xóa giao dịch
     private static void xoaGiaoDich() {
         hienThiGiaoDich();
         System.out.print("Nhập số thứ tự giao dịch muốn xóa: ");
@@ -269,8 +293,10 @@ public class GoldShopNPJ {
         }
         quanLyGiaoDich.xoa(idx);
         System.out.println("Đã xóa giao dịch!");
+        hienThiGiaoDich();
     }
 
+    // Thống kê doanh thu
     private static void thongKeDoanhThu() {
         System.out.println("--- Thống kê doanh thu ---");
         double tong = quanLyGiaoDich.getDanhSach().stream()

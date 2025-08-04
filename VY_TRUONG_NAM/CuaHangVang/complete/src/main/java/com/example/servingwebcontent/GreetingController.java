@@ -15,13 +15,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class GreetingController {
 
-  
     private static final QuanLySanPham quanLySanPham = new QuanLySanPham();
     private static final QuanLyKhachHang quanLyKhachHang = new QuanLyKhachHang();
     private static final QuanLyGiaoDich quanLyGiaoDich = new QuanLyGiaoDich();
 
     static {
-    
         quanLySanPham.them(new SanPham("Nhẫn vàng 24K", 5000.0));
         quanLySanPham.them(new SanPham("Dây chuyền vàng 18K", 7000.0));
         quanLyKhachHang.them(new KhachHang("Nguyễn Văn A", "0909123456"));
@@ -40,8 +38,8 @@ public class GreetingController {
             Model model) {
 
         KhachHang kh = new KhachHang(name, phone);
-        model.addAttribute("customer", kh);
-        return "greetingtruongnamvy";
+        quanLyKhachHang.them(kh); // Thêm vào danh sách quản lý
+        return "redirect:/goldshop"; // Chuyển về trang danh sách để hiển thị cập nhật
     }
 
     @GetMapping("/product")
@@ -51,8 +49,8 @@ public class GreetingController {
             Model model) {
 
         SanPham sp = new SanPham(name, price);
-        model.addAttribute("product", sp);
-        return "greetingtruongnamvy";
+        quanLySanPham.them(sp); // Thêm vào danh sách quản lý
+        return "redirect:/goldshop";
     }
 
     @GetMapping("/transaction")
@@ -67,8 +65,8 @@ public class GreetingController {
         KhachHang kh = new KhachHang(customerName, phone);
         SanPham sp = new SanPham(productName, price);
         GiaoDich gd = new GiaoDich(kh, sp, quantity);
-        model.addAttribute("transaction", gd);
-        return "greetingtruongnamvy";
+        quanLyGiaoDich.them(gd); // Thêm vào danh sách quản lý
+        return "redirect:/goldshop";
     }
 
     @GetMapping("/goldshop")
@@ -76,6 +74,6 @@ public class GreetingController {
         model.addAttribute("products", quanLySanPham.getDanhSach());
         model.addAttribute("customers", quanLyKhachHang.getDanhSach());
         model.addAttribute("transactions", quanLyGiaoDich.getDanhSach());
-        return "goldshopnpj";
+        return "goldshop";
     }
 }
