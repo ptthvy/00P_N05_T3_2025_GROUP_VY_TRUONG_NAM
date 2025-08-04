@@ -1,4 +1,4 @@
-package com.example.servingwebcontent; 
+package com.example.servingwebcontent;
 
 import com.example.servingwebcontent.model.KhachHang;
 import com.example.servingwebcontent.model.SanPham;
@@ -14,9 +14,9 @@ public class GreetingController {
 
     @GetMapping("/customer")
     public String customer(
-        @RequestParam(name = "name", required = false, defaultValue = "Khách lạ") String name,
-        @RequestParam(name = "phone", required = false, defaultValue = "Không rõ") String phone,
-        Model model) {
+            @RequestParam(name = "name", required = false, defaultValue = "Khách lạ") String name,
+            @RequestParam(name = "phone", required = false, defaultValue = "Không rõ") String phone,
+            Model model) {
 
         KhachHang kh = new KhachHang(name, phone);
         model.addAttribute("customer", kh);
@@ -25,9 +25,9 @@ public class GreetingController {
 
     @GetMapping("/product")
     public String product(
-        @RequestParam(name = "name", required = false, defaultValue = "Nhẫn vàng") String name,
-        @RequestParam(name = "price", required = false, defaultValue = "999.0") double price,
-        Model model) {
+            @RequestParam(name = "name", required = false, defaultValue = "Nhẫn vàng") String name,
+            @RequestParam(name = "price", required = false, defaultValue = "999.0") double price,
+            Model model) {
 
         SanPham sp = new SanPham(name, price);
         model.addAttribute("product", sp);
@@ -36,12 +36,12 @@ public class GreetingController {
 
     @GetMapping("/transaction")
     public String transaction(
-        @RequestParam(name = "customer", required = false, defaultValue = "Khách A") String customerName,
-        @RequestParam(name = "phone", required = false, defaultValue = "Không rõ") String phone,
-        @RequestParam(name = "product", required = false, defaultValue = "Nhẫn vàng") String productName,
-        @RequestParam(name = "price", required = false, defaultValue = "999.0") double price,
-        @RequestParam(name = "quantity", required = false, defaultValue = "1") int quantity,
-        Model model) {
+            @RequestParam(name = "customer", required = false, defaultValue = "Khách A") String customerName,
+            @RequestParam(name = "phone", required = false, defaultValue = "Không rõ") String phone,
+            @RequestParam(name = "product", required = false, defaultValue = "Nhẫn vàng") String productName,
+            @RequestParam(name = "price", required = false, defaultValue = "999.0") double price,
+            @RequestParam(name = "quantity", required = false, defaultValue = "1") int quantity,
+            Model model) {
 
         KhachHang kh = new KhachHang(customerName, phone);
         SanPham sp = new SanPham(productName, price);
