@@ -31,6 +31,7 @@ public class GreetingController {
         ));
     }
 
+    // Thêm khách hàng
     @GetMapping("/customer")
     public String customer(
             @RequestParam(name = "name", required = false, defaultValue = "Khách lạ") String name,
@@ -42,6 +43,13 @@ public class GreetingController {
         return "redirect:/goldshop"; // Chuyển về trang danh sách để hiển thị cập nhật
     }
 
+    // Xóa khách hàng
+    @GetMapping("/customer/delete")
+    public String deleteCustomer(@RequestParam(name = "index") int index) {
+        quanLyKhachHang.xoa(index);
+        return "redirect:/goldshop";
+    }
+    // Thêm sản phẩm
     @GetMapping("/product")
     public String product(
             @RequestParam(name = "name", required = false, defaultValue = "Nhẫn vàng") String name,
@@ -53,6 +61,7 @@ public class GreetingController {
         return "redirect:/goldshop";
     }
 
+    // Thêm giao dịch
     @GetMapping("/transaction")
     public String transaction(
             @RequestParam(name = "customer", required = false, defaultValue = "Khách A") String customerName,
@@ -69,6 +78,7 @@ public class GreetingController {
         return "redirect:/goldshop";
     }
 
+    // Trang chính hiển thị danh sách
     @GetMapping("/goldshop")
     public String goldshop(Model model) {
         model.addAttribute("products", quanLySanPham.getDanhSach());
