@@ -133,6 +133,7 @@
                 <thead>
                     <tr>
                         <th>Mã SP</th>
+                           <th>Hinh Anh</th>
                         <th>Tên Sản Phẩm</th>
                         <th>Giá</th>
                         <th>Hành Động</th>
@@ -207,35 +208,37 @@
 
     <script>
         const products = {
-            'SP001': { name: 'Nhẫn Vàng 24K', price: 5000000 },
-            'SP002': { name: 'Dây Chuyền Vàng Ý', price: 7500000 },
-            'SP003': { name: 'Bông Tai Vàng Trắng', price: 3200000 },
-            'SP004': { name: 'Lắc Tay Vàng 18K', price: 6800000 },
-            'SP005': { name: 'Nhẫn Kim Cương PNJ', price: 15000000 },
-            'SP006': { name: 'Vòng Cổ Kim Cương 18K', price: 25000000 },
-            'SP007': { name: 'Lắc Chân Vàng Hồng', price: 4500000 },
-            'SP008': { name: 'Nhẫn Vàng Ý 14K', price: 4200000 },
-            'SP009': { name: 'Vòng Tay Vàng Hoa Văn', price: 8800000 },
-            'SP010': { name: 'Vòng Kiềng', price: 8800000 }
-        };
+    'SP001': { name: 'Nhẫn Vàng 24K', price: 5000000, image: 'images/nhan-vang-24k.jpg' },
+    'SP002': { name: 'Dây Chuyền Vàng Ý', price: 7500000, image: 'images/day-chuyen-vang-y.jpg' },
+    'SP003': { name: 'Bông Tai Vàng Trắng', price: 3200000, image: 'images/bong-tai-vang-trang.jpg' },
+    'SP004': { name: 'Lắc Tay Vàng 18K', price: 6800000, image: 'images/lac-tay-vang-18k.jpg' },
+    'SP005': { name: 'Nhẫn Kim Cương PNJ', price: 15000000, image: 'images/nhan-kim-cuong.jpg' },
+    'SP006': { name: 'Vòng Cổ Kim Cương 18K', price: 25000000, image: 'images/vong-co-kim-cuong.jpg' },
+    'SP007': { name: 'Lắc Chân Vàng Hồng', price: 4500000, image: 'images/lac-chan-vang-hong.jpg' },
+    'SP008': { name: 'Nhẫn Vàng Ý 14K', price: 4200000, image: 'images/nhan-vang-y-14k.jpg' },
+    'SP009': { name: 'Vòng Tay Vàng Hoa Văn', price: 8800000, image: 'images/vong-tay-hoa-van.jpg' },
+    'SP010': { name: 'Vòng Kiềng', price: 8800000, image: 'images/vong-kieng.jpg' }
+};
+
 
         const cart = [];
         const customers = [];
         const transactionHistory = [];
-
-        function renderProducts() {
-            const productList = document.getElementById('productList');
-            productList.innerHTML = '';
-            Object.keys(products).forEach(code => {
-                const p = products[code];
-                productList.innerHTML += `<tr>
-                    <td>${code}</td>
-                    <td>${p.name}</td>
-                    <td>${p.price.toLocaleString()} VND</td>
-                    <td><button class="btn" onclick="addToCart('${code}')">Thêm vào giỏ</button></td>
-                </tr>`;
-            });
-        }
+        
+function renderProducts() {
+    const productList = document.getElementById('productList');
+    productList.innerHTML = '';
+    Object.keys(products).forEach(code => {
+        const p = products[code];
+        productList.innerHTML += `<tr>
+            <td>${code}</td>
+            <td><img src="${p.image}" alt="${p.name}" style="width:80px; height:auto; border-radius:8px;"></td>
+            <td>${p.name}</td>
+            <td>${p.price.toLocaleString()} VND</td>
+            <td><button class="btn" onclick="addToCart('${code}')">Thêm vào giỏ</button></td>
+        </tr>`;
+    });
+}
 
         function addToCart(code) {
             const existing = cart.find(item => item.code === code);
