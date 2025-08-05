@@ -87,14 +87,13 @@
             border-radius: 5px;
         }
 
-        .cart {
+        .cart, .customers, .transactions, .history {
             background-color: white;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
             margin-top: 20px;
         }
-
     </style>
 </head>
 
@@ -110,6 +109,7 @@
         <a href="#customers">Khách Hàng</a>
         <a href="#cart">Giỏ Hàng</a>
         <a href="#transactions">Giao Dịch</a>
+        <a href="#history">Lịch Sử</a>
     </nav>
 
     <div class="container">
@@ -129,36 +129,23 @@
                         <th>Hành Động</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>SP001</td>
-                        <td>Nhẫn Vàng 24K</td>
-                        <td>5,000,000 VND</td>
-                        <td><button class="btn" onclick="addToCart('SP001')">Thêm vào giỏ</button></td>
-                    </tr>
-                    <tr>
-                        <td>SP002</td>
-                        <td>Dây Chuyền Vàng Ý</td>
-                        <td>7,500,000 VND</td>
-                        <td><button class="btn" onclick="addToCart('SP002')">Thêm vào giỏ</button></td>
-                    </tr>
-                </tbody>
+                <tbody id="productList"></tbody>
             </table>
         </section>
 
-        <section id="customers">
-            <h2>Khách Hàng</h2>
+        <section id="customers" class="customers">
+            <h2>Danh Sách Khách Hàng</h2>
             <form id="customerForm">
-                <input type="text" id="customerName" placeholder="Họ và Tên" required>
-                <input type="email" id="customerEmail" placeholder="Email" required>
-                <button class="btn" type="submit">Lưu</button>
+                <input type="text" id="customerName" placeholder="Tên Khách Hàng" required>
+                <input type="text" id="customerPhone" placeholder="Số Điện Thoại" required>
+                <button type="submit" class="btn">Thêm Khách Hàng</button>
             </form>
             <table>
                 <thead>
                     <tr>
                         <th>Mã KH</th>
-                        <th>Họ và Tên</th>
-                        <th>Email</th>
+                        <th>Tên</th>
+                        <th>Số Điện Thoại</th>
                         <th>Hành Động</th>
                     </tr>
                 </thead>
@@ -166,154 +153,197 @@
             </table>
         </section>
 
-        <section id="cart">
+        <section id="cart" class="cart">
             <h2>Giỏ Hàng</h2>
-            <div class="cart" id="cartItems">
-                <p>Giỏ hàng đang trống.</p>
-            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Mã SP</th>
+                        <th>Tên</th>
+                        <th>Giá</th>
+                        <th>Số Lượng</th>
+                        <th>Hành Động</th>
+                    </tr>
+                </thead>
+                <tbody id="cartItems"></tbody>
+            </table>
+            <h3>Tổng Tiền: <span id="totalAmount">0</span> VND</h3>
         </section>
 
-        <section id="transactions">
+        <section id="transactions" class="transactions">
             <h2>Giao Dịch</h2>
-            <form id="transactionForm">
-                <input type="text" id="transactionId" placeholder="Mã Giao Dịch" required>
-                <button class="btn" type="submit">Xác Nhận</button>
-            </form>
-            <div id="transactionList"></div>
+            <label>Chọn Khách Hàng:</label>
+            <select id="transactionCustomer">
+                <option value="">--Chọn--</option>
+            </select>
+            <h3>Tổng Số Tiền Giao Dịch: <span id="transactionTotal">0</span> VND</h3>
+            <button class="btn" onclick="completeTransaction()">Hoàn Tất Giao Dịch</button>
+        </section>
+
+        <section id="history" class="history">
+            <h2>Lịch Sử Giao Dịch</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Khách Hàng</th>
+                        <th>Danh Sách Sản Phẩm</th>
+                        <th>Tổng Tiền</th>
+                    </tr>
+                </thead>
+                <tbody id="transactionHistory"></tbody>
+            </table>
         </section>
 
     </div>
 
     <script>
-        const cart = [];
-        let customerCount = 1;
-        let editCustomerIndex = -1;
         const products = {
             'SP001': { name: 'Nhẫn Vàng 24K', price: 5000000 },
-            'SP002': { name: 'Dây Chuyền Vàng Ý', price: 7500000 }
+            'SP002': { name: 'Dây Chuyền Vàng Ý', price: 7500000 },
+            'SP003': { name: 'Bông Tai Vàng Trắng', price: 3200000 },
+            'SP004': { name: 'Lắc Tay Vàng 18K', price: 6800000 },
+            'SP005': { name: 'Nhẫn Kim Cương PNJ', price: 15000000 },
+            'SP006': { name: 'Vòng Cổ Kim Cương 18K', price: 25000000 },
+            'SP007': { name: 'Lắc Chân Vàng Hồng', price: 4500000 },
+            'SP008': { name: 'Nhẫn Vàng Ý 14K', price: 4200000 },
+            'SP009': { name: 'Vòng Tay Vàng Hoa Văn', price: 8800000 },
+            'SP010': { name: 'Vòng Kiềng', price: 8800000 }
         };
 
+        const cart = [];
         const customers = [];
+        const transactionHistory = [];
 
-        function addToCart(productId) {
-            cart.push(productId);
-            updateCart();
+        function renderProducts() {
+            const productList = document.getElementById('productList');
+            productList.innerHTML = '';
+            Object.keys(products).forEach(code => {
+                const p = products[code];
+                productList.innerHTML += `<tr>
+                    <td>${code}</td>
+                    <td>${p.name}</td>
+                    <td>${p.price.toLocaleString()} VND</td>
+                    <td><button class="btn" onclick="addToCart('${code}')">Thêm vào giỏ</button></td>
+                </tr>`;
+            });
         }
 
-        function updateCart() {
-            const cartItems = document.getElementById('cartItems');
-            if (cart.length === 0) {
-                cartItems.innerHTML = '<p>Giỏ hàng đang trống.</p>';
-                return;
+        function addToCart(code) {
+            const existing = cart.find(item => item.code === code);
+            if (existing) {
+                existing.quantity++;
+            } else {
+                cart.push({ code, quantity: 1 });
             }
-            cartItems.innerHTML = '';
-            cart.forEach((productId, index) => {
-                const product = products[productId];
-                cartItems.innerHTML += `<p>${product.name} - ${product.price.toLocaleString()} VND <button class='btn' onclick='removeFromCart(${index})'>Xóa</button></p>`;
-            });
+            renderCart();
         }
 
         function removeFromCart(index) {
             cart.splice(index, 1);
-            updateCart();
+            renderCart();
+        }
+
+        function updateQuantity(index, delta) {
+            cart[index].quantity += delta;
+            if (cart[index].quantity <= 0) {
+                cart.splice(index, 1);
+            }
+            renderCart();
+        }
+
+        function renderCart() {
+            const cartItems = document.getElementById('cartItems');
+            cartItems.innerHTML = '';
+            let total = 0;
+            cart.forEach((item, index) => {
+                const p = products[item.code];
+                const subtotal = p.price * item.quantity;
+                total += subtotal;
+                cartItems.innerHTML += `<tr>
+                    <td>${item.code}</td>
+                    <td>${p.name}</td>
+                    <td>${p.price.toLocaleString()} VND</td>
+                    <td>${item.quantity}
+                        <button class="btn" onclick="updateQuantity(${index}, 1)">+</button>
+                        <button class="btn" onclick="updateQuantity(${index}, -1)">-</button>
+                    </td>
+                    <td><button class="btn" onclick="removeFromCart(${index})">Xóa</button></td>
+                </tr>`;
+            });
+            document.getElementById('totalAmount').innerText = total.toLocaleString();
+            document.getElementById('transactionTotal').innerText = total.toLocaleString();
+        }
+
+        document.getElementById('customerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('customerName').value;
+            const phone = document.getElementById('customerPhone').value;
+            if (name && phone) {
+                const code = 'KH' + String(customers.length + 1).padStart(3, '0');
+                customers.push({ code, name, phone });
+                document.getElementById('customerName').value = '';
+                document.getElementById('customerPhone').value = '';
+                renderCustomers();
+                renderCustomerSelect();
+            }
+        });
+
+        function deleteCustomer(index) {
+            customers.splice(index, 1);
+            renderCustomers();
+            renderCustomerSelect();
         }
 
         function renderCustomers() {
             const customerList = document.getElementById('customerList');
             customerList.innerHTML = '';
-            customers.forEach((customer, index) => {
-                customerList.innerHTML += `
-                    <tr>
-                        <td>${customer.id}</td>
-                        <td>${customer.name}</td>
-                        <td>${customer.email}</td>
-                        <td>
-                            <button class='btn' onclick='editCustomer(${index})'>Sửa</button>
-                            <button class='btn' onclick='deleteCustomer(${index})'>Xóa</button>
-                        </td>
-                    </tr>`;
+            customers.forEach((c, index) => {
+                customerList.innerHTML += `<tr>
+                    <td>${c.code}</td>
+                    <td>${c.name}</td>
+                    <td>${c.phone}</td>
+                    <td><button class="btn" onclick="deleteCustomer(${index})">Xóa</button></td>
+                </tr>`;
             });
         }
 
-        function deleteCustomer(index) {
-            if (confirm('Bạn có chắc muốn xóa khách hàng này?')) {
-                customers.splice(index, 1);
-                renderCustomers();
-            }
+        function renderCustomerSelect() {
+            const select = document.getElementById('transactionCustomer');
+            select.innerHTML = '<option value="">--Chọn--</option>';
+            customers.forEach(c => {
+                select.innerHTML += `<option value="${c.code}">${c.name} (${c.code})</option>`;
+            });
         }
 
-        function editCustomer(index) {
-            const customer = customers[index];
-            document.getElementById('customerName').value = customer.name;
-            document.getElementById('customerEmail').value = customer.email;
-            editCustomerIndex = index;
-        }
-
-        document.getElementById('customerForm').addEventListener('submit', function (e) {
-            e.preventDefault();
-            const name = document.getElementById('customerName').value;
-            const email = document.getElementById('customerEmail').value;
-
-            if (editCustomerIndex >= 0) {
-                customers[editCustomerIndex].name = name;
-                customers[editCustomerIndex].email = email;
-                editCustomerIndex = -1;
-            } else {
-                const customerId = 'KH' + String(customerCount).padStart(3, '0');
-                customerCount++;
-                customers.push({ id: customerId, name: name, email: email });
-            }
-
-            renderCustomers();
-            this.reset();
-        });
-
-        document.getElementById('transactionForm').addEventListener('submit', function (e) {
-            e.preventDefault();
-
-            if (cart.length === 0) {
-                alert('Giỏ hàng đang trống. Vui lòng thêm sản phẩm trước khi giao dịch.');
+        function completeTransaction() {
+            const selectedCustomerCode = document.getElementById('transactionCustomer').value;
+            if (!selectedCustomerCode || cart.length === 0) {
+                alert('Vui lòng chọn khách hàng và thêm sản phẩm vào giỏ hàng!');
                 return;
             }
-
-            const transactionId = document.getElementById('transactionId').value;
-            let totalAmount = 0;
-            let transactionDetails = '';
-
-            cart.forEach(productId => {
-                const product = products[productId];
-                totalAmount += product.price;
-                transactionDetails += `<li>${product.name} - ${product.price.toLocaleString()} VND</li>`;
-            });
-
-            const transactionList = document.getElementById('transactionList');
-            transactionList.innerHTML += `
-                <div class='cart'>
-                    <h4>Mã GD: ${transactionId}</h4>
-                    <p>Tổng tiền: ${totalAmount.toLocaleString()} VND</p>
-                    <ul>${transactionDetails}</ul>
-                    <button class='btn' onclick='printInvoice("${transactionId}", ${totalAmount})'>In Hóa Đơn</button>
-                </div>`;
-
-            alert(`Giao Dịch Thành Công!\nMã GD: ${transactionId}\nTổng tiền: ${totalAmount.toLocaleString()} VND`);
-
+            const customer = customers.find(c => c.code === selectedCustomerCode);
+            const items = cart.map(item => `${products[item.code].name} x${item.quantity}`).join(', ');
+            const total = cart.reduce((sum, item) => sum + products[item.code].price * item.quantity, 0);
+            transactionHistory.push({ customer: customer.name, items, total });
+            renderTransactionHistory();
             cart.length = 0;
-            updateCart();
-            this.reset();
-        });
-
-        function printInvoice(transactionId, totalAmount) {
-            const printWindow = window.open('', '', 'width=600,height=400');
-            printWindow.document.write(`<html><head><title>Hóa Đơn - ${transactionId}</title></head><body>`);
-            printWindow.document.write(`<h2>Hóa Đơn Giao Dịch</h2>`);
-            printWindow.document.write(`<p>Mã Giao Dịch: ${transactionId}</p>`);
-            printWindow.document.write(`<p>Tổng Tiền: ${totalAmount.toLocaleString()} VND</p>`);
-            printWindow.document.write(`<p>Cảm ơn quý khách đã mua sắm tại ShopGold!</p>`);
-            printWindow.document.write(`</body></html>`);
-            printWindow.document.close();
-            printWindow.print();
+            renderCart();
+            alert('Giao dịch đã được lưu!');
         }
 
+        function renderTransactionHistory() {
+            const history = document.getElementById('transactionHistory');
+            history.innerHTML = '';
+            transactionHistory.forEach(t => {
+                history.innerHTML += `<tr>
+                    <td>${t.customer}</td>
+                    <td>${t.items}</td>
+                    <td>${t.total.toLocaleString()} VND</td>
+                </tr>`;
+            });
+        }
+
+        renderProducts();
     </script>
 </body>
 
