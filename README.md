@@ -73,7 +73,6 @@ Sơ đồ hoạt động
 
 <img src='anh/GiaoDich.jpg'>
 
-   
 - Tạo giao dịch bán hàng giữa khách hàng và sản phẩm
   
 - Hiển thị danh sách giao dịch
