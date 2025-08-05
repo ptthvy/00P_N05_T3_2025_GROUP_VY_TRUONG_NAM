@@ -43,26 +43,32 @@
             padding: 20px;
         }
 
-        .product-card, .customer-card, .transaction-card {
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
             background-color: white;
-            border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            padding: 20px;
-            margin: 15px;
-            display: inline-block;
-            width: calc(25% - 40px);
-            vertical-align: top;
-            transition: transform 0.2s;
         }
 
-        .product-card:hover, .customer-card:hover, .transaction-card:hover {
-            transform: translateY(-5px);
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #ffcc00;
+            color: white;
         }
 
         .btn {
             background-color: #ffcc00;
             color: white;
-            padding: 10px 15px;
+            padding: 8px 12px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
@@ -70,13 +76,13 @@
         }
 
         .btn:hover {
-            background-color: #19860b;
+            background-color: #e6b800;
         }
 
-        form input, form textarea {
-            width: 100%;
+        form input {
+            width: calc(50% - 22px);
             padding: 10px;
-            margin: 10px 0;
+            margin: 10px 5px 10px 0;
             border: 1px solid #ccc;
             border-radius: 5px;
         }
@@ -114,18 +120,30 @@
 
         <section id="products">
             <h2>Sản Phẩm</h2>
-            <div class="product-card">
-                <h3>Nhẫn Vàng 24K</h3>
-                <p>Mã SP: SP001</p>
-                <p>Giá: 5,000,000 VND</p>
-                <button class="btn" onclick="addToCart('SP001')">Thêm vào giỏ</button>
-            </div>
-            <div class="product-card">
-                <h3>Dây Chuyền Vàng Ý</h3>
-                <p>Mã SP: SP002</p>
-                <p>Giá: 7,500,000 VND</p>
-                <button class="btn" onclick="addToCart('SP002')">Thêm vào giỏ</button>
-            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Mã SP</th>
+                        <th>Tên Sản Phẩm</th>
+                        <th>Giá</th>
+                        <th>Hành Động</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>SP001</td>
+                        <td>Nhẫn Vàng 24K</td>
+                        <td>5,000,000 VND</td>
+                        <td><button class="btn" onclick="addToCart('SP001')">Thêm vào giỏ</button></td>
+                    </tr>
+                    <tr>
+                        <td>SP002</td>
+                        <td>Dây Chuyền Vàng Ý</td>
+                        <td>7,500,000 VND</td>
+                        <td><button class="btn" onclick="addToCart('SP002')">Thêm vào giỏ</button></td>
+                    </tr>
+                </tbody>
+            </table>
         </section>
 
         <section id="customers">
@@ -133,9 +151,19 @@
             <form id="customerForm">
                 <input type="text" id="customerName" placeholder="Họ và Tên" required>
                 <input type="email" id="customerEmail" placeholder="Email" required>
-                <button class="btn" type="submit">Đăng Ký</button>
+                <button class="btn" type="submit">Lưu</button>
             </form>
-            <div id="customerList"></div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Mã KH</th>
+                        <th>Họ và Tên</th>
+                        <th>Email</th>
+                        <th>Hành Động</th>
+                    </tr>
+                </thead>
+                <tbody id="customerList"></tbody>
+            </table>
         </section>
 
         <section id="cart">
@@ -159,10 +187,13 @@
     <script>
         const cart = [];
         let customerCount = 1;
+        let editCustomerIndex = -1;
         const products = {
             'SP001': { name: 'Nhẫn Vàng 24K', price: 5000000 },
             'SP002': { name: 'Dây Chuyền Vàng Ý', price: 7500000 }
         };
+
+        const customers = [];
 
         function addToCart(productId) {
             cart.push(productId);
@@ -187,15 +218,53 @@
             updateCart();
         }
 
+        function renderCustomers() {
+            const customerList = document.getElementById('customerList');
+            customerList.innerHTML = '';
+            customers.forEach((customer, index) => {
+                customerList.innerHTML += `
+                    <tr>
+                        <td>${customer.id}</td>
+                        <td>${customer.name}</td>
+                        <td>${customer.email}</td>
+                        <td>
+                            <button class='btn' onclick='editCustomer(${index})'>Sửa</button>
+                            <button class='btn' onclick='deleteCustomer(${index})'>Xóa</button>
+                        </td>
+                    </tr>`;
+            });
+        }
+
+        function deleteCustomer(index) {
+            if (confirm('Bạn có chắc muốn xóa khách hàng này?')) {
+                customers.splice(index, 1);
+                renderCustomers();
+            }
+        }
+
+        function editCustomer(index) {
+            const customer = customers[index];
+            document.getElementById('customerName').value = customer.name;
+            document.getElementById('customerEmail').value = customer.email;
+            editCustomerIndex = index;
+        }
+
         document.getElementById('customerForm').addEventListener('submit', function (e) {
             e.preventDefault();
             const name = document.getElementById('customerName').value;
             const email = document.getElementById('customerEmail').value;
-            const customerList = document.getElementById('customerList');
-            const customerId = 'KH' + String(customerCount).padStart(3, '0');
-            customerCount++;
 
-            customerList.innerHTML += `<div class='customer-card'><h4>${name} (${customerId})</h4><p>${email}</p></div>`;
+            if (editCustomerIndex >= 0) {
+                customers[editCustomerIndex].name = name;
+                customers[editCustomerIndex].email = email;
+                editCustomerIndex = -1;
+            } else {
+                const customerId = 'KH' + String(customerCount).padStart(3, '0');
+                customerCount++;
+                customers.push({ id: customerId, name: name, email: email });
+            }
+
+            renderCustomers();
             this.reset();
         });
 
@@ -219,10 +288,11 @@
 
             const transactionList = document.getElementById('transactionList');
             transactionList.innerHTML += `
-                <div class='transaction-card'>
+                <div class='cart'>
                     <h4>Mã GD: ${transactionId}</h4>
                     <p>Tổng tiền: ${totalAmount.toLocaleString()} VND</p>
                     <ul>${transactionDetails}</ul>
+                    <button class='btn' onclick='printInvoice("${transactionId}", ${totalAmount})'>In Hóa Đơn</button>
                 </div>`;
 
             alert(`Giao Dịch Thành Công!\nMã GD: ${transactionId}\nTổng tiền: ${totalAmount.toLocaleString()} VND`);
@@ -231,6 +301,19 @@
             updateCart();
             this.reset();
         });
+
+        function printInvoice(transactionId, totalAmount) {
+            const printWindow = window.open('', '', 'width=600,height=400');
+            printWindow.document.write(`<html><head><title>Hóa Đơn - ${transactionId}</title></head><body>`);
+            printWindow.document.write(`<h2>Hóa Đơn Giao Dịch</h2>`);
+            printWindow.document.write(`<p>Mã Giao Dịch: ${transactionId}</p>`);
+            printWindow.document.write(`<p>Tổng Tiền: ${totalAmount.toLocaleString()} VND</p>`);
+            printWindow.document.write(`<p>Cảm ơn quý khách đã mua sắm tại ShopGold!</p>`);
+            printWindow.document.write(`</body></html>`);
+            printWindow.document.close();
+            printWindow.print();
+        }
+
     </script>
 </body>
 
