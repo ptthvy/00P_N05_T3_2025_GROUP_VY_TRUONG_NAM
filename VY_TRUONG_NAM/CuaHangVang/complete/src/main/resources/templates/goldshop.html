@@ -1,38 +1,237 @@
-<!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
-<head> 
-    <title>Getting Started: Serving Web Content</title> 
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-</head>
-<body>
-    <p th:text="|Hello,Khach Hang!|" />
-</body>
-</html>
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="vi">
+
 <head>
     <meta charset="UTF-8">
-    <title>Quản lý cửa hàng vàng</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopGold</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 40px; }
-        h1 { color: #81d0e4d3; }
-        .form-box { border: 1px solid #52bddd; padding: 20px; margin-bottom: 30px; border-radius: 10px; background-color: #37aedd; }
-        label { display: inline-block; width: 120px; margin-bottom: 10px; font-weight: bold; }
-        input[type="text"], input[type="number"] { width: 200px; padding: 5px; margin-bottom: 10px; }
-        input[type="submit"] { padding: 6px 16px; background-color: #3498db; border: none; color: white; border-radius: 5px; cursor: pointer; }
-        input[type="submit"]:hover { background-color: #2980b9; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #ffd700, #fff5cc);
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #ffcc00;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        nav {
+            background-color: #333;
+            overflow: hidden;
+        }
+
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background-color: #575757;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        .product-card, .customer-card, .transaction-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            padding: 20px;
+            margin: 15px;
+            display: inline-block;
+            width: calc(25% - 40px);
+            vertical-align: top;
+            transition: transform 0.2s;
+        }
+
+        .product-card:hover, .customer-card:hover, .transaction-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .btn {
+            background-color: #ffcc00;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #19860b;
+        }
+
+        form input, form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .cart {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin-top: 20px;
+        }
+
     </style>
 </head>
+
 <body>
-    <div class="form-box">
-        <h2>Thêm khách hàng</h2>
-        <form action="/customer" method="get">
-            <label>Tên khách hàng:</label>
-            <input type="text" name="name" required><br>
-            <label>Số điện thoại:</label>
-            <input type="text" name="phone" required><br>
-            <input type="submit" value="Thêm khách hàng">
-        </form>
+
+    <header>
+        <h1>ShopGold - Thế giới trang sức vàng</h1>
+    </header>
+
+    <nav>
+        <a href="#home">Trang Chủ</a>
+        <a href="#products">Sản Phẩm</a>
+        <a href="#customers">Khách Hàng</a>
+        <a href="#cart">Giỏ Hàng</a>
+        <a href="#transactions">Giao Dịch</a>
+    </nav>
+
+    <div class="container">
+        <section id="home">
+            <h2>Chào mừng đến với ShopGold!</h2>
+            <p>Chuyên cung cấp các sản phẩm trang sức vàng cao cấp.</p>
+        </section>
+
+        <section id="products">
+            <h2>Sản Phẩm</h2>
+            <div class="product-card">
+                <h3>Nhẫn Vàng 24K</h3>
+                <p>Mã SP: SP001</p>
+                <p>Giá: 5,000,000 VND</p>
+                <button class="btn" onclick="addToCart('SP001')">Thêm vào giỏ</button>
+            </div>
+            <div class="product-card">
+                <h3>Dây Chuyền Vàng Ý</h3>
+                <p>Mã SP: SP002</p>
+                <p>Giá: 7,500,000 VND</p>
+                <button class="btn" onclick="addToCart('SP002')">Thêm vào giỏ</button>
+            </div>
+        </section>
+
+        <section id="customers">
+            <h2>Khách Hàng</h2>
+            <form id="customerForm">
+                <input type="text" id="customerName" placeholder="Họ và Tên" required>
+                <input type="email" id="customerEmail" placeholder="Email" required>
+                <button class="btn" type="submit">Đăng Ký</button>
+            </form>
+            <div id="customerList"></div>
+        </section>
+
+        <section id="cart">
+            <h2>Giỏ Hàng</h2>
+            <div class="cart" id="cartItems">
+                <p>Giỏ hàng đang trống.</p>
+            </div>
+        </section>
+
+        <section id="transactions">
+            <h2>Giao Dịch</h2>
+            <form id="transactionForm">
+                <input type="text" id="transactionId" placeholder="Mã Giao Dịch" required>
+                <button class="btn" type="submit">Xác Nhận</button>
+            </form>
+            <div id="transactionList"></div>
+        </section>
+
     </div>
 
-    
+    <script>
+        const cart = [];
+        let customerCount = 1;
+        const products = {
+            'SP001': { name: 'Nhẫn Vàng 24K', price: 5000000 },
+            'SP002': { name: 'Dây Chuyền Vàng Ý', price: 7500000 }
+        };
+
+        function addToCart(productId) {
+            cart.push(productId);
+            updateCart();
+        }
+
+        function updateCart() {
+            const cartItems = document.getElementById('cartItems');
+            if (cart.length === 0) {
+                cartItems.innerHTML = '<p>Giỏ hàng đang trống.</p>';
+                return;
+            }
+            cartItems.innerHTML = '';
+            cart.forEach((productId, index) => {
+                const product = products[productId];
+                cartItems.innerHTML += `<p>${product.name} - ${product.price.toLocaleString()} VND <button class='btn' onclick='removeFromCart(${index})'>Xóa</button></p>`;
+            });
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCart();
+        }
+
+        document.getElementById('customerForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const name = document.getElementById('customerName').value;
+            const email = document.getElementById('customerEmail').value;
+            const customerList = document.getElementById('customerList');
+            const customerId = 'KH' + String(customerCount).padStart(3, '0');
+            customerCount++;
+
+            customerList.innerHTML += `<div class='customer-card'><h4>${name} (${customerId})</h4><p>${email}</p></div>`;
+            this.reset();
+        });
+
+        document.getElementById('transactionForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            if (cart.length === 0) {
+                alert('Giỏ hàng đang trống. Vui lòng thêm sản phẩm trước khi giao dịch.');
+                return;
+            }
+
+            const transactionId = document.getElementById('transactionId').value;
+            let totalAmount = 0;
+            let transactionDetails = '';
+
+            cart.forEach(productId => {
+                const product = products[productId];
+                totalAmount += product.price;
+                transactionDetails += `<li>${product.name} - ${product.price.toLocaleString()} VND</li>`;
+            });
+
+            const transactionList = document.getElementById('transactionList');
+            transactionList.innerHTML += `
+                <div class='transaction-card'>
+                    <h4>Mã GD: ${transactionId}</h4>
+                    <p>Tổng tiền: ${totalAmount.toLocaleString()} VND</p>
+                    <ul>${transactionDetails}</ul>
+                </div>`;
+
+            alert(`Giao Dịch Thành Công!\nMã GD: ${transactionId}\nTổng tiền: ${totalAmount.toLocaleString()} VND`);
+
+            cart.length = 0;
+            updateCart();
+            this.reset();
+        });
+    </script>
+</body>
+
+</html>
