@@ -78,7 +78,6 @@ public class GoldShopNPJ {
         }
     }
 
-    // Thêm sản phẩm mới và hiển thị danh sách sau khi thêm
     private static void themSanPham() {
         System.out.print("Tên sản phẩm: ");
         String ten = scanner.nextLine();
@@ -89,7 +88,6 @@ public class GoldShopNPJ {
         hienThiSanPham();
     }
 
-    // Hiển thị danh sách sản phẩm
     private static void hienThiSanPham() {
         System.out.println("--- Danh sách sản phẩm ---");
         List<SanPham> ds = quanLySanPham.getDanhSach();
@@ -103,8 +101,6 @@ public class GoldShopNPJ {
             System.out.printf("%-3d %-25s %-15s%n", i++, sp.getName(), nf.format(sp.getPrice()));
         }
     }
-
-    // Sửa thông tin sản phẩm
     private static void suaSanPham() {
         hienThiSanPham();
         System.out.print("Nhập số thứ tự sản phẩm muốn sửa: ");
@@ -122,7 +118,6 @@ public class GoldShopNPJ {
         hienThiSanPham();
     }
 
-    // Xóa sản phẩm
     private static void xoaSanPham() {
         hienThiSanPham();
         System.out.print("Nhập số thứ tự sản phẩm muốn xóa: ");
@@ -136,7 +131,6 @@ public class GoldShopNPJ {
         hienThiSanPham();
     }
 
-    // Menu quản lý khách hàng
     private static void quanLyKhachHangMenu() {
         while (true) {
             System.out.println("\n--- QUẢN LÝ KHÁCH HÀNG ---");
@@ -158,7 +152,7 @@ public class GoldShopNPJ {
         }
     }
 
-    // Thêm khách hàng mới và hiển thị danh sách sau khi thêm
+   
     private static void themKhachHang() {
         System.out.print("Tên khách hàng: ");
         String ten = scanner.nextLine();
@@ -169,7 +163,7 @@ public class GoldShopNPJ {
         hienThiKhachHang();
     }
 
-    // Hiển thị danh sách khách hàng
+   
     private static void hienThiKhachHang() {
         System.out.println("--- Danh sách khách hàng ---");
         List<KhachHang> ds = quanLyKhachHang.getDanhSach();
@@ -184,7 +178,7 @@ public class GoldShopNPJ {
         }
     }
 
-    // Sửa thông tin khách hàng
+    
     private static void suaKhachHang() {
         hienThiKhachHang();
         System.out.print("Nhập số thứ tự khách hàng muốn sửa: ");
@@ -202,7 +196,6 @@ public class GoldShopNPJ {
         hienThiKhachHang();
     }
 
-    // Xóa khách hàng
     private static void xoaKhachHang() {
         hienThiKhachHang();
         System.out.print("Nhập số thứ tự khách hàng muốn xóa: ");
@@ -216,7 +209,7 @@ public class GoldShopNPJ {
         hienThiKhachHang();
     }
 
-    // Menu quản lý giao dịch
+    
     private static void quanLyGiaoDichMenu() {
         while (true) {
             System.out.println("\n--- QUẢN LÝ GIAO DỊCH ---");
@@ -236,7 +229,7 @@ public class GoldShopNPJ {
         }
     }
 
-    // Thêm giao dịch mới và hiển thị danh sách sau khi thêm
+
     private static void themGiaoDich() {
         System.out.println("--- Thêm giao dịch mới ---");
         hienThiKhachHang();
@@ -264,8 +257,6 @@ public class GoldShopNPJ {
         System.out.println("Đã thêm giao dịch!");
         hienThiGiaoDich();
     }
-
-    // Hiển thị danh sách giao dịch
     private static void hienThiGiaoDich() {
         System.out.println("--- Danh sách giao dịch ---");
         List<GiaoDich> ds = quanLyGiaoDich.getDanhSach();
@@ -282,7 +273,6 @@ public class GoldShopNPJ {
         }
     }
 
-    // Xóa giao dịch
     private static void xoaGiaoDich() {
         hienThiGiaoDich();
         System.out.print("Nhập số thứ tự giao dịch muốn xóa: ");
@@ -296,7 +286,6 @@ public class GoldShopNPJ {
         hienThiGiaoDich();
     }
 
-    // Thống kê doanh thu
     private static void thongKeDoanhThu() {
         System.out.println("--- Thống kê doanh thu ---");
         double tong = quanLyGiaoDich.getDanhSach().stream()
