@@ -2,380 +2,691 @@
 <html lang="vi">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ShopGold PNJ</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ShopGold TNV - Quản lý</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
         body {
             font-family: 'Poppins', sans-serif;
-            margin: 0;
-            background: linear-gradient(-45deg, #D7A61E, #E7C277, #F2D6A0, #F6E0B7, #F0E8DE);
-            background-size: 300% 300%;
-            animation: gradientFlow 12s ease infinite;
+            background: #f0f2f5;
             color: #333;
         }
 
-        @keyframes gradientFlow {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        header {
-            background: linear-gradient(90deg, #D7A61E, #E7C277);
-            color: white;
-            text-align: center;
-            padding: 40px 20px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-            font-size: 2.5rem;
-            letter-spacing: 1px;
-        }
-
-        nav {
+        .app-container {
             display: flex;
-            justify-content: center;
-            gap: 20px;
-            background: #333;
-            padding: 15px;
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+            height: 100vh;
+            overflow: hidden;
         }
 
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            padding: 10px 20px;
-            border-radius: 30px;
+        /* Sidebar */
+        .sidebar {
+            width: 220px;
+            background: linear-gradient(180deg, #D7A61E, #E7C277);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            user-select: none;
+        }
+
+        .sidebar h2 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .menu {
+            list-style: none;
+            flex-grow: 1;
+        }
+
+        .menu li {
+            margin: 15px 0;
+            cursor: pointer;
+            padding: 10px 15px;
+            border-radius: 8px;
             transition: background 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        nav a:hover {
-            background: #575757;
+        .menu li:hover, .menu li.active {
+            background: rgba(255 255 255 / 0.3);
         }
 
-        .container {
-            max-width: 1200px;
-            margin: auto;
-            padding: 40px 20px;
+        /* Main content */
+        .main-content {
+            flex-grow: 1;
+            background: white;
+            padding: 20px 30px;
+            overflow-y: auto;
         }
 
+        .header {
+            height: 60px;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding-right: 20px;
+            font-weight: 600;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        /* Table */
         table {
             width: 100%;
-            border-spacing: 0 15px;
-            margin-top: 20px;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th, td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #ddd;
+            text-align: center;
         }
 
         th {
             background: linear-gradient(90deg, #D7A61E, #E7C277);
             color: #1a1a1a;
-            padding: 15px;
-            text-align: center;
-            border-radius: 12px;
             text-transform: uppercase;
+            border-radius: 8px 8px 0 0;
         }
 
-        td {
-            background: #fff;
-            text-align: center;
-            padding: 15px;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
+        tr:hover {
+            background: #f9f9f9;
         }
 
-        tr:hover td {
-            transform: translateY(-5px);
-        }
-
-        img.product-img {
-            width: 80px;
-            height: 80px;
-            object-fit: cover;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-
+        /* Buttons */
         .btn {
-            background: linear-gradient(45deg, #E7C277, #D7A61E);
-            color: white;
-            padding: 10px 20px;
+            background: #D7A61E;
             border: none;
-            border-radius: 10px;
+            color: white;
+            padding: 7px 15px;
+            border-radius: 8px;
             cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
+            font-weight: 600;
+            transition: background 0.3s;
+            margin-left: 5px;
         }
 
         .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+            background: #b89813;
         }
 
-        .print-btn {
-            background: linear-gradient(45deg, #F6E0B7, #F0E8DE);
-            color: #333;
-            margin-top: 20px;
+        .btn-delete {
+            background: #e74c3c;
+        }
+
+        .btn-delete:hover {
+            background: #c0392b;
+        }
+
+        .btn-add {
+            background: #1fa91f;
+            float: right;
+            margin-bottom: 10px;
+        }
+
+        .btn-add:hover {
+            background: #17a117;
+        }
+
+        /* Form inputs */
+        input[type=text], input[type=number], select {
+            padding: 7px 10px;
+            margin: 5px 10px 5px 0;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            width: 200px;
+            font-size: 1rem;
+        }
+
+        label {
+            font-weight: 600;
+            margin-right: 5px;
+        }
+
+        /* Sections ẩn hiện */
+        section {
+            display: none;
+        }
+
+        section.active {
+            display: block;
+        }
+
+        /* Image product */
+        img.product-img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 6px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        /* Cart quantity input */
+        input.qty-input {
+            width: 50px;
+            text-align: center;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+
+        /* Total money */
+        .total-amount {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-top: 15px;
+            text-align: right;
+        }
+
+        /* Print button */
+        .btn-print {
+            background: #3498db;
+            margin-top: 10px;
+        }
+
+        .btn-print:hover {
+            background: #2980b9;
         }
     </style>
 </head>
 
 <body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <h2>ShopGold TNV</h2>
+            <ul class="menu">
+                <li class="active" data-section="home">Trang Chủ</li>
+                <li data-section="products">Sản Phẩm</li>
+                <li data-section="customers">Khách Hàng</li>
+                <li data-section="cart">Giỏ Hàng</li>
+                <li data-section="transactions">Giao Dịch</li>
+                <li data-section="history">Lịch Sử</li>
+            </ul>
+        </aside>
 
-    <header>
-        <h1>ShopGold - Thế giới trang sức vàng</h1>
-    </header>
+        <div class="main-content">
+            <div class="header">
+                Admin
+            </div>
 
-    <nav>
-        <a href="#home">Trang Chủ</a>
-        <a href="#products">Sản Phẩm</a>
-        <a href="#customers">Khách Hàng</a>
-        <a href="#cart">Giỏ Hàng</a>
-        <a href="#transactions">Giao Dịch</a>
-        <a href="#history">Lịch Sử</a>
-    </nav>
+            <!-- Trang chủ -->
+            <section id="home" class="active">
+                <h1>Chào mừng bạn đến với ShopGold TNV</h1>
+                <p>Chuyên cung cấp các sản phẩm trang sức vàng cao cấp.</p>
+            </section>
 
-    <div class="container">
-        <section id="home">
-            <h2>Chào mừng đến với ShopGold!</h2>
-            <p>Chuyên cung cấp các sản phẩm trang sức vàng cao cấp.</p>
-        </section>
+            <!-- Sản phẩm -->
+            <section id="products">
+                <h1>Danh Sách Sản Phẩm</h1>
+                <button class="btn btn-add" onclick="showAddProductForm()">Thêm Sản Phẩm</button>
 
-        <section id="products">
-            <h2>Sản Phẩm</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Mã SP</th>
-                           <th>Hinh Anh</th>
-                        <th>Tên Sản Phẩm</th>
-                        <th>Giá</th>
-                        <th>Hành Động</th>
-                    </tr>
-                </thead>
-                <tbody id="productList"></tbody>
-            </table>
-        </section>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Mã SP</th>
+                            <th>Hình Ảnh</th>
+                            <th>Tên Sản Phẩm</th>
+                            <th>Giá (VND)</th>
+                            <th>Hành Động</th>
+                        </tr>
+                    </thead>
+                    <tbody id="productList"></tbody>
+                </table>
 
-        <section id="customers" class="customers">
-            <h2>Danh Sách Khách Hàng</h2>
-            <form id="customerForm">
-                <input type="text" id="customerName" placeholder="Tên Khách Hàng" required>
-                <input type="text" id="customerPhone" placeholder="Số Điện Thoại" required>
-                <button type="submit" class="btn">Thêm Khách Hàng</button>
-            </form>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Mã KH</th>
-                        <th>Tên</th>
-                        <th>Số Điện Thoại</th>
-                        <th>Hành Động</th>
-                    </tr>
-                </thead>
-                <tbody id="customerList"></tbody>
-            </table>
-        </section>
+                <!-- Form thêm sửa sản phẩm -->
+                <div id="productFormContainer" style="margin-top:20px; display:none;">
+                    <h3 id="productFormTitle">Thêm Sản Phẩm</h3>
+                    <input type="text" id="productId" placeholder="Mã SP" />
+                    <input type="text" id="productName" placeholder="Tên Sản Phẩm" />
+                    <input type="number" id="productPrice" placeholder="Giá (VND)" />
+                    <input type="text" id="productImage" placeholder="URL Hình Ảnh" />
+                    <button class="btn" onclick="saveProduct()">Lưu</button>
+                    <button class="btn btn-delete" onclick="cancelProductForm()">Hủy</button>
+                </div>
+            </section>
 
-        <section id="cart" class="cart">
-            <h2>Giỏ Hàng</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Mã SP</th>
-                        <th>Tên</th>
-                        <th>Giá</th>
-                        <th>Số Lượng</th>
-                        <th>Hành Động</th>
-                    </tr>
-                </thead>
-                <tbody id="cartItems"></tbody>
-            </table>
-            <h3>Tổng Tiền: <span id="totalAmount">0</span> VND</h3>
-        </section>
+            <!-- Khách hàng -->
+            <section id="customers">
+                <h1>Danh Sách Khách Hàng</h1>
+                <form id="customerForm" onsubmit="event.preventDefault(); addCustomer();">
+                    <input type="text" id="customerName" placeholder="Tên Khách Hàng" required />
+                    <input type="text" id="customerPhone" placeholder="Số Điện Thoại" required />
+                    <button type="submit" class="btn btn-add">Thêm Khách Hàng</button>
+                </form>
 
-        <section id="transactions" class="transactions">
-            <h2>Giao Dịch</h2>
-            <label>Chọn Khách Hàng:</label>
-            <select id="transactionCustomer">
-                <option value="">--Chọn--</option>
-            </select>
-            <h3>Tổng Số Tiền Giao Dịch: <span id="transactionTotal">0</span> VND</h3>
-            <button class="btn" onclick="completeTransaction()">Hoàn Tất Giao Dịch</button>
-        </section>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Mã KH</th>
+                            <th>Tên</th>
+                            <th>Số Điện Thoại</th>
+                            <th>Hành Động</th>
+                        </tr>
+                    </thead>
+                    <tbody id="customerList"></tbody>
+                </table>
+            </section>
 
-        <section id="history" class="history">
-            <h2>Lịch Sử Giao Dịch</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Khách Hàng</th>
-                        <th>Danh Sách Sản Phẩm</th>
-                        <th>Tổng Tiền</th>
-                    </tr>
-                </thead>
-                <tbody id="transactionHistory"></tbody>
-            </table>
-        </section>
+            <!-- Giỏ hàng -->
+            <section id="cart">
+                <h1>Giỏ Hàng</h1>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Mã SP</th>
+                            <th>Tên</th>
+                            <th>Giá (VND)</th>
+                            <th>Số Lượng</th>
+                            <th>Hành Động</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cartItems"></tbody>
+                </table>
+                <div class="total-amount">Tổng Tiền: <span id="totalAmount">0</span> VND</div>
+            </section>
 
+            <!-- Giao dịch -->
+            <section id="transactions">
+                <h1>Giao Dịch</h1>
+                <label for="transactionCustomer">Chọn Khách Hàng:</label>
+                <select id="transactionCustomer">
+                    <option value="">--Chọn--</option>
+                </select>
+                <div class="total-amount" style="margin-top: 10px;">
+                    Tổng Số Tiền Giao Dịch: <span id="transactionTotal">0</span> VND
+                </div>
+                <button class="btn" onclick="completeTransaction()" style="margin-top:10px;">Hoàn Tất Giao Dịch</button>
+                <button class="btn btn-print" onclick="printInvoice()" style="margin-top:10px;">In Hóa Đơn</button>
+            </section>
+
+            <!-- Lịch sử giao dịch -->
+            <section id="history">
+                <h1>Lịch Sử Giao Dịch</h1>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Khách Hàng</th>
+                            <th>Danh Sách Sản Phẩm</th>
+                            <th>Tổng Tiền (VND)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="transactionHistory"></tbody>
+                </table>
+            </section>
+        </div>
     </div>
 
     <script>
-        const products = {
-    'SP001': { name: 'Nhẫn Vàng 24K', price: 5000000, image: 'images/nhan-vang-24k.jpg' },
-    'SP002': { name: 'Dây Chuyền Vàng Ý', price: 7500000, image: 'images/day-chuyen-vang-y.jpg' },
-    'SP003': { name: 'Bông Tai Vàng Trắng', price: 3200000, image: 'images/bong-tai-vang-trang.jpg' },
-    'SP004': { name: 'Lắc Tay Vàng 18K', price: 6800000, image: 'images/lac-tay-vang-18k.jpg' },
-    'SP005': { name: 'Nhẫn Kim Cương PNJ', price: 15000000, image: 'images/nhan-kim-cuong.jpg' },
-    'SP006': { name: 'Vòng Cổ Kim Cương 18K', price: 25000000, image: 'images/vong-co-kim-cuong.jpg' },
-    'SP007': { name: 'Lắc Chân Vàng Hồng', price: 4500000, image: 'images/lac-chan-vang-hong.jpg' },
-    'SP008': { name: 'Nhẫn Vàng Ý 14K', price: 4200000, image: 'images/nhan-vang-y-14k.jpg' },
-    'SP009': { name: 'Vòng Tay Vàng Hoa Văn', price: 8800000, image: 'images/vong-tay-hoa-van.jpg' },
-    'SP010': { name: 'Vòng Kiềng', price: 8800000, image: 'images/vong-kieng.jpg' }
-};
+        // Data mẫu
+        let products = [
+            { id: "SP001", name: "Nhẫn Vàng 24K", price: 5000000, image: "https://via.placeholder.com/80?text=Nhẫn" },
+            { id: "SP002", name: "Dây Chuyền Vàng", price: 7000000, image: "https://via.placeholder.com/80?text=Dây+Chuyền" },
+            { id: "SP003", name: "Bông Tai Vàng", price: 3000000, image: "https://via.placeholder.com/80?text=Bông+Tai" }
+        ];
 
+        let customers = [];
+        let cart = [];
+        let transactions = [];
 
-        const cart = [];
-        const customers = [];
-        const transactionHistory = [];
+        // Hiển thị danh sách sản phẩm
+        function renderProducts() {
+            const tbody = document.getElementById("productList");
+            tbody.innerHTML = "";
+            for (const p of products) {
+                const tr = document.createElement("tr");
+                tr.innerHTML = `
+                    <td>${p.id}</td>
+                    <td><img src="${p.image}" alt="${p.name}" class="product-img"/></td>
+                    <td>${p.name}</td>
+                    <td>${p.price.toLocaleString()}</td>
+                    <td>
+                        <button class="btn" onclick="editProduct('${p.id}')">Sửa</button>
+                        <button class="btn btn-delete" onclick="deleteProduct('${p.id}')">Xóa</button>
+                        <button class="btn" onclick="addToCart('${p.id}')">Thêm vào Giỏ</button>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            }
+        }
 
-function renderProducts() {
-    const productList = document.getElementById('productList');
-    productList.innerHTML = '';
-    Object.keys(products).forEach(code => {
-        const p = products[code];
-        productList.innerHTML += `<tr>
-            <td>${code}</td>
-            <td><img src="${p.image}" alt="${p.name}" style="width:80px; height:auto; border-radius:8px;"></td>
-            <td>${p.name}</td>
-            <td>${p.price.toLocaleString()} VND</td>
-            <td><button class="btn" onclick="addToCart('${code}')">Thêm vào giỏ</button></td>
-        </tr>`;
-    });
-}
+        // Thêm/sửa sản phẩm
+        let editingProductId = null;
+        function showAddProductForm() {
+            editingProductId = null;
+            document.getElementById("productFormTitle").innerText = "Thêm Sản Phẩm";
+            document.getElementById("productId").value = "";
+            document.getElementById("productId").disabled = false;
+            document.getElementById("productName").value = "";
+            document.getElementById("productPrice").value = "";
+            document.getElementById("productImage").value = "";
+            document.getElementById("productFormContainer").style.display = "block";
+        }
 
-        function addToCart(code) {
-            const existing = cart.find(item => item.code === code);
-            if (existing) {
-                existing.quantity++;
+        function editProduct(id) {
+            const p = products.find(x => x.id === id);
+            if (!p) return alert("Sản phẩm không tồn tại");
+            editingProductId = id;
+            document.getElementById("productFormTitle").innerText = "Sửa Sản Phẩm";
+            document.getElementById("productId").value = p.id;
+            document.getElementById("productId").disabled = true;
+            document.getElementById("productName").value = p.name;
+            document.getElementById("productPrice").value = p.price;
+            document.getElementById("productImage").value = p.image;
+            document.getElementById("productFormContainer").style.display = "block";
+        }
+
+        function saveProduct() {
+            const id = document.getElementById("productId").value.trim();
+            const name = document.getElementById("productName").value.trim();
+            const price = parseInt(document.getElementById("productPrice").value);
+            const image = document.getElementById("productImage").value.trim() || "https://via.placeholder.com/80";
+
+            if (!id || !name || isNaN(price) || price <= 0) {
+                alert("Vui lòng nhập đầy đủ thông tin hợp lệ");
+                return;
+            }
+
+            if (editingProductId) {
+                // update
+                const p = products.find(x => x.id === editingProductId);
+                p.name = name;
+                p.price = price;
+                p.image = image;
             } else {
-                cart.push({ code, quantity: 1 });
+                if (products.find(x => x.id === id)) {
+                    alert("Mã sản phẩm đã tồn tại");
+                    return;
+                }
+                products.push({ id, name, price, image });
             }
-            renderCart();
+
+            document.getElementById("productFormContainer").style.display = "none";
+            renderProducts();
         }
 
-        function removeFromCart(index) {
-            cart.splice(index, 1);
-            renderCart();
+        function cancelProductForm() {
+            document.getElementById("productFormContainer").style.display = "none";
         }
 
-        function updateQuantity(index, delta) {
-            cart[index].quantity += delta;
-            if (cart[index].quantity <= 0) {
-                cart.splice(index, 1);
+        function deleteProduct(id) {
+            if (confirm("Bạn có chắc muốn xóa sản phẩm này?")) {
+                products = products.filter(p => p.id !== id);
+                renderProducts();
+                // Nếu trong giỏ hàng có thì cũng xóa
+                cart = cart.filter(item => item.productId !== id);
+                renderCart();
+                updateTransactionTotal();
+            }
+        }
+
+        // Thêm khách hàng
+        let customerIdCounter = 1;
+        function renderCustomers() {
+            const tbody = document.getElementById("customerList");
+            tbody.innerHTML = "";
+            customers.forEach((c, i) => {
+                const tr = document.createElement("tr");
+                tr.innerHTML = `
+                    <td>KH${1000 + i}</td>
+                    <td>${c.name}</td>
+                    <td>${c.phone}</td>
+                    <td><button class="btn btn-delete" onclick="deleteCustomer(${i})">Xóa</button></td>
+                `;
+                tbody.appendChild(tr);
+            });
+
+            // Cập nhật select khách hàng giao dịch
+            const sel = document.getElementById("transactionCustomer");
+            sel.innerHTML = `<option value="">--Chọn--</option>`;
+            customers.forEach((c, i) => {
+                sel.innerHTML += `<option value="${i}">${c.name} - ${c.phone}</option>`;
+            });
+        }
+
+        function addCustomer() {
+            const name = document.getElementById("customerName").value.trim();
+            const phone = document.getElementById("customerPhone").value.trim();
+            if (!name || !phone) {
+                alert("Vui lòng nhập tên và số điện thoại");
+                return;
+            }
+            customers.push({ name, phone });
+            document.getElementById("customerName").value = "";
+            document.getElementById("customerPhone").value = "";
+            renderCustomers();
+        }
+
+        function deleteCustomer(index) {
+            if (confirm("Bạn có chắc muốn xóa khách hàng này?")) {
+                customers.splice(index, 1);
+                renderCustomers();
+            }
+        }
+
+        // Giỏ hàng
+        function addToCart(productId) {
+            const item = cart.find(i => i.productId === productId);
+            if (item) {
+                item.qty++;
+            } else {
+                cart.push({ productId, qty: 1 });
             }
             renderCart();
+            updateTransactionTotal();
+            alert("Đã thêm sản phẩm vào giỏ hàng");
         }
 
         function renderCart() {
-            const cartItems = document.getElementById('cartItems');
-            cartItems.innerHTML = '';
-            let total = 0;
-            cart.forEach((item, index) => {
-                const p = products[item.code];
-                const subtotal = p.price * item.quantity;
-                total += subtotal;
-                cartItems.innerHTML += `<tr>
-                    <td>${item.code}</td>
+            const tbody = document.getElementById("cartItems");
+            tbody.innerHTML = "";
+            for (const item of cart) {
+                const p = products.find(x => x.id === item.productId);
+                if (!p) continue;
+                const tr = document.createElement("tr");
+                tr.innerHTML = `
+                    <td>${p.id}</td>
                     <td>${p.name}</td>
-                    <td>${p.price.toLocaleString()} VND</td>
-                    <td>${item.quantity}
-                        <button class="btn" onclick="updateQuantity(${index}, 1)">+</button>
-                        <button class="btn" onclick="updateQuantity(${index}, -1)">-</button>
-                    </td>
-                    <td><button class="btn" onclick="removeFromCart(${index})">Xóa</button></td>
-                </tr>`;
-            });
-            document.getElementById('totalAmount').innerText = total.toLocaleString();
-            document.getElementById('transactionTotal').innerText = total.toLocaleString();
-        }
-
-        document.getElementById('customerForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const name = document.getElementById('customerName').value;
-            const phone = document.getElementById('customerPhone').value;
-            if (name && phone) {
-                const code = 'KH' + String(customers.length + 1).padStart(3, '0');
-                customers.push({ code, name, phone });
-                document.getElementById('customerName').value = '';
-                document.getElementById('customerPhone').value = '';
-                renderCustomers();
-                renderCustomerSelect();
+                    <td>${p.price.toLocaleString()}</td>
+                    <td><input type="number" min="1" value="${item.qty}" class="qty-input" onchange="updateQty('${item.productId}', this.value)" /></td>
+                    <td><button class="btn btn-delete" onclick="removeFromCart('${item.productId}')">Xóa</button></td>
+                `;
+                tbody.appendChild(tr);
             }
-        });
-
-        function deleteCustomer(index) {
-            customers.splice(index, 1);
-            renderCustomers();
-            renderCustomerSelect();
+            updateTransactionTotal();
         }
 
-        function renderCustomers() {
-            const customerList = document.getElementById('customerList');
-            customerList.innerHTML = '';
-            customers.forEach((c, index) => {
-                customerList.innerHTML += `<tr>
-                    <td>${c.code}</td>
-                    <td>${c.name}</td>
-                    <td>${c.phone}</td>
-                    <td><button class="btn" onclick="deleteCustomer(${index})">Xóa</button></td>
-                </tr>`;
-            });
+        function updateQty(productId, qty) {
+            qty = parseInt(qty);
+            if (isNaN(qty) || qty < 1) qty = 1;
+            const item = cart.find(i => i.productId === productId);
+            if (item) {
+                item.qty = qty;
+                renderCart();
+                updateTransactionTotal();
+            }
         }
 
-        function renderCustomerSelect() {
-            const select = document.getElementById('transactionCustomer');
-            select.innerHTML = '<option value="">--Chọn--</option>';
-            customers.forEach(c => {
-                select.innerHTML += `<option value="${c.code}">${c.name} (${c.code})</option>`;
-            });
+        function removeFromCart(productId) {
+            cart = cart.filter(i => i.productId !== productId);
+            renderCart();
+            updateTransactionTotal();
         }
 
+        // Tính tổng tiền giỏ hàng
+        function getCartTotal() {
+            let total = 0;
+            for (const item of cart) {
+                const p = products.find(x => x.id === item.productId);
+                if (p) total += p.price * item.qty;
+            }
+            return total;
+        }
+
+        function updateTransactionTotal() {
+            const totalSpan = document.getElementById("totalAmount");
+            const transTotalSpan = document.getElementById("transactionTotal");
+            const total = getCartTotal();
+            totalSpan.textContent = total.toLocaleString();
+            transTotalSpan.textContent = total.toLocaleString();
+        }
+
+        // Giao dịch
         function completeTransaction() {
-            const selectedCustomerCode = document.getElementById('transactionCustomer').value;
-            if (!selectedCustomerCode || cart.length === 0) {
-                alert('Vui lòng chọn khách hàng và thêm sản phẩm vào giỏ hàng!');
+            const customerIndex = document.getElementById("transactionCustomer").value;
+            if (customerIndex === "") {
+                alert("Vui lòng chọn khách hàng");
                 return;
             }
-            const customer = customers.find(c => c.code === selectedCustomerCode);
-            const items = cart.map(item => `${products[item.code].name} x${item.quantity}`).join(', ');
-            const total = cart.reduce((sum, item) => sum + products[item.code].price * item.quantity, 0);
-            transactionHistory.push({ customer: customer.name, items, total });
-            renderTransactionHistory();
-            cart.length = 0;
+            if (cart.length === 0) {
+                alert("Giỏ hàng đang trống");
+                return;
+            }
+            const customer = customers[customerIndex];
+            const total = getCartTotal();
+
+            // Lưu giao dịch
+            const transaction = {
+                customer,
+                items: cart.map(i => {
+                    const p = products.find(x => x.id === i.productId);
+                    return { product: p, qty: i.qty };
+                }),
+                total
+            };
+            transactions.push(transaction);
+
+            // Xóa giỏ hàng
+            cart = [];
             renderCart();
-            alert('Giao dịch đã được lưu!');
+            updateTransactionTotal();
+            renderTransactionHistory();
+            alert("Giao dịch hoàn tất!");
         }
 
+        // Lịch sử giao dịch
         function renderTransactionHistory() {
-            const history = document.getElementById('transactionHistory');
-            history.innerHTML = '';
-            transactionHistory.forEach(t => {
-                history.innerHTML += `<tr>
-                    <td>${t.customer}</td>
-                    <td>${t.items}</td>
-                    <td>${t.total.toLocaleString()} VND</td>
-                </tr>`;
+            const tbody = document.getElementById("transactionHistory");
+            tbody.innerHTML = "";
+            transactions.forEach(t => {
+                const tr = document.createElement("tr");
+                const productList = t.items.map(i => `${i.product.name} x${i.qty}`).join(", ");
+                tr.innerHTML = `
+                    <td>${t.customer.name}</td>
+                    <td>${productList}</td>
+                    <td>${t.total.toLocaleString()}</td>
+                `;
+                tbody.appendChild(tr);
             });
         }
 
+        // In hóa đơn (mở popup in)
+        function printInvoice() {
+            if (transactions.length === 0) {
+                alert("Chưa có giao dịch nào để in");
+                return;
+            }
+            const lastTrans = transactions[transactions.length - 1];
+
+            let html = `
+                <html>
+                <head>
+                    <title>Hóa Đơn ShopGold</title>
+                    <style>
+                        body { font-family: Arial, sans-serif; padding: 20px; }
+                        h1 { color: #D7A61E; }
+                        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+                        th, td { border: 1px solid #ddd; padding: 10px; text-align: center; }
+                        th { background: #D7A61E; color: #fff; }
+                        .total { font-weight: 700; margin-top: 20px; text-align: right; }
+                    </style>
+                </head>
+                <body>
+                    <h1>HÓA ĐƠN SHOPGOLD</h1>
+                    <p><strong>Khách hàng:</strong> ${lastTrans.customer.name}</p>
+                    <p><strong>Số điện thoại:</strong> ${lastTrans.customer.phone}</p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Tên sản phẩm</th>
+                                <th>Số lượng</th>
+                                <th>Đơn giá (VND)</th>
+                                <th>Thành tiền (VND)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+            `;
+
+            lastTrans.items.forEach(item => {
+                html += `
+                    <tr>
+                        <td>${item.product.name}</td>
+                        <td>${item.qty}</td>
+                        <td>${item.product.price.toLocaleString()}</td>
+                        <td>${(item.product.price * item.qty).toLocaleString()}</td>
+                    </tr>
+                `;
+            });
+
+            html += `
+                        </tbody>
+                    </table>
+                    <div class="total">Tổng cộng: ${lastTrans.total.toLocaleString()} VND</div>
+                    <p>Cảm ơn quý khách đã mua hàng!</p>
+                </body>
+                </html>
+            `;
+
+            const w = window.open("", "_blank");
+            w.document.write(html);
+            w.document.close();
+            w.focus();
+            w.print();
+        }
+
+        // Chuyển tab
+        const menuItems = document.querySelectorAll(".menu li");
+        menuItems.forEach(item => {
+            item.addEventListener("click", () => {
+                menuItems.forEach(i => i.classList.remove("active"));
+                item.classList.add("active");
+
+                const sectionId = item.getAttribute("data-section");
+                document.querySelectorAll("section").forEach(sec => {
+                    sec.classList.remove("active");
+                });
+                const showSection = document.getElementById(sectionId);
+                if (showSection) {
+                    showSection.classList.add("active");
+                }
+
+                if(sectionId === "products") renderProducts();
+                if(sectionId === "customers") renderCustomers();
+                if(sectionId === "cart") renderCart();
+                if(sectionId === "history") renderTransactionHistory();
+                updateTransactionTotal();
+            });
+        });
+
+        // Khởi tạo mặc định
         renderProducts();
         renderCustomers();
-        renderCustomerSelect();
         renderCart();
-        renderTransactionHistory();     
-
+        renderTransactionHistory();
+        updateTransactionTotal();
     </script>
-    
 </body>
 
 </html>
