@@ -2,6 +2,7 @@
 <html lang="vi">
 
 <head>
+<<<<<<< HEAD
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>ShopGold TNV - Quản lý</title>
@@ -34,6 +35,64 @@
             flex-direction: column;
             padding: 20px;
             user-select: none;
+=======
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopGold PNJ</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            background: linear-gradient(-45deg, #D7A61E, #E7C277, #F2D6A0, #F6E0B7, #F0E8DE);
+            background-size: 300% 300%;
+            animation: gradientFlow 12s ease infinite;
+            color: #333;
+        }
+
+        @keyframes gradientFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        header {
+            background: linear-gradient(90deg, #D7A61E, #E7C277);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            font-size: 2.5rem;
+            letter-spacing: 1px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            background: #333;
+            padding: 15px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 30px;
+            transition: background 0.3s;
+        }
+
+        nav a:hover {
+            background: #575757;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 40px 20px;
+>>>>>>> 4ca4b72 (vy commit)
         }
 
         .sidebar h2 {
@@ -86,6 +145,7 @@
         /* Table */
         table {
             width: 100%;
+<<<<<<< HEAD
             border-collapse: collapse;
             margin-top: 10px;
         }
@@ -94,13 +154,45 @@
             padding: 10px 12px;
             border-bottom: 1px solid #ddd;
             text-align: center;
+=======
+            border-spacing: 0 15px;
+            margin-top: 20px;
+>>>>>>> 4ca4b72 (vy commit)
         }
 
         th {
             background: linear-gradient(90deg, #D7A61E, #E7C277);
             color: #1a1a1a;
+<<<<<<< HEAD
             text-transform: uppercase;
             border-radius: 8px 8px 0 0;
+=======
+            padding: 15px;
+            text-align: center;
+            border-radius: 12px;
+            text-transform: uppercase;
+        }
+
+        td {
+            background: #fff;
+            text-align: center;
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        tr:hover td {
+            transform: translateY(-5px);
+        }
+
+        img.product-img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+>>>>>>> 4ca4b72 (vy commit)
         }
 
         tr:hover {
@@ -109,6 +201,7 @@
 
         /* Buttons */
         .btn {
+<<<<<<< HEAD
             background: #D7A61E;
             border: none;
             color: white;
@@ -199,6 +292,26 @@
 
         .btn-print:hover {
             background: #2980b9;
+=======
+            background: linear-gradient(45deg, #E7C277, #D7A61E);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .print-btn {
+            background: linear-gradient(45deg, #F6E0B7, #F0E8DE);
+            color: #333;
+            margin-top: 20px;
+>>>>>>> 4ca4b72 (vy commit)
         }
     </style>
 </head>
@@ -233,6 +346,7 @@
                 <h1>Danh Sách Sản Phẩm</h1>
                 <button class="btn btn-add" onclick="showAddProductForm()">Thêm Sản Phẩm</button>
 
+<<<<<<< HEAD
                 <table>
                     <thead>
                         <tr>
@@ -245,6 +359,23 @@
                     </thead>
                     <tbody id="productList"></tbody>
                 </table>
+=======
+        <section id="products">
+            <h2>Sản Phẩm</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Mã SP</th>
+                           <th>Hinh Anh</th>
+                        <th>Tên Sản Phẩm</th>
+                        <th>Giá</th>
+                        <th>Hành Động</th>
+                    </tr>
+                </thead>
+                <tbody id="productList"></tbody>
+            </table>
+        </section>
+>>>>>>> 4ca4b72 (vy commit)
 
                 <!-- Form thêm sửa sản phẩm -->
                 <div id="productFormContainer" style="margin-top:20px; display:none;">
@@ -330,17 +461,34 @@
     </div>
 
     <script>
+<<<<<<< HEAD
         // Data mẫu
         let products = [
             { id: "SP001", name: "Nhẫn Vàng 24K", price: 5000000, image: "https://via.placeholder.com/80?text=Nhẫn" },
             { id: "SP002", name: "Dây Chuyền Vàng", price: 7000000, image: "https://via.placeholder.com/80?text=Dây+Chuyền" },
             { id: "SP003", name: "Bông Tai Vàng", price: 3000000, image: "https://via.placeholder.com/80?text=Bông+Tai" }
         ];
+=======
+        const products = {
+    'SP001': { name: 'Nhẫn Vàng 24K', price: 5000000, image: 'images/nhan-vang-24k.jpg' },
+    'SP002': { name: 'Dây Chuyền Vàng Ý', price: 7500000, image: 'images/day-chuyen-vang-y.jpg' },
+    'SP003': { name: 'Bông Tai Vàng Trắng', price: 3200000, image: 'images/bong-tai-vang-trang.jpg' },
+    'SP004': { name: 'Lắc Tay Vàng 18K', price: 6800000, image: 'images/lac-tay-vang-18k.jpg' },
+    'SP005': { name: 'Nhẫn Kim Cương PNJ', price: 15000000, image: 'images/nhan-kim-cuong.jpg' },
+    'SP006': { name: 'Vòng Cổ Kim Cương 18K', price: 25000000, image: 'images/vong-co-kim-cuong.jpg' },
+    'SP007': { name: 'Lắc Chân Vàng Hồng', price: 4500000, image: 'images/lac-chan-vang-hong.jpg' },
+    'SP008': { name: 'Nhẫn Vàng Ý 14K', price: 4200000, image: 'images/nhan-vang-y-14k.jpg' },
+    'SP009': { name: 'Vòng Tay Vàng Hoa Văn', price: 8800000, image: 'images/vong-tay-hoa-van.jpg' },
+    'SP010': { name: 'Vòng Kiềng', price: 8800000, image: 'images/vong-kieng.jpg' }
+};
+
+>>>>>>> 4ca4b72 (vy commit)
 
         let customers = [];
         let cart = [];
         let transactions = [];
 
+<<<<<<< HEAD
         // Hiển thị danh sách sản phẩm
         function renderProducts() {
             const tbody = document.getElementById("productList");
@@ -455,6 +603,22 @@
                 sel.innerHTML += `<option value="${i}">${c.name} - ${c.phone}</option>`;
             });
         }
+=======
+function renderProducts() {
+    const productList = document.getElementById('productList');
+    productList.innerHTML = '';
+    Object.keys(products).forEach(code => {
+        const p = products[code];
+        productList.innerHTML += `<tr>
+            <td>${code}</td>
+            <td><img src="${p.image}" alt="${p.name}" style="width:80px; height:auto; border-radius:8px;"></td>
+            <td>${p.name}</td>
+            <td>${p.price.toLocaleString()} VND</td>
+            <td><button class="btn" onclick="addToCart('${code}')">Thêm vào giỏ</button></td>
+        </tr>`;
+    });
+}
+>>>>>>> 4ca4b72 (vy commit)
 
         function addCustomer() {
             const name = document.getElementById("customerName").value.trim();
@@ -683,10 +847,18 @@
         // Khởi tạo mặc định
         renderProducts();
         renderCustomers();
+<<<<<<< HEAD
         renderCart();
         renderTransactionHistory();
         updateTransactionTotal();
+=======
+        renderCustomerSelect();
+        renderCart();
+        renderTransactionHistory();     
+
+>>>>>>> 4ca4b72 (vy commit)
     </script>
+    
 </body>
 
 </html>
