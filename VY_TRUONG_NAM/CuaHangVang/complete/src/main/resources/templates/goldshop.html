@@ -4,74 +4,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ShopGold - Sản Phẩm 3D</title>
+    <title>ShopGold PNJ</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
         body {
-            margin: 0;
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #f9f7f7, #ffeaa7);
+            margin: 0;
+            background: linear-gradient(-45deg, #D7A61E, #E7C277, #F2D6A0, #F6E0B7, #F0E8DE);
+            background-size: 300% 300%;
+            animation: gradientFlow 12s ease infinite;
             color: #333;
         }
 
+        @keyframes gradientFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
         header {
-            background: linear-gradient(45deg, #ffcc00, #f1c40f);
-            padding: 30px;
-            text-align: center;
+            background: linear-gradient(90deg, #D7A61E, #E7C277);
             color: white;
-            font-size: 2em;
-            font-weight: bold;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            padding: 40px 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            font-size: 2.5rem;
+            letter-spacing: 1px;
         }
 
         nav {
-            background: #2c3e50;
             display: flex;
             justify-content: center;
             gap: 20px;
-            padding: 15px 0;
+            background: #333;
+            padding: 15px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
         }
 
         nav a {
-            color: #ecf0f1;
+            color: #fff;
             text-decoration: none;
-            font-weight: 500;
             padding: 10px 20px;
-            border-radius: 10px;
+            border-radius: 30px;
             transition: background 0.3s;
         }
 
         nav a:hover {
-            background: #34495e;
+            background: #575757;
         }
 
         .container {
-            padding: 40px;
             max-width: 1200px;
             margin: auto;
+            padding: 40px 20px;
         }
 
         table {
             width: 100%;
-            border-collapse: separate;
-            border-spacing: 0 20px;
+            border-spacing: 0 15px;
+            margin-top: 20px;
         }
 
         th {
-            background: #f7ca18;
-            color: white;
+            background: linear-gradient(90deg, #D7A61E, #E7C277);
+            color: #1a1a1a;
             padding: 15px;
             text-align: center;
-            border-radius: 12px 12px 0 0;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            text-transform: uppercase;
         }
 
         td {
-            background: white;
-            padding: 15px;
+            background: #fff;
             text-align: center;
-            vertical-align: middle;
+            padding: 15px;
             border-radius: 12px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s;
         }
 
@@ -80,25 +89,32 @@
         }
 
         img.product-img {
-            width: 100px;
-            height: auto;
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
         .btn {
-            background: linear-gradient(45deg, #f39c12, #e67e22);
+            background: linear-gradient(45deg, #E7C277, #D7A61E);
             color: white;
             padding: 10px 20px;
             border: none;
-            border-radius: 8px;
+            border-radius: 10px;
             cursor: pointer;
             transition: transform 0.3s, box-shadow 0.3s;
         }
 
         .btn:hover {
-            transform: translateY(-2px);
+            transform: translateY(-3px);
             box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .print-btn {
+            background: linear-gradient(45deg, #F6E0B7, #F0E8DE);
+            color: #333;
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -353,7 +369,13 @@ function renderProducts() {
         }
 
         renderProducts();
+        renderCustomers();
+        renderCustomerSelect();
+        renderCart();
+        renderTransactionHistory();     
+
     </script>
+    
 </body>
 
 </html>
