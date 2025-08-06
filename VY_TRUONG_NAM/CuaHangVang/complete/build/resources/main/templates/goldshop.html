@@ -25,6 +25,8 @@
             overflow: hidden;
         }
 
+
+        
         /* Sidebar */
         .sidebar {
             width: 220px;
@@ -62,6 +64,91 @@
         .menu li:hover, .menu li.active {
             background: rgba(255 255 255 / 0.3);
         }
+/* xoo */
+
+
+      /* Navbar */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(180deg, #D7A61E, #E7C277);
+    color: white;
+    padding: 10px 30px;
+    height: 60px;
+}
+
+.navbar h2 {
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.navbar .menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.navbar .menu li {
+    cursor: pointer;
+    padding: 8px 15px;
+    border-radius: 6px;
+    transition: background 0.3s;
+    font-weight: 500;
+}
+
+.navbar .menu li:hover,
+.navbar .menu li.active {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Loại bỏ sidebar cũ */
+.sidebar {
+    display: none;
+}
+
+/* Điều chỉnh bố cục */
+.app-container {
+    display: block;
+    height: 100vh;
+    overflow: hidden;
+}
+
+
+
+/* silde */
+/* Slide ảnh trang chủ */
+.slider {
+    width: 100%;
+    
+    height: 600px;
+    margin: 20px auto;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.slides {
+    display: flex;
+    width: 100%;
+    animation: slideAnimation 12s infinite;
+}
+
+.slides img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+@keyframes slideAnimation {
+    0% { transform: translateX(0%); }
+    33.333% { transform: translateX(0%); }
+    44.444% { transform: translateX(-100%); }
+    77.777% { transform: translateX(-100%); }
+    88.888% { transform: translateX(-200%); }
+    100% { transform: translateX(-200%); }
+}
+
 
         /* Main content */
         .main-content {
@@ -205,17 +292,17 @@
 
 <body>
     <div class="app-container">
-        <aside class="sidebar">
-            <h2>ShopGold TNV</h2>
-            <ul class="menu">
-                <li class="active" data-section="home">Trang Chủ</li>
-                <li data-section="products">Sản Phẩm</li>
-                <li data-section="customers">Khách Hàng</li>
-                <li data-section="cart">Giỏ Hàng</li>
-                <li data-section="transactions">Giao Dịch</li>
-                <li data-section="history">Lịch Sử</li>
-            </ul>
-        </aside>
+      <div class="navbar">
+    <h2>ShopGold TNV</h2>
+    <ul class="menu">
+        <li class="active" data-section="home">Trang Chủ</li>
+        <li data-section="products">Sản Phẩm</li>
+        <li data-section="customers">Khách Hàng</li>
+        <li data-section="cart">Giỏ Hàng</li>
+        <li data-section="transactions">Giao Dịch</li>
+        <li data-section="history">Lịch Sử</li>
+    </ul>
+</div>
 
         <div class="main-content">
             <div class="header">
@@ -223,10 +310,20 @@
             </div>
 
             <!-- Trang chủ -->
-            <section id="home" class="active">
-                <h1>Chào mừng bạn đến với ShopGold TNV</h1>
-                <p>Chuyên cung cấp các sản phẩm trang sức vàng cao cấp.</p>
-            </section>
+           <!-- Trang chủ -->
+<section id="home" class="active">
+    <h1>Chào mừng bạn đến với ShopGold TNV</h1>
+    <p>Chuyên cung cấp các sản phẩm trang sức vàng cao cấp.</p>
+
+    <div class="slider">
+        <div class="slides">
+            <img src="https://theme.hstatic.net/200000567741/1001359727/14/slide_2.jpg?v=194" alt="Slide 1">
+            <img src="https://theme.hstatic.net/200000567741/1001359727/14/slide_3.jpg?v=194" alt="Slide 2">
+            <img src="https://theme.hstatic.net/200000567741/1001359727/14/slide_4.jpg?v=194" alt="Slide 3">
+        </div>
+    </div>
+</section>
+
 
             <!-- Sản phẩm -->
             <section id="products">
