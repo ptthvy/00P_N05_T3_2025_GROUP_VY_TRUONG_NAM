@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>ShopGold TNV - Quản lý</title>
+    <title>𝘚𝘩𝘰𝘱𝘎𝘰𝘭𝘥 𝘛𝘕𝘝 - Quản lý</title>
     <style>
         /* Reset */
         * {
@@ -317,7 +317,7 @@
 <body>
     <div class="app-container">
       <div class="navbar">
-    <h2>ShopGold TNV</h2>
+    <h2>𝘚𝘩𝘰𝘱𝘎𝘰𝘭𝘥 𝘛𝘕𝘝</h2>
     <ul class="menu">
         <li class="active" data-section="home">Trang Chủ</li>
         <li data-section="products">Sản Phẩm</li>
@@ -354,6 +354,7 @@
             <!-- Sản phẩm -->
             <section id="products" style="margin-top: 40px;">
                 <h1>Danh Sách Sản Phẩm</h1>
+                <h2>𝑪𝒉𝒖𝒚𝒆̂𝒏 𝑪𝒖𝒏𝒈 𝑪𝒂̂́𝒑 𝑽𝒂̀𝒏𝒈 𝑩𝒂̣𝒄 𝑪𝒂𝒐 𝑪𝒂̂́𝒑</h2>
                 <button class="btn btn-add" onclick="showAddProductForm()">Thêm Sản Phẩm</button>
 
                 <table>
@@ -405,7 +406,7 @@
 
             <!-- Giỏ hàng -->
             <section id="cart" style="margin-top: 40px;">
-                <h1>Giỏ Hàng</h1>
+                <h1>𝘎𝘪𝘰̉ 𝘏𝘢̀𝘯𝘨</h1>
                 <table>
                     <thead>
                         <tr>
@@ -458,9 +459,11 @@
     <script>
         // Data mẫu
         let products = [
-            { id: "SP001", name: "Nhẫn Vàng 24K", price: 5000000, image: "https://via.placeholder.com/80?text=Nhẫn" },
-            { id: "SP002", name: "Dây Chuyền Vàng", price: 7000000, image: "https://via.placeholder.com/80?text=Dây+Chuyền" },
-            { id: "SP003", name: "Bông Tai Vàng", price: 3000000, image: "https://via.placeholder.com/80?text=Bông+Tai" }
+            { id: "SP001", name: "Nhẫn Vàng 24K", price: 8000000, image: "https://cdn.pnj.io/images/detailed/113/gn0000y001737-nhan-vang-24k-pnj-1.png" },
+            { id: "SP002", name: "Dây Chuyền Vàng", price: 14000000, image: "https://cdn.pnj.io/images/detailed/100/gd0000y007840-day-chuyen-vang-24k-pnj-1.png" },
+            { id: "SP003", name: "Bông Tai Vàng", price: 5400000, image: "https://locphuc.com.vn/Content/Images/San-pham-lan-21/Bong-tai-nu-vang-18K-VEA0860E-LP03200014-g1.jpg" },
+            { id: "SP004", name: "Lắc Tay Vàng", price: 6500000, image: "https://cdn.pnj.io/images/detailed/116/gl0000y001844-lac-tay-vang-18k-pnj-1.png" }
+
         ];
 
         let customers = [];
@@ -729,7 +732,7 @@
             let html = `
                 <html>
                 <head>
-                    <title>Hóa Đơn ShopGold</title>
+                    <title>Hóa Đơn ShopGold TNV</title>
                     <style>
                         body { font-family: Arial, sans-serif; padding: 20px; }
                         h1 { color: #D7A61E; }
@@ -740,7 +743,7 @@
                     </style>
                 </head>
                 <body>
-                    <h1>HÓA ĐƠN SHOPGOLD</h1>
+                    <h1>HÓA ĐƠN SHOPGOLD TNV</h1>
                     <p><strong>Khách hàng:</strong> ${lastTrans.customer.name}</p>
                     <p><strong>Số điện thoại:</strong> ${lastTrans.customer.phone}</p>
                     <table>
