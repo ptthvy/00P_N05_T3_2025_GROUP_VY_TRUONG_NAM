@@ -12,7 +12,7 @@ Sơ đồ chức năng
 
 <img src='anh/Class Diagram.jpg'>
 
-Sơ đồ hoạt động 
+HÌNH 1: Sơ đồ chức năng ( sơ đồ lớp liên quan tới 3 đối tượng chính của ứng dụng ) 
 
 <img src='anh/Sequence Diagram.jpg'>
 
