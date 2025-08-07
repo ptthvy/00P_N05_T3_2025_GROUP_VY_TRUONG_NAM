@@ -22,7 +22,6 @@
         .app-container {
             display: flex;
             height: 100vh;
-            overflow: hidden;
         }
 
 
@@ -76,6 +75,11 @@
     color: white;
     padding: 10px 30px;
     height: 60px;
+      position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999; /* để nằm trên cùng */
 }
 
 .navbar h2 {
@@ -111,7 +115,7 @@
 .app-container {
     display: block;
     height: 100vh;
-    overflow: hidden;
+    
 }
 
 
@@ -120,12 +124,12 @@
 /* Slide ảnh trang chủ */
 .slider {
     width: 100%;
-    
-    height: 600px;
-    margin: 20px auto;
+    margin-top: 45px;
+    margin-bottom: 10px;
     overflow: hidden;
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    object-fit: cover;
 }
 
 .slides {
@@ -149,6 +153,24 @@
     100% { transform: translateX(-200%); }
 }
 
+/* image */
+.below-images {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+
+.below-images img {
+    max-width: 100%;
+    width: 850px;
+    height: auto;
+    border-radius: 12px;
+    object-fit: cover;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
 
         /* Main content */
         .main-content {
@@ -287,6 +309,105 @@
         .btn-print:hover {
             background: #2980b9;
         }
+
+
+        /* footer */
+        .footer {
+      background: #f5f5f5;
+      padding: 40px 20px;
+      font-size: 14px;
+      color: #333;
+       position: relative;
+      margin-top: 100px;
+    }
+
+    .main-footer {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-col {
+      flex: 1 1 250px;
+      min-width: 250px;
+    }
+
+    .footer-title span {
+      font-weight: bold;
+      font-size: 16px;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .footer-contact ul,
+    .footer-content ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer-contact li,
+    .footer-content li {
+      margin-bottom: 6px;
+    }
+
+    .footer-content a {
+      text-decoration: none;
+      color: #333;
+    }
+
+    .footer-content a:hover {
+      text-decoration: underline;
+    }
+
+    .flex-row {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-top: 15px;
+      flex-wrap: wrap;
+    }
+
+    .socials-box {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .socials-box a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .footer-block {
+      margin-bottom: 30px;
+    }
+
+    .footer-title.margin-top-paymentsz {
+      margin-top: 20px;
+    }
+
+    .footer-logo img {
+      width: 207px;
+      height: auto;
+    }
+
+    @media (max-width: 768px) {
+      .footer-row {
+        flex-direction: column;
+      }
+
+      .footer-col {
+        width: 100%;
+      }
+    }
+        /* footer end */
     </style>
 </head>
 
@@ -305,27 +426,24 @@
 </div>
 
         <div class="main-content">
-            <div class="header">
-                Admin
-            </div>
+          
 
             <!-- Trang chủ -->
            <!-- Trang chủ -->
 <section id="home" class="active">
-    <h1>Chào mừng bạn đến với ShopGold TNV</h1>
 
     <div class="slider">
         <div class="slides">
-            <img src="https://theme.hstatic.net/200000567741/1001359727/14/slide_2.jpg?v=194" alt="Slide 1">
+            <img src="https://theme.hstatic.net/200000567741/1001359727/14/index_coll_tsvt_img.jpg?v=194" alt="Slide 1">
             <img src="https://theme.hstatic.net/200000567741/1001359727/14/slide_3.jpg?v=194" alt="Slide 2">
             <img src="https://theme.hstatic.net/200000567741/1001359727/14/slide_4.jpg?v=194" alt="Slide 3">
         </div>
     </div>
-    </div>
        <div class="below-images">
-        <img src="https://theme.hstatic.net/200000567741/1001359727/14/index_banner_1_grande.jpg?v=194" alt="Ảnh phụ 1">
-        <img src="https://theme.hstatic.net/200000567741/1001359727/14/index_banner_2_grande.jpg?v=194" alt="Ảnh phụ 2">
-    </div>
+        <img src="https://file.hstatic.net/200000567741/collection/19_ts_cuoi_24k_db3d7fbe5ce14abc9907ff3d197175bf.jpeg" alt="Ảnh phụ 1">
+        <img src="https://file.hstatic.net/200000567741/collection/2_1920x450_f31907f0a160472f828d8930d80b2dfa.jpeg" alt="Ảnh phụ 2">
+        </div>
+ 
     
 </section>
 
@@ -430,6 +548,82 @@
             </section>
         </div>
     </div>
+
+
+     <footer class="footer">
+  <div class="main-footer">
+    <div class="footer-row">
+      
+      <div class="footer-col">
+        <div class="footer-title">
+          <a href="/" class="footer-logo">
+            <img src="//theme.hstatic.net/200000567741/1001359727/14/footer_top_2.png?v=194" alt="DOJI Gold &amp; Gems Group">
+          </a>
+        </div>
+        <div class="footer-content footer-contact">
+          <ul>
+            <li>Công ty Cổ phần Tập Đoàn Vàng Bạc Đá Quý DOJI</li>
+            <li>Địa chỉ: Tòa nhà DOJI Tower, Số 5 Lê Duẩn, Ba Đình, Hà Nội</li>
+            <li>Điện thoại: 1800 1168</li>
+            <li>Email: info@doji.vn</li>
+            <li>GCN ĐKDN: 0100365621 Ngày cấp 11/04/2007 nơi cấp Sở Kế hoạch và Đầu tư thành phố Hà Nội</li>
+          </ul>
+        
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-block">
+          <div class="footer-title"><span>Về chúng tôi</span></div>
+          <div class="footer-content">
+            <ul>
+              <li><a href="/pages/ve-trang-suc-doji">Về trang sức DOJI</a></li>
+              <li><a href="/pages/kinh-doanh-ban-si">Kinh doanh bán sỉ</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-block">
+          <div class="footer-title"><span>Dịch vụ khách hàng</span></div>
+          <div class="footer-content">
+            <ul>
+              <li><a href="/pages/dieu-khoan-mua-ban">Điều khoản mua bán</a></li>
+              <li><a href="/pages/doji-elite-club-1">DOJI Elite Club</a></li>
+              <li><a href="/pages/chinh-sach-bao-hanh-1">Chính sách &amp; Bảo hành</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-block">
+          <div class="footer-title"><span>Tin tức</span></div>
+          <div class="footer-content">
+            <ul>
+              <li><a href="/blogs/blog">Blog</a></li>
+              <li><a href="/blogs/tin-khuyen-mai">Tin khuyến mãi</a></li>
+              <li><a href="/blogs/tin-trang-suc">Tin trang sức</a></li>
+            </ul>
+          </div>
+        </div>
+
+
+        <div class="footer-block">
+          <div class="footer-title margin-top-paymentsz"><span>Phương thức thanh toán</span></div>
+          <div class="footer-content">
+            <div class="socials-box">
+              <a href="/"><img src="//theme.hstatic.net/200000567741/1001359727/14/footer_payments_1_small.png?v=194" alt="Visa" width="35" height="35"></a>
+              <a href="/"><img src="//theme.hstatic.net/200000567741/1001359727/14/footer_payments_2_small.png?v=194" alt="Mastercard" width="35" height="35"></a>
+              <a href="/"><img src="//theme.hstatic.net/200000567741/1001359727/14/footer_payments_3_small.png?v=194" alt="VNPAY" width="35" height="35"></a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</footer>
 
     <script>
         // Data mẫu
