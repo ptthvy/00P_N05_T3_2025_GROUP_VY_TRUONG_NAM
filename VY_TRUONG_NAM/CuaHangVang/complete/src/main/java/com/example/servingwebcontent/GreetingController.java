@@ -78,8 +78,6 @@ public class GreetingController {
         quanLyGiaoDich.them(gd); // Thêm vào danh sách quản lý
         return "redirect:/goldshop";
     }
-
-    // Trang chính hiển thị danh sách
     @GetMapping("/goldshop")
     public String goldshop(Model model) {
         model.addAttribute("products", quanLySanPham.getDanhSach());
