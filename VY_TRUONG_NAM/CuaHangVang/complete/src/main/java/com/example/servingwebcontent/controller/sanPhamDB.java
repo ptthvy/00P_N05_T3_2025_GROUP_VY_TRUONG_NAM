@@ -6,8 +6,7 @@ import com.example.servingwebcontent.model.SanPham;
 
 public class sanPhamDB {
 
-    public List<SanPham> getAllSanPham() {
-        // TODO Auto-generated method stub
+    public List<SanPham> getAllSanPham() { 
         throw new UnsupportedOperationException("Unimplemented method 'getAllSanPham'");
     }
 
