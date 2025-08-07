@@ -20,9 +20,9 @@ public class GreetingController {
     private static final QuanLyGiaoDich quanLyGiaoDich = new QuanLyGiaoDich();
 
     static {
-        quanLySanPham.them(new SanPham("Nhẫn vàng 24K", 70000000));
-        quanLySanPham.them(new SanPham("Dây chuyền vàng Ý", 750000000));
-          quanLySanPham.them(new SanPham("Vòng Kiềng", 300000000));
+        quanLySanPham.them(new SanPham("Nhẫn vàng 24K", 80000000));
+        quanLySanPham.them(new SanPham("Dây chuyền vàng Ý", 950000000));
+          quanLySanPham.them(new SanPham("Vòng Kiềng", 400000000));
         quanLyKhachHang.them(new KhachHang("Nguyễn Văn A", "0909123456"));
         quanLyKhachHang.them(new KhachHang("Trần Thị B", "0912345678"));
         quanLyGiaoDich.them(new GiaoDich(
