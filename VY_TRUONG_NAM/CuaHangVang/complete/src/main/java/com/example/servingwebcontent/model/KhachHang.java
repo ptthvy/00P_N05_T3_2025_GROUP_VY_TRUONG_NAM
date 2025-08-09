@@ -13,4 +13,19 @@ public class KhachHang {
     public String getPhone() { return phone; }
     public void setName(String name) { this.name = name; }
     public void setPhone(String phone) { this.phone = phone; }
+
+    public void setDiaChi(String diaChi) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'setDiaChi'");
+    }
+
+    public void setSoDienThoai(String soDienThoai) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'setSoDienThoai'");
+    }
+
+    public void setTen(String ten) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'setTen'");
+    }
 }

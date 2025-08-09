@@ -21,4 +21,19 @@ public class SanPham {
     public void setName(String name) { this.name = name; }
     public void setPrice(double price) { this.price = price; }
     public void setImageUrl(String imageUrl) { this.imageUrl = imageUrl; }
+
+    public void setTen(String ten) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'setTen'");
+    }
+
+    public void setGia(double gia) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'setGia'");
+    }
+
+    public void setSoLuong(int soLuong) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'setSoLuong'");
+    }
 }

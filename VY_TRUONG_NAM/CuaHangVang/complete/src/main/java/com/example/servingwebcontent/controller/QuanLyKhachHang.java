@@ -6,12 +6,33 @@ import java.util.ArrayList;
 public class QuanLyKhachHang {
     private ArrayList<KhachHang> danhSach = new ArrayList<>();
 
-    public void them(KhachHang kh) { danhSach.add(kh); }
+    public void them(KhachHang kh) {
+        danhSach.add(kh);
+    }
+
     public void sua(int index, KhachHang kh) {
-        if (index >= 0 && index < danhSach.size()) danhSach.set(index, kh);
+        if (index >= 0 && index < danhSach.size()) {
+            danhSach.set(index, kh);
+        }
     }
+
+   
+    public void capNhat(int index, String ten, String diaChi, String soDienThoai) {
+        if (index >= 0 && index < danhSach.size()) {
+            KhachHang kh = danhSach.get(index);
+            if (ten != null && !ten.isEmpty()) kh.setTen(ten);
+            if (diaChi != null && !diaChi.isEmpty()) kh.setDiaChi(diaChi);
+            if (soDienThoai != null && !soDienThoai.isEmpty()) kh.setSoDienThoai(soDienThoai);
+        }
+    }
+
     public void xoa(int index) {
-        if (index >= 0 && index < danhSach.size()) danhSach.remove(index);
+        if (index >= 0 && index < danhSach.size()) {
+            danhSach.remove(index);
+        }
     }
-    public ArrayList<KhachHang> getDanhSach() { return danhSach; }
+
+    public ArrayList<KhachHang> getDanhSach() {
+        return danhSach;
+    }
 }

@@ -23,4 +23,19 @@ public class GiaoDich {
     public double tinhTongTien() {
         return sanPham.getPrice() * soLuong;
     }
+
+    public void setTenGiaoDich(String tenGD) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'setTenGiaoDich'");
+    }
+
+    public void setSoTien(double soTien) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'setSoTien'");
+    }
+
+    public void setNgayGiaoDich(String ngayGD) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'setNgayGiaoDich'");
+    }
 }
