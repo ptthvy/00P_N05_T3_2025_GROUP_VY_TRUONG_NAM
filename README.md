@@ -10,7 +10,7 @@ Xây dựng ứng dụng Quản lí cửa hàng bán Vàng
 
 HÌNH 1: Sơ đồ chức năng ( sơ đồ lớp liên quan tới 3 đối tượng chính của ứng dụng ) 
 
-<img src='Anh/Sơ ĐỒ CHỨC NĂNG.png'>
+<img src='Anh/SƠ ĐỒ CHỨC NĂNG.jpg'>
 
 HÌNH 2 : Sơ đồ thuật toán Đặt hàng ( Sơ đồ liên quan đến chức năng hoạt động chính của hệ thống)
 
