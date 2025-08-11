@@ -12,9 +12,9 @@ HÌNH 1: Sơ đồ chức năng ( sơ đồ lớp liên quan tới 3 đối tư�
 
 <img src='Anh/Sơ ĐỒ CHỨC NĂNG.png'>
 
-HÌNH 2 : Sơ đồ thuật toán ( Sơ đồ liên quan đến chức năng hoạt dộng chính của hệ thống)
+HÌNH 2 : Sơ đồ thuật toán Đặt hàng ( Sơ đồ liên quan đến chức năng hoạt động chính của hệ thống)
 
-<img src='Anh/Sơ Đồ Thuật Toán 3 đối tượng.jpg'>
+<img src=''>
 
 1. Khách Hàng
    TenKH : STring
