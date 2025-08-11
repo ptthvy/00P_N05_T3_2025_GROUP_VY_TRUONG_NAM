@@ -57,12 +57,12 @@ Hình 3: Sơ Đồ Thuật Toán Delete Khách Hàng
 
 Hình 4: Sơ Đồ Thuật Toán Create Sản Phẩm 
 
-< img src='Anh/So do thuat toan create san pham.jpg'>
+<img src='Anh/So do thuat toan create san pham.jpg'>
 
 
  Hình 5: Sơ Đồ Thuật Toán Update Sản Phẩm
 
- < img src= 'Anh/sodoupdate5.jpg'>
+ <img src='Anh/sodoupdate5.jpg'>
  
 3. Giao Dịch
    
