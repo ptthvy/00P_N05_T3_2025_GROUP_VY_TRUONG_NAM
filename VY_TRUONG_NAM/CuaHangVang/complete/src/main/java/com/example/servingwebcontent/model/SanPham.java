@@ -11,8 +11,12 @@ public class SanPham {
         this.imageUrl = imageUrl;
     }
 
-    public SanPham(int i, String name, double price, int j) {
+    public SanPham(String i, String name, double price, String j) {
         this(name, price, null);
+    }
+
+    public SanPham(int int1, String string, double double1, int int2) {
+        //TODO Auto-generated constructor stub
     }
 
     public String getName() { return name; }

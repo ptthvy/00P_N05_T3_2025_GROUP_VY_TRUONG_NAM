@@ -35,4 +35,24 @@ public class QuanLyKhachHang {
     public ArrayList<KhachHang> getDanhSach() {
         return danhSach;
     }
+
+    public Object getDanhSachKhachHang() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getDanhSachKhachHang'");
+    }
+
+    public void themKhachHang(String kh1) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'themKhachHang'");
+    }
+
+    public void themKhachHang(KhachHang kh1) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'themKhachHang'");
+    }
+
+    public void xoaKhachHang(String string) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'xoaKhachHang'");
+    }
 }

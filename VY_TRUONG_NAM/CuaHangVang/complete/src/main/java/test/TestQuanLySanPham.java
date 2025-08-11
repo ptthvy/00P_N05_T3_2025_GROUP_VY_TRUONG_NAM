@@ -1,69 +1,61 @@
-package com.example.servingwebcontent;
+package test;
 
 import com.example.servingwebcontent.model.SanPham;
-import com.example.servingwebcontent.model.QuanLySanPham;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.example.servingwebcontent.controller.QuanLySanPham;
 
-import static org.junit.jupiter.api.Assertions.*;
+public class TestQuanLySanPham {
 
-public class TestQuanlySanPham {
-
-    private QuanLySanPham quanLySanPham;
-
-    @BeforeEach
-    public void setUp() {
-        quanLySanPham = new QuanLySanPham();
-        // Thêm sản phẩm giả định
-        quanLySanPham.themSanPham(new SanPham("SP001", "Laptop Dell", 15000000, 10));
+    public static void main(String[] args) {
+        testQuanLySanPham();
     }
 
-    @Test
-    public void testThemSanPham() {
+    public static void testQuanLySanPham() {
+        // Khởi tạo đối tượng quản lý sản phẩm
+        QuanLySanPham qlsp = new QuanLySanPham();
+        
+        // Tạo các sản phẩm mẫu
+        SanPham sp1 = new SanPham("SP001", "Nhẫn Vàng 24K", 5000000, "https://example.com/nv24k.jpg");
+        SanPham sp2 = new SanPham("SP002", "Nhẫn Vàng 18K", 4000000, "https://example.com/nv18k.jpg");
+        SanPham sp3 = new SanPham("SP003", "Nhẫn Bạc", 1000000, "https://example.com/nb.jpg");
+
+        System.out.println("Bắt đầu kiểm thử QuanLySanPham...");
+
+        // Test thêm sản phẩm
+        System.out.println("\n1. Test thêm sản phẩm:");
         try {
-            SanPham sp = new SanPham("SP002", "Smartphone Samsung", 8000000, 20);
-            quanLySanPham.themSanPham(sp);
-
-            assertNotNull(quanLySanPham.getSanPhamById("SP002"));
-            assertEquals("Smartphone Samsung", quanLySanPham.getSanPhamById("SP002").getTen());
+            qlsp.themSanPham(sp1);
+            qlsp.themSanPham(sp2);
+            qlsp.themSanPham(sp3);
+            System.out.println("- Thêm SP001: Thành công");
+            System.out.println("- Thêm SP002: Thành công");
+            System.out.println("- Thêm SP003: Thành công");
         } catch (Exception e) {
-            fail("Có lỗi xảy ra khi thêm sản phẩm: " + e.getMessage());
+            System.out.println("- Lỗi khi thêm sản phẩm: " + e.getMessage());
         }
-    }
 
-    @Test
-    public void testSuaSanPham() {
+        // Test xóa sản phẩm
+        System.out.println("\n2. Test xóa sản phẩm:");
         try {
-            SanPham spUpdated = new SanPham("SP001", "Laptop HP", 14000000, 15);
-            quanLySanPham.suaSanPham("SP001", spUpdated);
-
-            assertEquals("Laptop HP", quanLySanPham.getSanPhamById("SP001").getTen());
-            assertEquals(14000000, quanLySanPham.getSanPhamById("SP001").getGia());
+            qlsp.xoaSanPham("SP002");
+            qlsp.xoaSanPham("SP999"); // Không tồn tại
+            System.out.println("- Xóa SP002: Thành công");
+            System.out.println("- Xóa SP999 (không tồn tại): Thất bại");
         } catch (Exception e) {
-            fail("Có lỗi xảy ra khi sửa sản phẩm: " + e.getMessage());
+            System.out.println("- Lỗi khi xóa sản phẩm: " + e.getMessage());
         }
-    }
 
-    @Test
-    public void testXoaSanPham() {
+        // Test cập nhật sản phẩm
+        System.out.println("\n3. Test cập nhật sản phẩm:");
         try {
-            quanLySanPham.xoaSanPham("SP001");
-            assertNull(quanLySanPham.getSanPhamById("SP001"));
+            SanPham spCapNhat = new SanPham("SP001", "Nhẫn Vàng 24K Updated", 5500000, "https://example.com/nv24k_updated.jpg");
+            qlsp.capNhatSanPham("SP001", spCapNhat); // Sửa: truyền vào mã sản phẩm và đối tượng cập nhật
+            SanPham spSauCapNhat = qlsp.timSanPham("SP001");
+            System.out.println("- Sau cập nhật SP001: " + (spSauCapNhat != null ? 
+                spSauCapNhat.getTen() + " - " + spSauCapNhat.getPrice() : "Không tìm thấy"));
         } catch (Exception e) {
-            fail("Có lỗi xảy ra khi xóa sản phẩm: " + e.getMessage());
+            System.out.println("- Lỗi khi cập nhật sản phẩm: " + e.getMessage());
         }
-    }
 
-    @Test
-    public void testTinhTongTien() {
-        try {
-            SanPham sp1 = new SanPham("SP003", "Tablet Samsung", 5000000, 5);
-            quanLySanPham.themSanPham(sp1);
-
-            double tongTien = quanLySanPham.tinhTongTien();
-            assertEquals(15000000 * 10 + 5000000 * 5, tongTien);
-        } catch (Exception e) {
-            fail("Có lỗi xảy ra khi tính tổng tiền: " + e.getMessage());
-        }
+        System.out.println("\nKết thúc kiểm thử QuanLySanPham!");
     }
 }

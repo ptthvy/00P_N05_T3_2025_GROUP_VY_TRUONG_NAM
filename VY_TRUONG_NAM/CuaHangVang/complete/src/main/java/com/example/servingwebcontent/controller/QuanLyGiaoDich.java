@@ -34,4 +34,30 @@ public class QuanLyGiaoDich {
     public ArrayList<GiaoDich> getDanhSach() {
         return danhSach;
     }
+
+    public void capNhatGiaoDich(int id, GiaoDich gdCapNhat) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'capNhatGiaoDich'");
+    }
+
+    public GiaoDich timGiaoDich(int id) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'timGiaoDich'");
+    }
+
+    public void xoaGiaoDich(int string) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'xoaGiaoDich'");
+    }
+
+  
+    public void xoaGiaoDich(String string) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'xoaGiaoDich'");
+    }
+
+    public void themGiaoDich(GiaoDich gd1) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'themGiaoDich'");
+    }
 }

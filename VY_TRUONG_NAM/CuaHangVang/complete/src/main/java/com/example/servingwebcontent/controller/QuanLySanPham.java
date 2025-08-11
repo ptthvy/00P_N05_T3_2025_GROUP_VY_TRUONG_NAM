@@ -35,4 +35,24 @@ public class QuanLySanPham {
     public ArrayList<SanPham> getDanhSach() {
         return danhSach;
     }
+
+    public void capNhatSanPham(String string, SanPham spCapNhat) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'capNhatSanPham'");
+    }
+
+    public SanPham timSanPham(String string) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'timSanPham'");
+    }
+
+    public void xoaSanPham(String string) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'xoaSanPham'");
+    }
+
+    public void themSanPham(SanPham sp2) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'themSanPham'");
+    }
 }
