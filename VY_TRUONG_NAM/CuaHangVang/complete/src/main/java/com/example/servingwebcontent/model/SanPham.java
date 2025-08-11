@@ -5,14 +5,18 @@ public class SanPham {
     private double price;
     private String imageUrl;
 
-    public SanPham(String name, double price, String imageUrl) {
+    public SanPham(String name, double price, String ten) {
         this.name = name;
         this.price = price;
-        this.imageUrl = imageUrl;
+        this.imageUrl = ten;
     }
 
     public SanPham(int i, String name, double price, int j) {
         this(name, price, null);
+    }
+
+    public SanPham(String ten, double gia, int soluong) {
+        //TODO Auto-generated constructor stub
     }
 
     public String getName() { return name; }
@@ -23,56 +27,26 @@ public class SanPham {
     public void setImageUrl(String imageUrl) { this.imageUrl = imageUrl; }
 
     public void setTen(String ten) {
-<<<<<<< HEAD
-        // TODO Auto-generated method stub
-=======
-        
->>>>>>> dfa3c77 (vy commit)
         throw new UnsupportedOperationException("Unimplemented method 'setTen'");
     }
 
     public void setGia(double gia) {
-<<<<<<< HEAD
-        // TODO Auto-generated method stub
-=======
-       
->>>>>>> dfa3c77 (vy commit)
         throw new UnsupportedOperationException("Unimplemented method 'setGia'");
     }
 
     public void setSoLuong(int soLuong) {
-<<<<<<< HEAD
-        // TODO Auto-generated method stub
-=======
-        
->>>>>>> dfa3c77 (vy commit)
         throw new UnsupportedOperationException("Unimplemented method 'setSoLuong'");
     }
 
     public String getTen() {
-<<<<<<< HEAD
-        // TODO Auto-generated method stub
-=======
-        
->>>>>>> dfa3c77 (vy commit)
         throw new UnsupportedOperationException("Unimplemented method 'getTen'");
     }
 
     public int getSoLuong() {
-<<<<<<< HEAD
-        // TODO Auto-generated method stub
-=======
-        
->>>>>>> dfa3c77 (vy commit)
         throw new UnsupportedOperationException("Unimplemented method 'getSoLuong'");
     }
 
     public double getGia() {
-<<<<<<< HEAD
-        // TODO Auto-generated method stub
-=======
-        
->>>>>>> dfa3c77 (vy commit)
         throw new UnsupportedOperationException("Unimplemented method 'getGia'");
     }
 }

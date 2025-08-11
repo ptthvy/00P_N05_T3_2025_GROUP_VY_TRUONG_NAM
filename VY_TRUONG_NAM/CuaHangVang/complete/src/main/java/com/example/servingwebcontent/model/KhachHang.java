@@ -3,20 +3,64 @@ package com.example.servingwebcontent.model;
 public class KhachHang {
     private String name;
     private String phone;
+    private String diaChi; // Đã thêm trường địa chỉ
+    private int id; // Thêm ID cho khách hàng
 
     public KhachHang(String name, String phone) {
         this.name = name;
         this.phone = phone;
     }
 
-    public String getName() { return name; }
-    public String getPhone() { return phone; }
-    public void setName(String name) { this.name = name; }
-    public void setPhone(String phone) { this.phone = phone; }
+    // Getters và Setters
+    public String getName() { 
+        return name; 
+    }
+
+    public String getPhone() { 
+        return phone; 
+    }
+
+    public void setName(String name) { 
+        this.name = name; 
+    }
+
+    public void setPhone(String phone) { 
+        this.phone = phone; 
+    }
+
+    // Phương thức setter và getter cho địa chỉ
+    public String getDiaChi() {
+        return diaChi;
+    }
 
     public void setDiaChi(String diaChi) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'setDiaChi'");
+        this.diaChi = diaChi;
+    }
+
+    // Phương thức setter và getter cho ID
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    // Các phương thức không cần thiết hoặc chưa triển khai
+    public void setTen(String id2) {
+        throw new UnsupportedOperationException("Unimplemented method 'setTen'");
+    }
+
+    public String getTen() {
+        throw new UnsupportedOperationException("Unimplemented method 'getTen'");
+    }
+
+    public void setSdt(String sdt) {
+        throw new UnsupportedOperationException("Unimplemented method 'setSdt'");
+    }
+
+    public String getSdt() {
+        throw new UnsupportedOperationException("Unimplemented method 'getSdt'");
     }
 
     public void setSoDienThoai(String soDienThoai) {
@@ -24,40 +68,8 @@ public class KhachHang {
         throw new UnsupportedOperationException("Unimplemented method 'setSoDienThoai'");
     }
 
-<<<<<<< HEAD
-    public void setTen(String ten) {
-=======
-    public void setTen(int id) {
->>>>>>> dfa3c77 (vy commit)
+    public void setTen(int id2) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'setTen'");
     }
-
-    public String getTen() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getTen'");
-    }
-
-    public String getSdt() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getSdt'");
-    }
-
-    public int getId() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getId'");
-    }
-<<<<<<< HEAD
-=======
-
-    public void setSdt(String string) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'setSdt'");
-    }
-
-    public void setTen(String string) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'setTen'");
-    }
->>>>>>> dfa3c77 (vy commit)
 }

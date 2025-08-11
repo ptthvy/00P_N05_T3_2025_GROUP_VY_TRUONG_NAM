@@ -1,12 +1,9 @@
 package com.example.servingwebcontent.model;
 
-import java.sql.Date;
 import java.time.LocalDateTime;
+import java.util.Date;
 
-<<<<<<< HEAD
-=======
 @SuppressWarnings("unused")
->>>>>>> dfa3c77 (vy commit)
 public class GiaoDich {
     private KhachHang khachHang;
     private SanPham sanPham;
@@ -20,67 +17,64 @@ public class GiaoDich {
         this.thoiGianGiaoDich = LocalDateTime.now();
     }
 
-<<<<<<< HEAD
-    public GiaoDich(int int1, int int2, int int3, int int4, Date date) {
-        //TODO Auto-generated constructor stub
-=======
+    // Constructor với tham số kiểu int và java.util.Date
     public GiaoDich(int int1, int int2, int int3, int int4, java.util.Date ngay) {
-       
->>>>>>> dfa3c77 (vy commit)
+        // TODO: Implement constructor logic
     }
 
-    public KhachHang getKhachHang() { return khachHang; }
-    public SanPham getSanPham() { return sanPham; }
-    public int getSoLuong() { return soLuong; }
-    public LocalDateTime getThoiGianGiaoDich() { return thoiGianGiaoDich; }
+    // Getters
+    public KhachHang getKhachHang() { 
+        return khachHang; 
+    }
 
+    public SanPham getSanPham() { 
+        return sanPham; 
+    }
+
+    public int getSoLuong() { 
+        return soLuong; 
+    }
+
+    public LocalDateTime getThoiGianGiaoDich() { 
+        return thoiGianGiaoDich; 
+    }
+
+    // Tính tổng tiền của giao dịch
     public double tinhTongTien() {
         return sanPham.getPrice() * soLuong;
     }
 
+    // Placeholder methods that throw UnsupportedOperationException
     public void setTenGiaoDich(String tenGD) {
-        // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'setTenGiaoDich'");
     }
 
     public void setSoTien(double soTien) {
-        // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'setSoTien'");
     }
 
-<<<<<<< HEAD
-    public void setNgayGiaoDich(String ngayGD) {
-=======
-    public void setNgayGiaoDich(java.util.Date ngayGD) {
->>>>>>> dfa3c77 (vy commit)
-        // TODO Auto-generated method stub
+    public void setNgayGiaoDich(Date ngayGD) {
         throw new UnsupportedOperationException("Unimplemented method 'setNgayGiaoDich'");
     }
 
     public int getIdSanPham() {
-        // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'getIdSanPham'");
     }
 
     public int getIdKhachHang() {
-        // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'getIdKhachHang'");
     }
 
     public java.util.Date getNgayGiaoDich() {
-        // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'getNgayGiaoDich'");
     }
 
     public int getId() {
-        // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'getId'");
     }
-<<<<<<< HEAD
-=======
 
-    public void setSoLuong(int i) {
-        // TODO Auto-generated method stub
+    // Setters
+    public void setSoLuong(int soLuong) {
         throw new UnsupportedOperationException("Unimplemented method 'setSoLuong'");
     }
 
@@ -88,5 +82,4 @@ public class GiaoDich {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'setNgayGiaoDich'");
     }
->>>>>>> dfa3c77 (vy commit)
 }

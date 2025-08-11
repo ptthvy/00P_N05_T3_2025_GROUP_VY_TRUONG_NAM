@@ -52,7 +52,7 @@ public class KhachHangAiven {
 
     public void addKhachHang(KhachHang kh) {
         String sql = "INSERT INTO khachhang (ten, sdt) VALUES (?, ?)";
-        try (Connection conn = mydb.getOnlyConn();
+        try (Connection conn = com.example.servingwebcontent.database.mydb.getOnlyConn();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, kh.getTen());
             pstmt.setString(2, kh.getSdt());
