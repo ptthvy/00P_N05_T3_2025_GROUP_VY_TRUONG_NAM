@@ -82,7 +82,7 @@ Hình 4: Sơ Đồ Thuật Toán Create Sản Phẩm
 
 Hình 6: Sơ Đồ Thuật Toán Read Giao Dịch 
 
-  < img src= ''> <img width="319" height="488" alt="image" src="https://github.com/user-attachments/assets/1969cd8d-bff2-4280-bb85-b356193977e6" />
+<img width="319" height="488" alt="image" src="https://github.com/user-attachments/assets/1969cd8d-bff2-4280-bb85-b356193977e6" />
 
 
 
