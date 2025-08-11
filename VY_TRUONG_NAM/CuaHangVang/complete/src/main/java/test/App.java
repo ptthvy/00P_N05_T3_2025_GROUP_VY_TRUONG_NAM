@@ -1,9 +1,4 @@
-package com.example.servingwebcontent;
-
-import test.TestGoldShopPNJ;  // Đảm bảo rằng TestGoldShopPNJ đã được viết đúng
-import test.TestQuanLyGiaoDich;
-import test.TestQuanLyKhachHang;
-import test.TestQuanLySanPham;
+package test;
 
 public class App {
     public static void main(String[] args) {
