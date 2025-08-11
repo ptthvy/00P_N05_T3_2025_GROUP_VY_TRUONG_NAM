@@ -11,7 +11,7 @@ public class SanPham {
         this.imageUrl = imageUrl;
     }
 
-    public SanPham(String name, double price) {
+    public SanPham(int i, String name, double price, int j) {
         this(name, price, null);
     }
 
@@ -35,5 +35,20 @@ public class SanPham {
     public void setSoLuong(int soLuong) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'setSoLuong'");
+    }
+
+    public String getTen() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getTen'");
+    }
+
+    public int getSoLuong() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getSoLuong'");
+    }
+
+    public double getGia() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getGia'");
     }
 }
