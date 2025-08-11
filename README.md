@@ -37,7 +37,7 @@ HÌNH 2 : Sơ đồ thuật toán ( Sơ đồ liên quan đến chức năng ho�
 
 Hình 3: Sơ Đồ Thuật Toán Create 
 
-<img src='anh/Sơ đồ khách hàng .jpg'>
+<img src='Anh/So Do thuat toan Create Khách Hàng.jpg'>
 
 Hình 4: Sơ Đồ Thuật Toán Delete 
 
