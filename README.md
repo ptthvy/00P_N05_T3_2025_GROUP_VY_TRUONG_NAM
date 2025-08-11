@@ -57,7 +57,8 @@ Hình 3: Sơ Đồ Thuật Toán Delete Khách Hàng
 
 Hình 4: Sơ Đồ Thuật Toán Create Sản Phẩm 
 
-< img src= 'Anh/Sơ Đồ thuật toán Create Sản Phẩm.jpg'>
+< img src='Anh/Sơ Đồ thuật toán Create Sản Phẩm.jpg'>
+
 
  Hình 5: Sơ Đồ Thuật Toán Update Sản Phẩm
 
