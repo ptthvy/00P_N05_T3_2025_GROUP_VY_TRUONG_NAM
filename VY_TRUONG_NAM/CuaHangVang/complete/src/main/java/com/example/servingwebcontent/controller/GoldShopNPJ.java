@@ -50,8 +50,13 @@ public class GoldShopNPJ {
 
     // Khởi tạo dữ liệu mẫu ban đầu
     private static void khoiTaoDuLieuMau() {
+<<<<<<< HEAD
         quanLySanPham.them(new SanPham("Nhẫn vàng 24K", 5000.0));
         quanLySanPham.them(new SanPham("Dây chuyền vàng 18K", 7000.0));
+=======
+        quanLySanPham.them(new SanPham("Nhẫn vàng 24K", 5000.0, null));
+        quanLySanPham.them(new SanPham("Dây chuyền vàng 18K", 7000.0, null));
+>>>>>>> dfa3c77 (vy commit)
         quanLyKhachHang.them(new KhachHang("Nguyễn Văn A", "0909123456"));
         quanLyKhachHang.them(new KhachHang("Trần Thị B", "0912345678"));
     }
@@ -83,7 +88,11 @@ public class GoldShopNPJ {
         String ten = scanner.nextLine();
         System.out.print("Giá: ");
         double gia = Double.parseDouble(scanner.nextLine());
+<<<<<<< HEAD
         quanLySanPham.them(new SanPham(ten, gia));
+=======
+        quanLySanPham.them(new SanPham(ten, gia, ten));
+>>>>>>> dfa3c77 (vy commit)
         System.out.println("Đã thêm sản phẩm!");
         hienThiSanPham();
     }
@@ -113,7 +122,11 @@ public class GoldShopNPJ {
         String ten = scanner.nextLine();
         System.out.print("Giá mới: ");
         double gia = Double.parseDouble(scanner.nextLine());
+<<<<<<< HEAD
         quanLySanPham.sua(idx, new SanPham(ten, gia));
+=======
+        quanLySanPham.sua(idx, new SanPham(ten, gia, ten));
+>>>>>>> dfa3c77 (vy commit)
         System.out.println("Đã sửa sản phẩm!");
         hienThiSanPham();
     }

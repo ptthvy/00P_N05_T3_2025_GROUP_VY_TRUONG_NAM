@@ -23,32 +23,56 @@ public class SanPham {
     public void setImageUrl(String imageUrl) { this.imageUrl = imageUrl; }
 
     public void setTen(String ten) {
+<<<<<<< HEAD
         // TODO Auto-generated method stub
+=======
+        
+>>>>>>> dfa3c77 (vy commit)
         throw new UnsupportedOperationException("Unimplemented method 'setTen'");
     }
 
     public void setGia(double gia) {
+<<<<<<< HEAD
         // TODO Auto-generated method stub
+=======
+       
+>>>>>>> dfa3c77 (vy commit)
         throw new UnsupportedOperationException("Unimplemented method 'setGia'");
     }
 
     public void setSoLuong(int soLuong) {
+<<<<<<< HEAD
         // TODO Auto-generated method stub
+=======
+        
+>>>>>>> dfa3c77 (vy commit)
         throw new UnsupportedOperationException("Unimplemented method 'setSoLuong'");
     }
 
     public String getTen() {
+<<<<<<< HEAD
         // TODO Auto-generated method stub
+=======
+        
+>>>>>>> dfa3c77 (vy commit)
         throw new UnsupportedOperationException("Unimplemented method 'getTen'");
     }
 
     public int getSoLuong() {
+<<<<<<< HEAD
         // TODO Auto-generated method stub
+=======
+        
+>>>>>>> dfa3c77 (vy commit)
         throw new UnsupportedOperationException("Unimplemented method 'getSoLuong'");
     }
 
     public double getGia() {
+<<<<<<< HEAD
         // TODO Auto-generated method stub
+=======
+        
+>>>>>>> dfa3c77 (vy commit)
         throw new UnsupportedOperationException("Unimplemented method 'getGia'");
     }
 }

@@ -24,7 +24,11 @@ public class KhachHang {
         throw new UnsupportedOperationException("Unimplemented method 'setSoDienThoai'");
     }
 
+<<<<<<< HEAD
     public void setTen(String ten) {
+=======
+    public void setTen(int id) {
+>>>>>>> dfa3c77 (vy commit)
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'setTen'");
     }
@@ -43,4 +47,17 @@ public class KhachHang {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'getId'");
     }
+<<<<<<< HEAD
+=======
+
+    public void setSdt(String string) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'setSdt'");
+    }
+
+    public void setTen(String string) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'setTen'");
+    }
+>>>>>>> dfa3c77 (vy commit)
 }

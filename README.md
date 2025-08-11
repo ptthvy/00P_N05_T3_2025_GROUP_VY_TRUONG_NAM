@@ -57,12 +57,20 @@ Hình 3: Sơ Đồ Thuật Toán Delete Khách Hàng
 
 Hình 4: Sơ Đồ Thuật Toán Create Sản Phẩm 
 
+<<<<<<< HEAD
 <img src='Anh/So do thuat toan create san pham.jpg'>
+=======
+< img src=''>
+>>>>>>> dfa3c77 (vy commit)
 
 
  Hình 5: Sơ Đồ Thuật Toán Update Sản Phẩm
 
+<<<<<<< HEAD
  <img src='Anh/sodoupdate5.jpg'>
+=======
+ < img src= ''>
+>>>>>>> dfa3c77 (vy commit)
  
 3. Giao Dịch
    
@@ -82,8 +90,12 @@ Hình 4: Sơ Đồ Thuật Toán Create Sản Phẩm
 
 Hình 6: Sơ Đồ Thuật Toán Read Giao Dịch 
 
+<<<<<<< HEAD
 <img width="319" height="488" alt="image" src="https://github.com/user-attachments/assets/1969cd8d-bff2-4280-bb85-b356193977e6" />
 
+=======
+  < img src= ''>
+>>>>>>> dfa3c77 (vy commit)
 
 
 Link publish
