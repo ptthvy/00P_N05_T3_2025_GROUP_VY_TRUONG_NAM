@@ -8,15 +8,13 @@
 
 Xây dựng ứng dụng Quản lí cửa hàng bán Vàng
 
-Sơ đồ chức năng
+HÌNH 1: Sơ đồ chức năng ( sơ đồ lớp liên quan tới 3 đối tượng chính của ứng dụng ) 
 
 <img src='Anh/Sơ ĐỒ CHỨC NĂNG.png'>
 
-HÌNH 1: Sơ đồ chức năng ( sơ đồ lớp liên quan tới 3 đối tượng chính của ứng dụng ) 
+HÌNH 2 : Sơ đồ thuật toán ( Sơ đồ liên quan đến chức năng hoạt dộng chính của hệ thống)
 
 <img src='Anh/Sơ Đồ Thuật Toán 3 đối tượng.jpg'>
-
-HÌNH 2 : Sơ đồ thuật toán ( Sơ đồ liên quan đến chức năng hoạt dộng chính của hệ thống)
 
 1. Khách Hàng
    TenKH : STring
@@ -29,11 +27,11 @@ HÌNH 2 : Sơ đồ thuật toán ( Sơ đồ liên quan đến chức năng ho�
  
 - Thêm khách hàng mới
   
-- Hiển thị danh sách khách hàng
+- xóa khách hàng
   
 - Sửa thông tin khách hàng
   
-- Xóa khách hàng
+- Hiển thị danh sách khách hàng
 
 Hình 3: Sơ Đồ Thuật Toán Create 
 
