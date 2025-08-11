@@ -1,5 +1,6 @@
 package com.example.servingwebcontent.model;
 
+import java.sql.Date;
 import java.time.LocalDateTime;
 
 public class GiaoDich {
@@ -13,6 +14,10 @@ public class GiaoDich {
         this.sanPham = sanPham;
         this.soLuong = soLuong;
         this.thoiGianGiaoDich = LocalDateTime.now();
+    }
+
+    public GiaoDich(int int1, int int2, int int3, int int4, Date date) {
+        //TODO Auto-generated constructor stub
     }
 
     public KhachHang getKhachHang() { return khachHang; }
@@ -37,5 +42,25 @@ public class GiaoDich {
     public void setNgayGiaoDich(String ngayGD) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'setNgayGiaoDich'");
+    }
+
+    public int getIdSanPham() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getIdSanPham'");
+    }
+
+    public int getIdKhachHang() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getIdKhachHang'");
+    }
+
+    public java.util.Date getNgayGiaoDich() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getNgayGiaoDich'");
+    }
+
+    public int getId() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getId'");
     }
 }

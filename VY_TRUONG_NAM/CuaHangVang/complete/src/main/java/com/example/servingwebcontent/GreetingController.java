@@ -20,9 +20,9 @@ public class GreetingController {
     private static final QuanLyGiaoDich quanLyGiaoDich = new QuanLyGiaoDich();
 
     static {
-        quanLySanPham.them(new SanPham("Nhẫn vàng 24K", 80000000));
-        quanLySanPham.them(new SanPham("Dây chuyền vàng Ý", 950000000));
-          quanLySanPham.them(new SanPham("Vòng Kiềng", 400000000));
+        quanLySanPham.them(new SanPham("Nhẫn vàng 24K", 80000000, null));
+        quanLySanPham.them(new SanPham("Dây chuyền vàng Ý", 950000000, null));
+          quanLySanPham.them(new SanPham("Vòng Kiềng", 400000000, null));
         quanLyKhachHang.them(new KhachHang("Nguyễn Văn A", "0909123456"));
         quanLyKhachHang.them(new KhachHang("Trần Thị B", "0912345678"));
         quanLyGiaoDich.them(new GiaoDich(
@@ -57,7 +57,7 @@ public class GreetingController {
             @RequestParam(name = "price", required = false, defaultValue = "999.0") double price,
             Model model) {
 
-        SanPham sp = new SanPham(name, price);
+        SanPham sp = new SanPham(name, price, name);
         quanLySanPham.them(sp); // Thêm vào danh sách quản lý
         return "redirect:/goldshop";
     }
@@ -73,7 +73,7 @@ public class GreetingController {
             Model model) {
 
         KhachHang kh = new KhachHang(customerName, phone);
-        SanPham sp = new SanPham(productName, price);
+        SanPham sp = new SanPham(productName, price, productName);
         GiaoDich gd = new GiaoDich(kh, sp, quantity);
         quanLyGiaoDich.them(gd); // Thêm vào danh sách quản lý
         return "redirect:/goldshop";

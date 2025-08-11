@@ -28,4 +28,19 @@ public class KhachHang {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'setTen'");
     }
+
+    public String getTen() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getTen'");
+    }
+
+    public String getSdt() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getSdt'");
+    }
+
+    public int getId() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getId'");
+    }
 }
