@@ -35,10 +35,22 @@ HÌNH 2 : Sơ đồ thuật toán ( Sơ đồ liên quan đến chức năng ho�
   
 - Xóa khách hàng
 
-Sơ đồ hoạt động
+Hình 3: Sơ Đồ Thuật Toán Create 
 
 <img src='anh/Sơ đồ khách hàng .jpg'>
 
+Hình 4: Sơ Đồ Thuật Toán Delete 
+
+< img src= ''>
+
+ Hình 5: Sơ Đồ Thuật Toán Update 
+
+ < img src= ''>
+
+ Hình 6: Sơ Đồ Thuật Toán Read 
+
+  < img src= ''>
+  
  2. Sản Phẩm
     
     MaSP :Sring
