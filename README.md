@@ -31,9 +31,9 @@ HÌNH 2 : Sơ đồ thuật toán ( Sơ đồ liên quan đến chức năng ho�
   
 - Hiển thị danh sách khách hàng
 
-Hình 3: Sơ Đồ Thuật Toán Create 
+Hình 3: Sơ Đồ Thuật Toán Delete Khách Hàng 
 
-<img src='Anh/So Do thuat toan Create Khách Hàng.jpg'>
+<img src='Anh/Sơ Đồ Thuật Toán Delete Khách Hàng.jpg'>
 
  2. Sản Phẩm
     
@@ -55,11 +55,11 @@ Hình 3: Sơ Đồ Thuật Toán Create
   
 - Xóa sản phẩm
 
-Hình 4: Sơ Đồ Thuật Toán Delete 
+Hình 4: Sơ Đồ Thuật Toán Create Sản Phẩm 
 
 < img src= ''>
 
- Hình 5: Sơ Đồ Thuật Toán Update 
+ Hình 5: Sơ Đồ Thuật Toán Update Sản Phẩm
 
  < img src= ''>
  
@@ -79,7 +79,7 @@ Hình 4: Sơ Đồ Thuật Toán Delete
   
 - Tính tổng số lượng mua bán theo mã khách hoặc mã sản phẩm
 
-Hình 6: Sơ Đồ Thuật Toán Read 
+Hình 6: Sơ Đồ Thuật Toán Read Giao Dịch 
 
   < img src= ''>
 
