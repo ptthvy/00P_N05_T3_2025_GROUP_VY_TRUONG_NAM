@@ -14,7 +14,7 @@ Sơ đồ chức năng
 
 HÌNH 1: Sơ đồ chức năng ( sơ đồ lớp liên quan tới 3 đối tượng chính của ứng dụng ) 
 
-<img src='anh/Sequence Diagram.jpg'>
+<img src='Anh/Sơ Đồ Thuật Toán 3 đối tượng.jpg'>
 
 HÌNH 2 : Sơ đồ thuật toán ( Sơ đồ liên quan đến chức năng hoạt dộng chính của hệ thống)
 
