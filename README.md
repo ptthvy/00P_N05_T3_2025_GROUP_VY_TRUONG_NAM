@@ -1,12 +1,25 @@
 #00P_N05_T3_2025_GROUP_VY_TRUONG_NAM
 
-Ứng dụng Quản lý Vang Store
-* Đối tượng
-  - Sản Phẩm
-  - Khách Hàng
-  - Giao Dịch
+ỨNG DỤNG QUẢN LÝ SHOP GOLD
+1. Giới thiệu
+Ứng dụng Quản lý Vang Store được xây dựng nhằm hỗ trợ cửa hàng kinh doanh vàng trong việc quản lý thông tin sản phẩm, khách hàng và giao dịch bán hàng.
+Hệ thống cho phép thực hiện các chức năng chính:
 
-Xây dựng ứng dụng Quản lí cửa hàng bán Vàng
+Quản lý danh mục sản phẩm.
+
+Quản lý thông tin khách hàng.
+
+Quản lý các giao dịch bán vàng.
+
+2. THÀNH VIÊN
+-  Nguyễn Đức Trường ,MSV:24100336 (ductruong02)
+
+-  Nguyễn Hoàng Nam, MSV:24100136(NguyenHoangNam47)
+
+-  Phạm Thảo Hiền Vy, MSV:24100439(ptthvy)
+  
+
+3.Xây dựng ứng dụng Quản lý SHOP GOLD
 
 HÌNH 1: Sơ đồ chức năng ( sơ đồ lớp liên quan tới 3 đối tượng chính của ứng dụng ) 
 
@@ -16,7 +29,7 @@ HÌNH 2 : Sơ đồ thuật toán Đặt hàng ( Sơ đồ liên quan đến ch�
 
 <img src=''>
 
-1. Khách Hàng
+4. Khách Hàng
    TenKH : STring
 
    MaKH:String
@@ -35,7 +48,7 @@ Hình 3: Sơ Đồ Thuật Toán Delete Khách Hàng
 
 <img src='Anh/Sơ Đồ Thuật Toán Delete Khách Hàng.jpg'>
 
- 2. Sản Phẩm
+ 55. Sản Phẩm
     
     MaSP :Sring
     
@@ -64,7 +77,7 @@ Hình 4: Sơ Đồ Thuật Toán Create Sản Phẩm
 
  <img src='Anh/sodoupdate5.jpg'>
  
-3. Giao Dịch
+66. Giao Dịch
    
    MaDG:String
 
@@ -84,8 +97,13 @@ Hình 6: Sơ Đồ Thuật Toán Read Giao Dịch
 
 <img width="319" height="488" alt="image" src="https://github.com/user-attachments/assets/1969cd8d-bff2-4280-bb85-b356193977e6" />
 
+7. Kết luận
+Ứng dụng Quản lý SHOP GOLD cung cấp giải pháp toàn diện cho cửa hàng vàng trong việc quản lý dữ liệu sản phẩm, khách hàng và giao dịch. Việc áp dụng hệ thống này giúp tiết kiệm thời gian, giảm thiểu sai sót và nâng cao hiệu quả quản lý.
 
+8.Link publish
 
-Link publish
+Link Repo:github.com/ptthvy/00P_N05_T3_2025_GROUP_VY_TRUONG_NAM
 
-https://bug-free-bassoon-wr4w46vwgx7qc59gq-8080.app.github.dev/goldshop
+Link web: https://ominous-train-q7xwxrvwp66xfxj7j-8080.app.github.dev/goldshop
+
+Link Youtube : 
