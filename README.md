@@ -109,6 +109,6 @@ Hình 6: Sơ Đồ Thuật Toán Read Giao Dịch
 
 Link Repo: github.com/ptthvy/00P_N05_T3_2025_GROUP_VY_TRUONG_NAM
 
-Link publish: https://ominous-train-q7xwxrvwp66xfxj7j-8080.app.github.dev/goldshop
+Link publish: 
 
 Link team demo youtube :
