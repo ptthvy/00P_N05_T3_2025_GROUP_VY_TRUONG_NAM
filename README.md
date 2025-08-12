@@ -111,4 +111,4 @@ Link Repo: github.com/ptthvy/00P_N05_T3_2025_GROUP_VY_TRUONG_NAM
 
 Link publish: https://ominous-train-q7xwxrvwp66xfxj7j-8080.app.github.dev/goldshop
 
-Link team demo youtube :https://youtu.be/_zHScZd2w_I?feature=shared
+Link team demo youtube :
