@@ -1,12 +1,10 @@
 package com.example.servingwebcontent.database;
 
 import java.sql.Connection;
+import java.sql.SQLException;
 
 public class MyDBConnection {
-
-    public static Connection open() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'open'");
+    public static Connection open() throws SQLException {
+        return AivenConnection.getConnection(); // dùng cấu hình AivenConnection
     }
-
 }
