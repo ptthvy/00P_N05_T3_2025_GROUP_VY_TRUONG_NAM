@@ -456,332 +456,316 @@
 
  
 <script>
-  // ======= Data mẫu =======
-  let products = [
+// ====== LocalStorage helpers ======
+const STORAGE_KEY = "shopgold_tnv_state_v1";
+function lsAvailable() {
+  try { const k="__ls__"+Math.random(); localStorage.setItem(k,"1"); localStorage.removeItem(k); return true; } catch(e){ return false; }
+}
+const HAS_LS = lsAvailable();
+function saveState() {
+  if (!HAS_LS) return;
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify({ products, customers, cart, transactions })); } catch(e){}
+}
+function loadState() {
+  const defaults = {
+    products: [
+       { id: "SP001", name: "Nhẫn Vàng 24K", price: 80000000.00, image: "https://cdn.pnj.io/images/detailed/113/gn0000y001737-nhan-vang-24k-pnj-1.png" },
+    { id: "SP002", name: "Dây Chuyền Vàng", price:950000000.00, image: "https://cdn.pnj.io/images/detailed/100/gd0000y007840-day-chuyen-vang-24k-pnj-1.png" },
+    { id: "SP003", name: "Vòng Kiềng", price: 400000000.00, image: "https://locphuc.com.vn/Content/Images/San-pham-lan-21/Bong-tai-nu-vang-18K-VEA0860E-LP03200014-g1.jpg" },
+    { id: "SP004", name: "Lắc Tay Vàng", price: 120000000.00, image: "https://cdn.pnj.io/images/detailed/116/gl0000y001844-lac-tay-vang-18k-pnj-1.png" }
+    ],
+    customers: [], cart: [], transactions: []
+  };
+  if (!HAS_LS) return defaults;
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return defaults;
+    const parsed = JSON.parse(raw);
+    return { ...defaults, ...parsed };
+  } catch(e){ return defaults; }
+}
+
+// ====== State (khởi tạo từ localStorage) ======
+let products = [
     { id: "SP001", name: "Nhẫn Vàng 24K", price: 80000000.00, image: "https://cdn.pnj.io/images/detailed/113/gn0000y001737-nhan-vang-24k-pnj-1.png" },
     { id: "SP002", name: "Dây Chuyền Vàng", price:950000000.00, image: "https://cdn.pnj.io/images/detailed/100/gd0000y007840-day-chuyen-vang-24k-pnj-1.png" },
     { id: "SP003", name: "Vòng Kiềng", price: 400000000.00, image: "https://locphuc.com.vn/Content/Images/San-pham-lan-21/Bong-tai-nu-vang-18K-VEA0860E-LP03200014-g1.jpg" },
     { id: "SP004", name: "Lắc Tay Vàng", price: 120000000.00, image: "https://cdn.pnj.io/images/detailed/116/gl0000y001844-lac-tay-vang-18k-pnj-1.png" }
     
   ];
-  let customers = [];
-  let cart = [];
-  let transactions = [];
+let customers = [];
+let cart = [];
+let transactions = [];
+({ products, customers, cart, transactions } = loadState());
 
-  // ======= Helpers: LocalStorage =======
-  function loadCustomersFromLocal() {
-    try {
-      const saved = localStorage.getItem("customers");
-      if (saved) {
-        customers = JSON.parse(saved);
-        if (!Array.isArray(customers)) customers = [];
-      }
-    } catch (e) { customers = []; }
+// ====== Renders ======
+function renderProducts() {
+  const tbody = document.getElementById("productList");
+  tbody.innerHTML = "";
+  for (const p of products) {
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td>${p.id}</td>
+      <td><img src="${p.image}" alt="${p.name}" class="product-img"/></td>
+      <td>${p.name}</td>
+      <td>${p.price.toLocaleString()}</td>
+      <td>
+        <button class="btn" onclick="editProduct('${p.id}')">Sửa</button>
+        <button class="btn btn-delete" onclick="deleteProduct('${p.id}')">Xóa</button>
+        <button class="btn" onclick="addToCart('${p.id}')">Thêm vào Giỏ</button>
+      </td>`;
+    tbody.appendChild(tr);
   }
-  function saveCustomersToLocal() {
-    localStorage.setItem("customers", JSON.stringify(customers));
-  }
-
-  // ======= Products =======
-  function renderProducts() {
-    const tbody = document.getElementById("productList");
-    tbody.innerHTML = "";
-    for (const p of products) {
-      const tr = document.createElement("tr");
-      tr.innerHTML = `
-        <td>${p.id}</td>
-        <td><img src="${p.image}" alt="${p.name}" class="product-img"/></td>
-        <td>${p.name}</td>
-        <td>${p.price.toLocaleString()}</td>
-        <td>
-          <button class="btn" onclick="editProduct('${p.id}')">Sửa</button>
-          <button class="btn btn-delete" onclick="deleteProduct('${p.id}')">Xóa</button>
-          <button class="btn" onclick="addToCart('${p.id}')">Thêm vào Giỏ</button>
-        </td>
-      `;
-      tbody.appendChild(tr);
-    }
-  }
-
-  let editingProductId = null;
-  function showAddProductForm() {
-    editingProductId = null;
-    document.getElementById("productFormTitle").innerText = "Thêm Sản Phẩm";
-    document.getElementById("productId").value = "";
-    document.getElementById("productId").disabled = false;
-    document.getElementById("productName").value = "";
-    document.getElementById("productPrice").value = "";
-    document.getElementById("productImage").value = "";
-    document.getElementById("productFormContainer").style.display = "block";
-  }
-  function editProduct(id) {
-    const p = products.find(x => x.id === id);
-    if (!p) return alert("Sản phẩm không tồn tại");
-    editingProductId = id;
-    document.getElementById("productFormTitle").innerText = "Sửa Sản Phẩm";
-    document.getElementById("productId").value = p.id;
-    document.getElementById("productId").disabled = true;
-    document.getElementById("productName").value = p.name;
-    document.getElementById("productPrice").value = p.price;
-    document.getElementById("productImage").value = p.image;
-    document.getElementById("productFormContainer").style.display = "block";
-  }
-  function saveProduct() {
-    const id = document.getElementById("productId").value.trim();
-    const name = document.getElementById("productName").value.trim();
-    const price = parseInt(document.getElementById("productPrice").value);
-    const image = document.getElementById("productImage").value.trim() || "https://via.placeholder.com/80";
-    if (!id || !name || isNaN(price) || price <= 0) return alert("Vui lòng nhập đầy đủ thông tin hợp lệ");
-    if (editingProductId) {
-      const p = products.find(x => x.id === editingProductId);
-      p.name = name; p.price = price; p.image = image;
-    } else {
-      if (products.find(x => x.id === id)) return alert("Mã sản phẩm đã tồn tại");
-      products.push({ id, name, price, image });
-    }
-    document.getElementById("productFormContainer").style.display = "none";
-    renderProducts();
-  }
-  function cancelProductForm() {
-    document.getElementById("productFormContainer").style.display = "none";
-  }
-  function deleteProduct(id) {
-    if (!confirm("Bạn có chắc muốn xóa sản phẩm này?")) return;
-    products = products.filter(p => p.id !== id);
-    renderProducts();
-    cart = cart.filter(item => item.productId !== id);
-    renderCart();
-    updateTransactionTotal();
-  }
-
-  // ======= Customers =======
-  let editIndex = -1;
-  function renderCustomers() {
-    const tbody = document.getElementById("customerList");
-    tbody.innerHTML = "";
-    customers.forEach((c, i) => {
-      const tr = document.createElement("tr");
-      tr.innerHTML = `
-        <td>KH${1000 + i}</td>
-        <td>${c.name}</td>
-        <td>${c.phone}</td>
-        <td>
-          <button class="btn btn-edit" onclick="editCustomer(${i})">Sửa</button>
-          <button class="btn btn-delete" onclick="deleteCustomer(${i})">Xóa</button>
-        </td>
-      `;
-      tbody.appendChild(tr);
-    });
-  }
-
-  // === NEW: Đổ dropdown chọn khách cho Giao Dịch ===
-  function renderCustomerSelect() {
-    const sel = document.getElementById("transactionCustomer");
-    if (!sel) return;
-    sel.innerHTML = `<option value="">--Chọn--</option>`;
-    customers.forEach((c, i) => {
-      const opt = document.createElement("option");
-      opt.value = String(i); // index của khách
-      opt.textContent = `${c.name} (${c.phone})`;
-      sel.appendChild(opt);
-    });
-  }
-
-  function addCustomer() {
-    const name = document.getElementById("customerName").value.trim();
-    const phone = document.getElementById("customerPhone").value.trim();
-    if (!name || !phone) return alert("Vui lòng nhập tên và số điện thoại");
-    if (editIndex === -1) {
-      customers.push({ name, phone });
-    } else {
-      customers[editIndex] = { name, phone };
-      editIndex = -1;
-      document.getElementById("btnSubmit").textContent = "Thêm Khách Hàng";
-    }
-    document.getElementById("customerForm").reset();
-    saveCustomersToLocal();
-    renderCustomers();
-    renderCustomerSelect(); // giữ dropdown luôn sync
-  }
-  function editCustomer(index) {
-    editIndex = index;
-    const customer = customers[index];
-    document.getElementById("customerName").value = customer.name;
-    document.getElementById("customerPhone").value = customer.phone;
-    document.getElementById("btnSubmit").textContent = "Cập Nhật";
-  }
-  function deleteCustomer(index) {
-    if (!confirm("Bạn có chắc muốn xóa khách hàng này?")) return;
-    customers.splice(index, 1);
-    saveCustomersToLocal();
-    renderCustomers();
-    renderCustomerSelect(); // sync dropdown
-  }
-
-  // ======= Cart =======
-  function addToCart(productId) {
-    const item = cart.find(i => i.productId === productId);
-    if (item) item.qty++; else cart.push({ productId, qty: 1 });
-    renderCart();
-    updateTransactionTotal();
-    alert("Đã thêm sản phẩm vào giỏ hàng");
-  }
-  function renderCart() {
-    const tbody = document.getElementById("cartItems");
-    tbody.innerHTML = "";
-    for (const item of cart) {
-      const p = products.find(x => x.id === item.productId);
-      if (!p) continue;
-      const tr = document.createElement("tr");
-      tr.innerHTML = `
-        <td>${p.id}</td>
-        <td>${p.name}</td>
-        <td>${p.price.toLocaleString()}</td>
-        <td><input type="number" min="1" value="${item.qty}" class="qty-input" onchange="updateQty('${item.productId}', this.value)" /></td>
-        <td><button class="btn btn-delete" onclick="removeFromCart('${item.productId}')">Xóa</button></td>
-      `;
-      tbody.appendChild(tr);
-    }
-    updateTransactionTotal();
-  }
-  function updateQty(productId, qty) {
-    qty = parseInt(qty);
-    if (isNaN(qty) || qty < 1) qty = 1;
-    const item = cart.find(i => i.productId === productId);
-    if (item) {
-      item.qty = qty;
-      renderCart();
-      updateTransactionTotal();
-    }
-  }
-  function removeFromCart(productId) {
-    cart = cart.filter(i => i.productId !== productId);
-    renderCart();
-    updateTransactionTotal();
-  }
-  function getCartTotal() {
-    let total = 0;
-    for (const item of cart) {
-      const p = products.find(x => x.id === item.productId);
-      if (p) total += p.price * item.qty;
-    }
-    return total;
-  }
-  function updateTransactionTotal() {
-    const total = getCartTotal();
-    document.getElementById("totalAmount").textContent = total.toLocaleString();
-    document.getElementById("transactionTotal").textContent = total.toLocaleString();
-  }
-
-  // ======= Transactions =======
-  function completeTransaction() {
-    const customerIndex = document.getElementById("transactionCustomer").value;
-    if (customerIndex === "") return alert("Vui lòng chọn khách hàng");
-    if (cart.length === 0) return alert("Giỏ hàng đang trống");
-    const customer = customers[Number(customerIndex)];
-    const total = getCartTotal();
-    const transaction = {
-      customer,
-      items: cart.map(i => {
-        const p = products.find(x => x.id === i.productId);
-        return { product: p, qty: i.qty };
-      }),
-      total
-    };
-    transactions.push(transaction);
-    cart = [];
-    renderCart();
-    updateTransactionTotal();
-    renderTransactionHistory();
-    alert("Giao dịch hoàn tất!");
-    document.getElementById("transactionCustomer").value = "";
-  }
-  function renderTransactionHistory() {
-    const tbody = document.getElementById("transactionHistory");
-    tbody.innerHTML = "";
-    transactions.forEach(t => {
-      const tr = document.createElement("tr");
-      const productList = t.items.map(i => `${i.product.name} x${i.qty}`).join(", ");
-      tr.innerHTML = `
-        <td>${t.customer.name}</td>
-        <td>${productList}</td>
-        <td>${t.total.toLocaleString()}</td>
-      `;
-      tbody.appendChild(tr);
-    });
-  }
-  function printInvoice() {
-    if (transactions.length === 0) return alert("Chưa có giao dịch nào để in");
-    const lastTrans = transactions[transactions.length - 1];
-    let html = `
-      <html>
-      <head>
-        <title>Hóa Đơn ShopGold TNV</title>
-        <style>
-          body{font-family:Arial,sans-serif;padding:20px}
-          h1{color:#D7A61E}
-          table{width:100%;border-collapse:collapse;margin-top:20px}
-          th,td{border:1px solid #ddd;padding:10px;text-align:center}
-          th{background:#D7A61E;color:#fff}
-          .total{font-weight:700;margin-top:20px;text-align:right}
-        </style>
-      </head>
-      <body>
-        <h1>HÓA ĐƠN SHOPGOLD TNV</h1>
-        <p><strong>Khách hàng:</strong> ${lastTrans.customer.name}</p>
-        <p><strong>Số điện thoại:</strong> ${lastTrans.customer.phone}</p>
-        <table>
-          <thead><tr>
-            <th>Tên sản phẩm</th><th>Số lượng</th><th>Đơn giá (VND)</th><th>Thành tiền (VND)</th>
-          </tr></thead><tbody>`;
-    lastTrans.items.forEach(item => {
-      html += `<tr>
-        <td>${item.product.name}</td>
-        <td>${item.qty}</td>
-        <td>${item.product.price.toLocaleString()}</td>
-        <td>${(item.product.price * item.qty).toLocaleString()}</td>
-      </tr>`;
-    });
-    html += `</tbody></table>
-      <div class="total">Tổng cộng: ${lastTrans.total.toLocaleString()} VND</div>
-      <p>Cảm ơn quý khách đã mua hàng!</p>
-      </body></html>`;
-    const w = window.open("", "_blank");
-    w.document.write(html);
-    w.document.close();
-    w.focus();
-    w.print();
-  }
-
-  // ======= Tab navigation =======
-  const menuItems = document.querySelectorAll(".menu li");
-  menuItems.forEach(item => {
-    item.addEventListener("click", () => {
-      menuItems.forEach(i => i.classList.remove("active"));
-      item.classList.add("active");
-      const sectionId = item.getAttribute("data-section");
-      document.querySelectorAll("section").forEach(sec => sec.classList.remove("active"));
-      const showSection = document.getElementById(sectionId);
-      if (showSection) showSection.classList.add("active");
-
-      if (sectionId === "products") renderProducts();
-      if (sectionId === "customers") renderCustomers();
-      if (sectionId === "cart") renderCart();
-      if (sectionId === "history") renderTransactionHistory();
-      if (sectionId === "transactions") renderCustomerSelect(); // CẬP NHẬT DROPDOWN TẠI ĐÂY
-      updateTransactionTotal();
-    });
+}
+function renderCustomers() {
+  const tbody = document.getElementById("customerList");
+  tbody.innerHTML = "";
+  customers.forEach((c, i) => {
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td>KH${1000 + i}</td>
+      <td>${c.name}</td>
+      <td>${c.phone}</td>
+      <td>
+        <button class="btn btn-edit" onclick="editCustomer(${i})">Sửa</button>
+        <button class="btn btn-delete" onclick="deleteCustomer(${i})">Xóa</button>
+      </td>`;
+    tbody.appendChild(tr);
   });
-
-  // ======= Init =======
-  loadCustomersFromLocal();  // Nạp khách đã lưu
-  renderProducts();
-  renderCustomers();
-  renderCustomerSelect();    // Đổ dropdown lúc load trang
-  renderCart();
-  renderTransactionHistory();
+}
+function renderCustomerSelect() {
+  const sel = document.getElementById("transactionCustomer");
+  if (!sel) return;
+  sel.innerHTML = `<option value="">--Chọn--</option>`;
+  customers.forEach((c, i) => {
+    const opt = document.createElement("option");
+    opt.value = String(i);
+    opt.textContent = `KH${1000 + i} - ${c.name} (${c.phone})`;
+    sel.appendChild(opt);
+  });
+}
+function renderCart() {
+  const tbody = document.getElementById("cartItems");
+  tbody.innerHTML = "";
+  for (const item of cart) {
+    const p = products.find(x => x.id === item.productId);
+    if (!p) continue;
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td>${p.id}</td>
+      <td>${p.name}</td>
+      <td>${p.price.toLocaleString()}</td>
+      <td><input type="number" min="1" value="${item.qty}" class="qty-input" onchange="updateQty('${item.productId}', this.value)" /></td>
+      <td><button class="btn btn-delete" onclick="removeFromCart('${item.productId}')">Xóa</button></td>`;
+    tbody.appendChild(tr);
+  }
   updateTransactionTotal();
+}
+function renderTransactionHistory() {
+  const tbody = document.getElementById("transactionHistory");
+  tbody.innerHTML = "";
+  transactions.forEach(t => {
+    const productList = t.items.map(i => `${i.product.name} x${i.qty}`).join(", ");
+    const tr = document.createElement("tr");
+    tr.innerHTML = `<td>${t.customer.name}</td><td>${productList}</td><td>${t.total.toLocaleString()}</td>`;
+    tbody.appendChild(tr);
+  });
+}
+function getCartTotal() {
+  return cart.reduce((s, item) => {
+    const p = products.find(x => x.id === item.productId);
+    return s + (p ? p.price * item.qty : 0);
+  }, 0);
+}
+function updateTransactionTotal() {
+  const total = getCartTotal();
+  document.getElementById("totalAmount").textContent = total.toLocaleString();
+  document.getElementById("transactionTotal").textContent = total.toLocaleString();
+}
+
+// ====== Product CRUD ======
+let editingProductId = null;
+function showAddProductForm() {
+  editingProductId = null;
+  document.getElementById("productFormTitle").innerText = "Thêm Sản Phẩm";
+  document.getElementById("productId").value = "";
+  document.getElementById("productId").disabled = false;
+  document.getElementById("productName").value = "";
+  document.getElementById("productPrice").value = "";
+  document.getElementById("productImage").value = "";
+  document.getElementById("productFormContainer").style.display = "block";
+}
+function editProduct(id) {
+  const p = products.find(x => x.id === id);
+  if (!p) return alert("Sản phẩm không tồn tại");
+  editingProductId = id;
+  document.getElementById("productFormTitle").innerText = "Sửa Sản Phẩm";
+  document.getElementById("productId").value = p.id;
+  document.getElementById("productId").disabled = true;
+  document.getElementById("productName").value = p.name;
+  document.getElementById("productPrice").value = p.price;
+  document.getElementById("productImage").value = p.image;
+  document.getElementById("productFormContainer").style.display = "block";
+}
+function saveProduct() {
+  const id = document.getElementById("productId").value.trim();
+  const name = document.getElementById("productName").value.trim();
+  const price = parseInt(document.getElementById("productPrice").value);
+  const image = document.getElementById("productImage").value.trim() || "https://via.placeholder.com/80";
+  if (!id || !name || isNaN(price) || price <= 0) return alert("Vui lòng nhập đầy đủ thông tin hợp lệ");
+  if (editingProductId) {
+    const p = products.find(x => x.id === editingProductId);
+    p.name = name; p.price = price; p.image = image;
+  } else {
+    if (products.find(x => x.id === id)) return alert("Mã sản phẩm đã tồn tại");
+    products.push({ id, name, price, image });
+  }
+  document.getElementById("productFormContainer").style.display = "none";
+  renderProducts();
+  saveState();
+}
+function cancelProductForm(){ document.getElementById("productFormContainer").style.display = "none"; }
+function deleteProduct(id) {
+  if (!confirm("Bạn có chắc muốn xóa sản phẩm này?")) return;
+  products = products.filter(p => p.id !== id);
+  renderProducts();
+  cart = cart.filter(item => item.productId !== id);
+  renderCart();
+  updateTransactionTotal();
+  saveState();
+}
+
+// ====== Customers CRUD ======
+let editIndex = -1;
+function addCustomer() {
+  const name = document.getElementById("customerName").value.trim();
+  const phone = document.getElementById("customerPhone").value.trim();
+  if (!name || !phone) return alert("Vui lòng nhập tên và số điện thoại");
+  if (editIndex === -1) {
+    customers.push({ name, phone });
+  } else {
+    customers[editIndex] = { name, phone };
+    editIndex = -1;
+    document.getElementById("btnSubmit").textContent = "Thêm Khách Hàng";
+  }
+  document.getElementById("customerForm").reset();
+  renderCustomers();
+  renderCustomerSelect();
+  saveState();
+}
+function editCustomer(index) {
+  editIndex = index;
+  const customer = customers[index];
+  document.getElementById("customerName").value = customer.name;
+  document.getElementById("customerPhone").value = customer.phone;
+  document.getElementById("btnSubmit").textContent = "Cập Nhật";
+}
+function deleteCustomer(index) {
+  if (!confirm("Bạn có chắc muốn xóa khách hàng này?")) return;
+  customers.splice(index, 1);
+  renderCustomers();
+  renderCustomerSelect();
+  saveState();
+}
+
+// ====== Cart & Transactions ======
+function addToCart(productId) {
+  const item = cart.find(i => i.productId === productId);
+  if (item) item.qty++; else cart.push({ productId, qty: 1 });
+  renderCart(); updateTransactionTotal();
+  saveState();
+  alert("Đã thêm sản phẩm vào giỏ hàng");
+}
+function updateQty(productId, qty) {
+  qty = parseInt(qty); if (isNaN(qty) || qty < 1) qty = 1;
+  const item = cart.find(i => i.productId === productId);
+  if (item) { item.qty = qty; renderCart(); updateTransactionTotal(); saveState(); }
+}
+function removeFromCart(productId) {
+  cart = cart.filter(i => i.productId !== productId);
+  renderCart(); updateTransactionTotal(); saveState();
+}
+function completeTransaction() {
+  const customerIndex = document.getElementById("transactionCustomer").value;
+  if (customerIndex === "") return alert("Vui lòng chọn khách hàng");
+  if (cart.length === 0) return alert("Giỏ hàng đang trống");
+  const customer = customers[Number(customerIndex)];
+  const total = getCartTotal();
+  const transaction = {
+    customer,
+    items: cart.map(i => {
+      const p = products.find(x => x.id === i.productId);
+      return { product: p, qty: i.qty };
+    }),
+    total
+  };
+  transactions.push(transaction);
+  cart = [];
+  renderCart(); updateTransactionTotal(); renderTransactionHistory();
+  document.getElementById("transactionCustomer").value = "";
+  saveState();
+  alert("Giao dịch hoàn tất!");
+}
+function printInvoice() {
+  if (transactions.length === 0) return alert("Chưa có giao dịch nào để in");
+  const lastTrans = transactions[transactions.length - 1];
+  let html = `
+    <html><head><title>Hóa Đơn ShopGold TNV</title>
+    <style>body{font-family:Arial,sans-serif;padding:20px}h1{color:#D7A61E}
+    table{width:100%;border-collapse:collapse;margin-top:20px}
+    th,td{border:1px solid #ddd;padding:10px;text-align:center}
+    th{background:#D7A61E;color:#fff}.total{font-weight:700;margin-top:20px;text-align:right}</style>
+    </head><body>
+    <h1>HÓA ĐƠN SHOPGOLD TNV</h1>
+    <p><strong>Khách hàng:</strong> ${lastTrans.customer.name}</p>
+    <p><strong>Số điện thoại:</strong> ${lastTrans.customer.phone}</p>
+    <table><thead><tr>
+      <th>Tên sản phẩm</th><th>Số lượng</th><th>Đơn giá (VND)</th><th>Thành tiền (VND)</th>
+    </tr></thead><tbody>`;
+  lastTrans.items.forEach(item => {
+    html += `<tr>
+      <td>${item.product.name}</td>
+      <td>${item.qty}</td>
+      <td>${item.product.price.toLocaleString()}</td>
+      <td>${(item.product.price * item.qty).toLocaleString()}</td>
+    </tr>`;
+  });
+  html += `</tbody></table>
+    <div class="total">Tổng cộng: ${lastTrans.total.toLocaleString()} VND</div>
+    <p>Cảm ơn quý khách đã mua hàng!</p></body></html>`;
+  const w = window.open("", "_blank");
+  w.document.write(html); w.document.close(); w.focus(); w.print();
+}
+
+// ====== Tabs ======
+const menuItems = document.querySelectorAll(".menu li");
+menuItems.forEach(item => {
+  item.addEventListener("click", () => {
+    menuItems.forEach(i => i.classList.remove("active"));
+    item.classList.add("active");
+    const sectionId = item.getAttribute("data-section");
+    document.querySelectorAll("section").forEach(sec => sec.classList.remove("active"));
+    const showSection = document.getElementById(sectionId);
+    if (showSection) showSection.classList.add("active");
+
+    if (sectionId === "products") renderProducts();
+    if (sectionId === "customers") renderCustomers();
+    if (sectionId === "cart") renderCart();
+    if (sectionId === "history") renderTransactionHistory();
+    if (sectionId === "transactions") renderCustomerSelect();
+    updateTransactionTotal();
+  });
+});
+
+// ====== Init ======
+renderProducts();
+renderCustomers();
+renderCustomerSelect();
+renderCart();
+renderTransactionHistory();
+updateTransactionTotal();
 </script>
+
 
 </body>
 
