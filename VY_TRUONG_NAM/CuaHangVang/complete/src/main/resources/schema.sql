@@ -64,3 +64,4 @@ CREATE TABLE IF NOT EXISTS giao_dich (
   CONSTRAINT fk_gd_hd FOREIGN KEY (hoa_don_id)
     REFERENCES hoa_don(id) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+

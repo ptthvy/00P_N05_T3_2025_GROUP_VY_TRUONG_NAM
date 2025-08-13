@@ -22,6 +22,7 @@ public class GreetingController {
         quanLySanPham.them(new SanPham("Nhẫn vàng 24K", 80000000, null));
         quanLySanPham.them(new SanPham("Dây chuyền vàng Ý", 950000000, null));
         quanLySanPham.them(new SanPham("Vòng Kiềng", 400000000, null));
+        quanLySanPham.them(new SanPham("Lắc tay vàng", 120000000, null));       
 
         quanLyKhachHang.them(new KhachHang("Nguyễn Văn A", "0909123456"));
         quanLyKhachHang.them(new KhachHang("Trần Thị B", "0912345678"));
