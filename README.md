@@ -109,6 +109,6 @@ Hình 6: Sơ Đồ Thuật Toán Read Giao Dịch
 
 Link Repo: github.com/ptthvy/00P_N05_T3_2025_GROUP_VY_TRUONG_NAM
 
-Link publish: 
+Link public: https://psychic-space-guide-pj6x6v7xpgg7fqw4-8080.app.github.dev/goldshop
 
 Link team demo youtube :
