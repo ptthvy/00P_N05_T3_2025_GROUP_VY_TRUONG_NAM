@@ -1,114 +1,142 @@
 #00P_N05_T3_2025_GROUP_VY_TRUONG_NAM
 
-ỨNG DỤNG QUẢN LÝ SHOP GOLD
+## 🔰 Giới thiệu dự án
 
-1. Giới thiệu
-   
-Ứng dụng Quản lý Vang Store được xây dựng nhằm hỗ trợ cửa hàng kinh doanh vàng trong việc quản lý thông tin sản phẩm, khách hàng và giao dịch bán hàng.
+Ứng dụng Quản lý Vang Store được phát triển nhằm hỗ trợ cửa hàng vàng trong việc:
 
-Hệ thống cho phép thực hiện các chức năng chính:
+- Quản lý thông tin sản phẩm
 
-- Quản lý danh mục sản phẩm.
+- Quản lý dữ liệu khách hàng
 
-- Quản lý thông tin khách hàng.
+- Theo dõi và xử lý giao dịch bán hàng
 
-- Quản lý các giao dịch bán vàng.
+Giải pháp này giúp nâng cao hiệu quả, giảm thiểu sai sót, và tiết kiệm thời gian quản lý.
 
-2. THÀNH VIÊN
-   
--  Nguyễn Đức Trường ,MSV:24100336 (ductruong02)
+## 🔧 Chức năng chính
 
--  Nguyễn Hoàng Nam, MSV:24100136(NguyenHoangNam47)
+✅ Quản lý danh mục sản phẩm
 
--  Phạm Thảo Hiền Vy, MSV:24100439(ptthvy)
-  
+✅ Quản lý thông tin khách hàng
+
+✅ Quản lý và thống kê giao dịch bán vàng
 
 3.Xây dựng ứng dụng Quản lý SHOP GOLD
 
-HÌNH 1: Sơ đồ chức năng ( sơ đồ lớp liên quan tới 3 đối tượng chính của ứng dụng ) 
+## 🏗️ Kiến trúc & Mô hình hoạt động
+
+🔹 Hình 1: Sơ đồ lớp (Class Diagram)
+
+Mô tả mối quan hệ giữa 3 thực thể chính: Khách hàng, Sản phẩm, Giao dịch
 
 <img src='Anh/SƠ ĐỒ CHỨC NĂNG.jpg'>
 
-HÌNH 2 : Sơ đồ thuật toán Đặt hàng ( Sơ đồ liên quan đến chức năng hoạt động chính của hệ thống)
+🔹 Hình 2: Sơ đồ thuật toán - Đặt hàng
+
+Quy trình đặt hàng của khách
 
 <img src=''>
 
-4. Khách Hàng
-   TenKH : STring
+## 📦 Chi tiết các thành phần
+🧍‍♂️ Khách hàng
 
-   MaKH:String
+Thuộc tính:
 
-   SDT: doulbe
-   
- Phuong Thuc 
- 
+- TenKH : String
+
+- MaKH : String
+
+- SDT : Double
+
+Phương thức:
+
 - Thêm khách hàng mới
-  
-- xóa khách hàng
-  
+
+- Xóa khách hàng
+
 - Hiển thị danh sách khách hàng
 
-Hình 3: Sơ Đồ Thuật Toán Delete Khách Hàng 
+🔹 Hình 3: Thuật toán xoá khách hàng
 
 <img src='Anh/Sơ Đồ Thuật Toán Delete Khách Hàng.jpg'>
 
- 5. Sản Phẩm
-    
-     MaSP :Sring
-    
-     TenSP: String
+📦 Sản phẩm
 
-     GiaSP: double
+Thuộc tính:
 
-     AnhSP:String
+- MaSP : String
 
-   Phuong Thuc
-    
-- Thêm sản phẩm 
-  
+- TenSP : String
+
+- GiaSP : Double
+
+- AnhSP : String
+
+Phương thức:
+
+- Thêm sản phẩm
+
 - Hiển thị danh sách sản phẩm
-  
-- Sửa thông tin sản phẩm
-  
-- Xóa sản phẩm
 
-Hình 4: Sơ Đồ Thuật Toán Create Sản Phẩm 
+- Sửa thông tin sản phẩm
+
+- Xoá sản phẩm
+
+🔹 Hình 4: Sơ Đồ Thuật Toán Create Sản Phẩm 
 
 <img src='Anh/So do thuat toan create san pham.jpg'>
 
-
- Hình 5: Sơ Đồ Thuật Toán Update Sản Phẩm
+🔹 Hình 5: Sơ Đồ Thuật Toán Update Sản Phẩm
 
  <img src='Anh/sodoupdate5.jpg'>
  
-6. Giao Dịch
-   
-   MaDG:String
+🔁 Giao dịch
 
-   TenKH:String 
+Thuộc tính:
 
-   MaSP : đã mua
+- MaDG : String
 
-   Phuong Thuc
+- TenKH : String
 
-- Tạo giao dịch bán hàng giữa khách hàng và sản phẩm
-  
+- MaSP : Sản phẩm đã mua
+
+Phương thức:
+
+- Tạo giao dịch
+
 - Hiển thị danh sách giao dịch
-  
-- Tính tổng số lượng mua bán theo mã khách hoặc mã sản phẩm
 
-Hình 6: Sơ Đồ Thuật Toán Read Giao Dịch 
+- Thống kê số lượng mua theo mã khách hoặc mã sản phẩm
+
+🔹 Hình 6: Sơ Đồ Thuật Toán Read Giao Dịch 
 
 <img width="319" height="488" alt="image" src="https://github.com/user-attachments/assets/1969cd8d-bff2-4280-bb85-b356193977e6" />
 
-7. Kết luận
-   
-Ứng dụng Quản lý SHOP GOLD cung cấp giải pháp toàn diện cho cửa hàng vàng trong việc quản lý dữ liệu sản phẩm, khách hàng và giao dịch. Việc áp dụng hệ thống này giúp tiết kiệm thời gian, giảm thiểu sai sót và nâng cao hiệu quả quản lý.
 
-8.Link 
+✅ Kết luận
 
-Link Repo: github.com/ptthvy/00P_N05_T3_2025_GROUP_VY_TRUONG_NAM
+- Ứng dụng Quản lý SHOP GOLD mang lại một giải pháp hiệu quả cho cửa hàng vàng, giúp:
 
-Link public: https://psychic-space-guide-pj6x6v7xpgg7fqw4-8080.app.github.dev/goldshop
+- Tối ưu hóa hoạt động quản lý
 
-Link team demo youtube :
+- Tăng tính chuyên nghiệp
+
+- Đảm bảo chính xác và minh bạch trong giao dịch
+
+  👨‍💻 Thành viên nhóm
+
+
+| Họ và tên             | Mã số SV  | GitHub Username         |
+|------------------------|-----------|--------------------------|
+| Nguyễn Đức Trường      | 24100336  | [ductruong02](https://github.com/ductruong02) |
+| Nguyễn Hoàng Nam       | 24100136  | [NguyenHoangNam47](https://github.com/NguyenHoangNam47) |
+| Phạm Thảo Hiền Vy      | 24100439  | [ptthvy](https://github.com/ptthvy) / [ptthv](https://github.com/ptthv) |
+
+🔗 Liên kết dự án
+
+- 📁 Repository GitHub:
+github.com/ptthvy/00P_N05_T3_2025_GROUP_VY_TRUONG_NAM
+
+- 🌐 Link Public App:
+GoldShop (GitHub Dev)
+
+- 📽️ Video Demo Team:
