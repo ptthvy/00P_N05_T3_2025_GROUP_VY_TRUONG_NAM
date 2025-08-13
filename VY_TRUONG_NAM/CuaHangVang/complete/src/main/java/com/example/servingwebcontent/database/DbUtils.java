@@ -1,4 +1,4 @@
-package com.database;
+package com.example.servingwebcontent.database;
 
 import java.sql.ResultSet;
 import java.util.List;

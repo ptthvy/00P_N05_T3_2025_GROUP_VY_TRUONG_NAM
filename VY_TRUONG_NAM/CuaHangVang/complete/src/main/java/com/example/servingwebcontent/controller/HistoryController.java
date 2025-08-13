@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.database.DbUtils;
-import com.database.MyDBConnection;
+import com.example.servingwebcontent.database.DbUtils;
+import com.example.servingwebcontent.database.MyDBConnection;
 
 import java.sql.*;
 import java.util.*;
