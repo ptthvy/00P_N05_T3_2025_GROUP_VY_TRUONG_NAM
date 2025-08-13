@@ -386,13 +386,11 @@
 
             <!-- Khách hàng -->
             <section id="customers" style="margin-top: 40px;">
-                
-                <form id="customerForm" onsubmit="event.preventDefault(); addCustomer();">
-                    <input type="text" id="customerName" placeholder="Tên Khách Hàng" required />
-                    <input type="text" id="customerPhone" placeholder="Số Điện Thoại" required />
-                    <button type="submit" class="btn btn-add">𝘛𝘩𝘦̂𝘮 𝘒𝘩𝘢́𝘤𝘩 𝘏𝘢̀𝘯𝘨</button>
-                </form>
-
+   <form id="customerForm" onsubmit="event.preventDefault(); addCustomer();">
+    <input type="text" id="customerName" placeholder="Tên Khách Hàng" required />
+    <input type="text" id="customerPhone" placeholder="Số Điện Thoại" required />
+    <button type="submit" id="btnSubmit" class="btn btn-add">Thêm Khách Hàng</button>
+  </form>
                 <table>
                     <thead>
                         <tr>
@@ -566,50 +564,72 @@
             }
         }
 
-        // Thêm khách hàng
-        let customerIdCounter = 1;
-        function renderCustomers() {
-            const tbody = document.getElementById("customerList");
-            tbody.innerHTML = "";
-            customers.forEach((c, i) => {
-                const tr = document.createElement("tr");
-                tr.innerHTML = `
-                    <td>KH${1000 + i}</td>
-                    <td>${c.name}</td>
-                    <td>${c.phone}</td>
-                    <td><button class="btn btn-delete" onclick="deleteCustomer(${i})">Xóa</button></td>
-                `;
-                tbody.appendChild(tr);
-            });
+let editIndex = -1; // vị trí khách hàng đang sửa
 
-            // Cập nhật select khách hàng giao dịch
-            const sel = document.getElementById("transactionCustomer");
-            sel.innerHTML = `<option value="">--Chọn--</option>`;
-            customers.forEach((c, i) => {
-                sel.innerHTML += `<option value="${i}">${c.name} - ${c.phone}</option>`;
-            });
-        }
+function saveToLocal() {
+    localStorage.setItem("customers", JSON.stringify(customers));
+}
 
-        function addCustomer() {
-            const name = document.getElementById("customerName").value.trim();
-            const phone = document.getElementById("customerPhone").value.trim();
-            if (!name || !phone) {
-                alert("Vui lòng nhập tên và số điện thoại");
-                return;
-            }
-            customers.push({ name, phone });
-            document.getElementById("customerName").value = "";
-            document.getElementById("customerPhone").value = "";
-            renderCustomers();
-        }
+function renderCustomers() {
+    const tbody = document.getElementById("customerList");
+    tbody.innerHTML = "";
+    customers.forEach((c, i) => {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+            <td>KH${1000 + i}</td>
+            <td>${c.name}</td>
+            <td>${c.phone}</td>
+            <td>
+                <button class="btn btn-edit" onclick="editCustomer(${i})">Sửa</button>
+                <button class="btn btn-delete" onclick="deleteCustomer(${i})">Xóa</button>
+            </td>
+        `;
+        tbody.appendChild(tr);
+    });
+}
 
-        function deleteCustomer(index) {
-            if (confirm("Bạn có chắc muốn xóa khách hàng này?")) {
-                customers.splice(index, 1);
-                renderCustomers();
-            }
-        }
+function addCustomer() {
+    const name = document.getElementById("customerName").value.trim();
+    const phone = document.getElementById("customerPhone").value.trim();
 
+    if (!name || !phone) {
+        alert("Vui lòng nhập tên và số điện thoại");
+        return;
+    }
+
+    if (editIndex === -1) {
+        // Thêm mới
+        customers.push({ name, phone });
+    } else {
+        // Cập nhật
+        customers[editIndex] = { name, phone };
+        editIndex = -1;
+        document.getElementById("btnSubmit").textContent = "Thêm Khách Hàng";
+    }
+
+    document.getElementById("customerForm").reset();
+    saveToLocal();
+    renderCustomers();
+}
+
+function editCustomer(index) {
+    editIndex = index;
+    const customer = customers[index];
+    document.getElementById("customerName").value = customer.name;
+    document.getElementById("customerPhone").value = customer.phone;
+    document.getElementById("btnSubmit").textContent = "Cập Nhật";
+}
+
+function deleteCustomer(index) {
+    if (confirm("Bạn có chắc muốn xóa khách hàng này?")) {
+        customers.splice(index, 1);
+        saveToLocal();
+        renderCustomers();
+    }
+}
+
+// Khởi tạo khi tải trang
+renderCustomers();
         // Giỏ hàng
         function addToCart(productId) {
             const item = cart.find(i => i.productId === productId);
