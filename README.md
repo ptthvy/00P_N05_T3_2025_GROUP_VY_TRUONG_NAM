@@ -94,7 +94,9 @@ Phương thức:
 
 - Hiển thị danh sách
 
-  < img src = ''>
+Hình 3 : Sơ Đồ Thuật Toán Khách Hàng 
+
+  < img src = 'Anh/Sơ đồ thuật toán Khách Hàng.jpg'>
   
 
   Giỏ Hàng ( Phương Thức Phụ )
@@ -114,8 +116,10 @@ Phương Thức:
 - void () : xóa sản phẩm khỏi giỏ.
 
 - double() :tổng tiền = Σ(giá * số lượng).
+
+  Hình 4 : Sơ Đồ Thuật Toán Giỏ Hàng
   
-< img src = ''>
+< img src = 'Anh/Sơ Đồ Thuật Toán Giỏ Hàng.jpg'>
 
 
 ✅ Kết luận
