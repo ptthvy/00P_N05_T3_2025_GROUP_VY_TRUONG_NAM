@@ -11,11 +11,6 @@
 </div>
 
 
-> ### 🌟 Trải nghiệm ứng dụng  
-> [![TỚI ỨNG DỤNG](https://img.shields.io/badge/💎%20TỚI%20ỨNG%20DỤNG-FCD34D?style=for-the-badge&logo=googlechrome&logoColor=black)](https://scaling-trout-69479px5pjp734qg-8080.app.github.dev/goldshop)
-
-
-
 ## 🔰 Giới thiệu dự án
 
 Ứng dụng Quản lý Vang Store được phát triển nhằm hỗ trợ cửa hàng vàng trong việc:
