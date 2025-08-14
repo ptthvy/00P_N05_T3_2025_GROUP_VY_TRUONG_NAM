@@ -20,6 +20,9 @@ Giải pháp này giúp nâng cao hiệu quả, giảm thiểu sai sót, và ti�
 
 ✅ Quản lý và thống kê giao dịch bán vàng
 
+  Quản Lý GoldShopPNJ
+  
+
 3.Xây dựng ứng dụng Quản lý SHOP GOLD
 
 ## 🏗️ Kiến trúc & Mô hình hoạt động
