@@ -175,23 +175,23 @@ Phương Thức:
 ### 🛍️ Sản phẩm
 Thuộc tính:
 
-MaSP : String
+- MaSP : String
 
-TenSP : String
+- TenSP : String
 
-GiaSP : double
+- GiaSP : double
 
-Anh : String
+- Anh : String
 
 Phương thức:
 
-void () : Thêm sản phẩm
+- void () : Thêm sản phẩm
 
-void () : Xóa sản phẩm
+- void () : Xóa sản phẩm
 
-void () : Sửa sản phẩm
+- void () : Sửa sản phẩm
 
-void () : Hiển thị danh sách
+- void () : Hiển thị danh sách
 
 🔹 Hình 5 : Sơ Đồ Thuật Toán Giỏ Hàng
   
