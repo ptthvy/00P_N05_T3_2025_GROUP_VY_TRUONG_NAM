@@ -94,7 +94,7 @@ Quy trình đặt hàng
 
 ## 📦 Chi tiết các thành phần
 
-GoldShopPNJ ( Cốt Lõi )
+### 🔑 GoldShopPNJ ( Cốt Lõi )
 
 Thuộc tính: 
 
@@ -124,9 +124,8 @@ Thuộc tính:
 
  -    void menuGioHang() – menu giỏ hàng.
 
+### 👥 khách hàng
 
-
-🧍‍♂️ Khách hàng
 
 Thuộc tính:
 
@@ -138,20 +137,20 @@ Thuộc tính:
 
 Phương thức:
 
-- Thêm khách hàng mới
+- void () : Thêm khách hàng mới
 
-- Xóa khách hàng
+- void () : Xóa khách hàng
 
-- Sửa Khách hàng
+- void () : Sửa Khách hàng
 
-- Hiển thị danh sách
+- void () : Hiển thị danh sách
 
 🔹 Hình 3 : Sơ Đồ Thuật Toán Khách Hàng 
 
   <img src="Anh/SODOTHUATTIANKHACHHANG.jpg" alt="Sơ đồ thuật toán khách hàng " width="600">
   
 
-  Giỏ Hàng ( Phương Thức Phụ )
+### 🛒 Giỏ Hàng ( Phương Thức Phụ )
 
 Thuộc tính :
 
@@ -173,6 +172,27 @@ Phương Thức:
 
   <img src="Anh/Sơ Đồ Thuật Toán Sản Phẩm.jpg">
 
+### 🛍️ Sản phẩm
+Thuộc tính:
+
+MaSP : String
+
+TenSP : String
+
+GiaSP : double
+
+Anh : String
+
+Phương thức:
+
+void () : Thêm sản phẩm
+
+void () : Xóa sản phẩm
+
+void () : Sửa sản phẩm
+
+void () : Hiển thị danh sách
+
 🔹 Hình 5 : Sơ Đồ Thuật Toán Giỏ Hàng
   
  <img src="Anh/SODOTHUATTOANGIOHANG.jpg" alt="Sơ đồ thuật toán giỏ hàng " width="600">
@@ -180,6 +200,7 @@ Phương Thức:
 🔹 Hình 6 : Sơ Đồ Thuật Toán Giao Dịch
   <img src="Anh/Sơ Đồ Thuật Toán Giao Dịch.jpg">
 
+### 💱 Giao dịch
 Thuộc tính :
   
 - TenKH : String
