@@ -57,7 +57,7 @@ Phương thức:
 
 🔹 Hình 3: Thuật toán xoá khách hàng
 
-<img src='Anh/Sơ Đồ Thuật Toán Delete Khách Hàng.jpg'>
+<img src=''>
 
 📦 Sản phẩm
 
