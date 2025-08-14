@@ -96,7 +96,7 @@ Phương thức:
 
 Hình 3 : Sơ Đồ Thuật Toán Khách Hàng 
 
-  < img src = 'Anh/Sơ đồ thuật toán Khách Hàng.jpg'>
+  < img src = 'Anh/SODOTHUATTIANKHACHHANG.jpg'>
   
 
   Giỏ Hàng ( Phương Thức Phụ )
@@ -119,7 +119,7 @@ Phương Thức:
 
   Hình 4 : Sơ Đồ Thuật Toán Giỏ Hàng
   
-< img src = 'Anh/Sơ Đồ Thuật Toán Giỏ Hàng.jpg'>
+< img src = 'Anh/SODOTHUATTOANGIOHANG.jpg'>
 
 
 ✅ Kết luận
