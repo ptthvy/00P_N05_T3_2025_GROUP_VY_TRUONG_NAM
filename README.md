@@ -136,6 +136,8 @@ Phương Thức:
 - 📁 Repository GitHub:
 github.com/ptthvy/00P_N05_T3_2025_GROUP_VY_TRUONG_NAM
 
+- Link Public Codespaces: https://fantastic-palm-tree-jjqwg96jv775fr7.github.dev/
+  
 - 🌐 Link Public App:
 GoldShop (GitHub Dev) :https://fantastic-palm-tree-jjqwg96jv775fr7-8080.app.github.dev/goldshop
 
