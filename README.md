@@ -1,4 +1,15 @@
-#00P_N05_T3_2025_GROUP_VY_TRUONG_NAM
+<div align="center">
+
+# 🐾 **Ứng Dụng Quản Lý Cửa Hàng Bán Vàng**  
+
+#### 💻 **Java OOP Project** – Nhóm: `00P_N05_T3_2025_GROUP_VY_TRUONG_NAM`  
+
+#### 🎓 **Môn học:** Lập trình Hướng Đối Tượng (OOP)  
+
+#### 👩‍🏫 **Giảng viên hướng dẫn:** Nguyễn Lệ Thu  
+
+</div>
+
 
 ## 🔰 Giới thiệu dự án
 
