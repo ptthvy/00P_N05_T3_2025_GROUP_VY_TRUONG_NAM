@@ -33,8 +33,6 @@ Giải pháp này giúp nâng cao hiệu quả, giảm thiểu sai sót, và ti�
 
 ✅ Ghi nhận lịch sử giao dịch
 
-✅ Quản lý hợp đồng & hóa đơn
-
 ## 🖥️ Tổng quan giao diện
 
 <h2 align="center">🏠 Giao diện Trang chủ</h2>
