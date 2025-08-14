@@ -96,7 +96,7 @@ Phương thức:
 
 Hình 3 : Sơ Đồ Thuật Toán Khách Hàng 
 
-  < img src = 'Anh/SODOTHUATTIANKHACHHANG.jpg'>
+  <img src="Anh/SODOTHUATTIANKHACHHANG.jpg" alt="Sơ đồ thuật toán khách hàng " width="600">
   
 
   Giỏ Hàng ( Phương Thức Phụ )
