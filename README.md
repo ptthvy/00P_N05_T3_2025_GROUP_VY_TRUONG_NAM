@@ -164,7 +164,7 @@ Phương Thức:
 
 - void () : xóa sản phẩm khỏi giỏ.
 
-- double() :tổng tiền = Σ(giá * số lượng).
+- double () :tổng tiền = Σ(giá * số lượng).
 
 🔹 Hình 4 : Sơ đồ thuật toán Sản Phẩm
 
