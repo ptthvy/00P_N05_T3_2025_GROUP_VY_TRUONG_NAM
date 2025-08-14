@@ -179,7 +179,6 @@ Phương Thức:
  
 🔹 Hình 6 : Sơ Đồ Thuật Toán Giao Dịch
   <img src="Anh/Sơ Đồ Thuật Toán Giao Dịch.jpg">
-  Giao Dịch ( Phương Thức Phụ )
 
 Thuộc tính :
   
