@@ -119,7 +119,7 @@ Phương Thức:
 
   Hình 4 : Sơ Đồ Thuật Toán Giỏ Hàng
   
-< img src = 'Anh/SODOTHUATTOANGIOHANG.jpg'>
+ <img src="Anh/SODOTHUATTOANGIOHANG.jpg" alt="Sơ đồ thuật toán giỏ hàng " width="600">
 
 
 ✅ Kết luận
