@@ -93,7 +93,7 @@ Phương thức:
 
 - Hiển thị danh sách
 
-Hình 3 : Sơ Đồ Thuật Toán Khách Hàng 
+🔹 Hình 3 : Sơ Đồ Thuật Toán Khách Hàng 
 
   <img src="Anh/SODOTHUATTIANKHACHHANG.jpg" alt="Sơ đồ thuật toán khách hàng " width="600">
   
@@ -116,12 +116,16 @@ Phương Thức:
 
 - double() :tổng tiền = Σ(giá * số lượng).
 
-  Hình 4 : Sơ Đồ Thuật Toán Giỏ Hàng
+🔹 Hình 4 : Sơ đồ thuật toán Sản Phẩm
+
+  <img src="Anh/Sơ Đồ Thuật Toán Sản Phẩm.jpg">
+
+🔹 Hình 5 : Sơ Đồ Thuật Toán Giỏ Hàng
   
  <img src="Anh/SODOTHUATTOANGIOHANG.jpg" alt="Sơ đồ thuật toán giỏ hàng " width="600">
-  Hình 5 : Sơ Đồ Thuật Toán Giao Dịch
+ 
+🔹 Hình 6 : Sơ Đồ Thuật Toán Giao Dịch
   <img src="Anh/Sơ Đồ Thuật Toán Giao Dịch.jpg">
-
 
  
 
