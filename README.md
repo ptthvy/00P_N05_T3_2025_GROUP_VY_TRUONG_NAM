@@ -92,7 +92,12 @@ Phương thức:
 
 - Sửa Khách hàng
 
-- Hiển thị danh sách phụ )
+- Hiển thị danh sách
+
+  < img src = ''>
+  
+
+  Giỏ Hàng ( Phương Thức Phụ )
 
 Thuộc tính :
 
@@ -110,6 +115,7 @@ Phương Thức:
 
 - double() :tổng tiền = Σ(giá * số lượng).
   
+< img src = ''>
 
 
 ✅ Kết luận
