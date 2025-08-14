@@ -30,13 +30,47 @@ Mô tả mối quan hệ giữa 3 thực thể chính: Khách hàng, Sản phẩ
 
 <img src='Anh/SƠ ĐỒ CHỨC NĂNG.jpg'>
 
-🔹 Hình 2: Sơ đồ thuật toán - Đặt hàng
+🔹 Hình 2: Sơ đồ thuật toán GoldShopPNJ ( Mennu Phương Thức cốt lõi )
+
 
 Quy trình đặt hàng của khách
 
 <img src=''>
 
 ## 📦 Chi tiết các thành phần
+
+GoldShopPNJ ( Cốt Lõi )
+
+Thuộc tính: 
+
+- Scanner scanner – nhập liệu từ bàn phím.
+
+-  NumberFormat nf – định dạng tiền tệ VN.
+
+- QuanLySanPham qlSP – quản lý danh sách sản phẩm.
+
+- QuanLyKhachHang qlKH – quản lý danh sách khách hàng.
+
+-  QuanLyGiaoDich qlGD – quản lý danh sách giao dịch.
+
+-  GioHang gioHang – giỏ hàng hiện tại (tạo giao dịch từ đây).
+
+  Phương Thức:
+
+ -  void main(String[] args) – vòng lặp chương trình, điều hướng menu.
+
+ -  void hienThiMenu() – in menu chính.
+
+ -   void menuSanPham() – menu con quản lý sản phẩm (CRUD).
+
+ -   void menuKhachHang() – menu con quản lý khách hàng (CRUD).
+
+ -   void menuGiaoDich() – menu con  quản lý giao dịch (CRUD).
+
+ -    void menuGioHang() – menu giỏ hàng.
+
+
+
 🧍‍♂️ Khách hàng
 
 Thuộc tính:
@@ -55,63 +89,24 @@ Phương thức:
 
 - Sửa Khách hàng
 
-- Hiển thị danh sách khách hàng
+- Hiển thị danh sách phụ )
 
-🔹 Hình 3: Sơ đồ CURD Khách Hàng 
+Thuộc tính :
 
-<img src='Anh/Sơ đồ thuật toán Khách Hàng.jpg'>
+- danh sách dòng Sản Phẩm trong giỏ
 
-📦 Sản phẩm
+Phương Thức:
 
-Thuộc tính:
+- lấy danh sách Sản Phẩm (để hiển thị)
 
-- MaSP : String
+- void () :thêm vào giỏ (nếu đã có thì cộng dồn).
 
-- TenSP : String
+- void () : đặt lại số lượng của sản phẩm.
 
-- GiaSP : Double
+- void () : xóa sản phẩm khỏi giỏ.
 
-- AnhSP : String
-
-Phương thức:
-
-- Thêm sản phẩm
-
-- Hiển thị danh sách sản phẩm
-
-- Sửa thông tin sản phẩm
-
-- Xoá sản phẩm
-
-🔹 Hình 4: Sơ Đồ Thuật Toán Create Sản Phẩm 
-
-<img src='Anh/So do thuat toan create san pham.jpg'>
-
-🔹 Hình 5: Sơ Đồ Thuật Toán Update Sản Phẩm
-
- <img src='Anh/sodoupdate5.jpg'>
- 
-🔁 Giao dịch
-
-Thuộc tính:
-
-- MaDG : String
-
-- TenKH : String
-
-- MaSP : Sản phẩm đã mua
-
-Phương thức:
-
-- Tạo giao dịch
-
-- Hiển thị danh sách giao dịch
-
-- Thống kê số lượng mua theo mã khách hoặc mã sản phẩm
-
-🔹 Hình 6: Sơ Đồ Thuật Toán Read Giao Dịch 
-
-<img width="319" height="488" alt="image" src="https://github.com/user-attachments/assets/1969cd8d-bff2-4280-bb85-b356193977e6" />
+- double() :tổng tiền = Σ(giá * số lượng).
+  
 
 
 ✅ Kết luận
