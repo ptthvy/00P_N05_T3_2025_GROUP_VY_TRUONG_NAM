@@ -53,11 +53,13 @@ Phương thức:
 
 - Xóa khách hàng
 
+- Sửa Khách hàng
+
 - Hiển thị danh sách khách hàng
 
-🔹 Hình 3: Thuật toán xoá khách hàng
+🔹 Hình 3: Sơ đồ CURD Khách Hàng 
 
-<img src=''>
+<img src='Anh/Sơ đồ thuật toán Khách Hàng.jpg'>
 
 📦 Sản phẩm
 
