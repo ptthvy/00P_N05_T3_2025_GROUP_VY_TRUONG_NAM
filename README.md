@@ -10,6 +10,8 @@
 
 </div>
 
+> ### 🌟 Trải nghiệm ứng dụng  
+> [![TỚI ỨNG DỤNG](https://img.shields.io/badge/💎%20TỚI%20ỨNG%20DỤNG-FCD34D?style=for-the-badge&logo=googlechrome&logoColor=black)](https://fantastic-palm-tree-jjqwg96jv775fr7-8080.app.github.dev/goldshop)
 
 ## 🔰 Giới thiệu dự án
 
