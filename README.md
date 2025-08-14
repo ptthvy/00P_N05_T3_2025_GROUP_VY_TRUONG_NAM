@@ -42,6 +42,45 @@ Giải pháp này giúp nâng cao hiệu quả, giảm thiểu sai sót, và ti�
 
 ## 🖥️ Tổng quan giao diện
 
+<h2 align="center">🏠 Giao diện Trang chủ</h2>
+
+<img src='Anh/Giao diện trang chủ.jpg'>
+
+---
+
+<h2 align="center">📦 Giao diện Sản phẩm</h2>
+
+<img src='Anh/Giao diện sản phẩm.jpg'>
+
+---
+
+<h2 align="center">👤 Giao diện Khách hàng</h2>
+
+<img src='Anh/Giao diện khách hàng.jpg'>
+
+---
+
+<h2 align="center">🛒 Giao diện Giỏ hàng</h2>
+
+<img src='Anh/Giao diện giỏ hàng.jpg'>
+
+---
+
+<h2 align="center">💰 Giao diện Giao dịch</h2>
+
+<img src='Anh/Giao diện giao dịch.jpg'>
+
+---
+
+<h2 align="center">📜 Giao diện Lịch sử</h2>
+
+<img src='Anh/Giao diện lịch sử.jpg'>
+
+---
+
+<h2 align="center">🧾 Giao diện Hóa đơn</h2>
+
+<img src='Anh/Giao diện hóa đơn.jpg'>
 
 
 ## 🏗️ Kiến trúc & Mô hình hoạt động
