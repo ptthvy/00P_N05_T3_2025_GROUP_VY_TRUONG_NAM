@@ -120,7 +120,7 @@ Phương Thức:
   
  <img src="Anh/SODOTHUATTOANGIOHANG.jpg" alt="Sơ đồ thuật toán giỏ hàng " width="600">
   Hình 5 : Sơ Đồ Thuật Toán Giao Dịch
-  <img src="ANH/SODOTHUATTOANGIAODICH.jpg" alt="Sơ đồ thuật toán giao dịch " width="600">
+  <img src="Anh/Sơ Đồ Thuật Toán Giao Dịch.jpg">
 
 
  
