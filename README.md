@@ -33,12 +33,11 @@ Mô tả mối quan hệ giữa 3 thực thể chính: Khách hàng, Sản phẩ
 
 <img src='Anh/SƠ ĐỒ CHỨC NĂNG.jpg'>
 
+Quy trình đặt hàng 
+
 🔹 Hình 2: Sơ đồ thuật toán GoldShopPNJ ( Mennu Phương Thức cốt lõi )
 
-
-Quy trình đặt hàng của khách
-
-<img src=''>
+<img src='Anh/SODOTHUATTOAN3DOITUONG (1).jpg'>
 
 ## 📦 Chi tiết các thành phần
 
