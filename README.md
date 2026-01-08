@@ -11,7 +11,7 @@
 </div>
 
 > ### 🌟 Trải nghiệm ứng dụng  
-> [![TỚI ỨNG DỤNG](https://img.shields.io/badge/💎%20TỚI%20ỨNG%20DỤNG-FCD34D?style=for-the-badge&logo=googlechrome&logoColor=black)](https://fantastic-palm-tree-jjqwg96jv775fr7-8080.app.github.dev/goldshop)
+> [![TỚI ỨNG DỤNG](https://img.shields.io/badge/💎%20TỚI%20ỨNG%20DỤNG-FCD34D?style=for-the-badge&logo=googlechrome&logoColor=black)]([https://fantastic-palm-tree-jjqwg96jv775fr7-8080.app.github.dev/goldshop](https://squalid-seance-6947pw69qxq5f5q4q-8080.app.github.dev/goldshop)
 
 ## 🔰 Giới thiệu dự án
 
@@ -245,9 +245,9 @@ Phương thức :
 - 📁 Repository GitHub:
 github.com/ptthvy/00P_N05_T3_2025_GROUP_VY_TRUONG_NAM
 
-- Link Public Codespaces: https://fantastic-palm-tree-jjqwg96jv775fr7.github.dev/
+- Link Public Codespaces: [https://fantastic-palm-tree-jjqwg96jv775fr7.github.dev/](https://squalid-seance-6947pw69qxq5f5q4q-8080.app.github.dev/goldshop)
   
 - 🌐 Link Public App:
-GoldShop (GitHub Dev) :https://fantastic-palm-tree-jjqwg96jv775fr7-8080.app.github.dev/goldshop
+GoldShop (GitHub Dev) :[https://fantastic-palm-tree-jjqwg96jv775fr7-8080.app.github.dev/goldshop](https://squalid-seance-6947pw69qxq5f5q4q-8080.app.github.dev/goldshop)
 
 - 📽️ Video Demo Team: https://youtu.be/yBaBjz35ens
